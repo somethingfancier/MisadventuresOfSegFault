@@ -15,11 +15,21 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     game.cpp \
-    player.cpp
+    player.cpp \
+    universe.cpp \
+    world.cpp \
+    item.cpp \
+    worldchar.cpp \
+    score.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
-    player.h
+    player.h \
+    universe.h \
+    world.h \
+    item.h \
+    worldchar.h \
+    score.h
 
 FORMS    += mainwindow.ui
 

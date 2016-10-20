@@ -11,6 +11,7 @@ Game::Game(QWidget *parent) {
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);
 
+
     player = new Player();
     player->setRect(0,0,20,20);
     player->setPos(100,200);
