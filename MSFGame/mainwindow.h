@@ -5,6 +5,7 @@
 
 namespace Ui {
 class MainWindow;
+
 }
 
 class MainWindow : public QMainWindow
@@ -16,7 +17,15 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pbButton_clicked();
+
+
+    void on_pbStart_clicked();
+
+    void on_pbLoad_clicked();
+
+    void on_pbControls_clicked();
+
+    void on_pbExit_clicked();
 
 private:
     Ui::MainWindow *ui;
