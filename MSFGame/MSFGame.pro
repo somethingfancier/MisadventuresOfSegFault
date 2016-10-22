@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     world.cpp \
     item.cpp \
     worldchar.cpp \
-    score.cpp
+    score.cpp \
+    enemy.cpp \
+    npc.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
@@ -29,7 +31,9 @@ HEADERS  += mainwindow.h \
     world.h \
     item.h \
     worldchar.h \
-    score.h
+    score.h \
+    enemy.h \
+    npc.h
 
 FORMS    += mainwindow.ui
 

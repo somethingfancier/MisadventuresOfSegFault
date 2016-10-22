@@ -2,6 +2,7 @@
 #include <QKeyEvent>
 
 
+QSet<Qt::Key> keysPressed;
 
 void Player::keyPressEvent(QKeyEvent *event) {
 
@@ -14,6 +15,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
 
     if (event->key() == Qt::Key_Up) {
         setPos(x(),y()-10);
+
     }
 
     if (event->key() == Qt::Key_Down) {
