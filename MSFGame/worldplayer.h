@@ -1,0 +1,4 @@
+#ifndef WORLDPLAYER_H
+#define WORLDPLAYER_H
+
+#endif // WORLDPLAYER_H

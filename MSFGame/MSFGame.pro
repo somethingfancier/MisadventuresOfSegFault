@@ -29,11 +29,14 @@ HEADERS  += mainwindow.h \
     player.h \
     universe.h \
     world.h \
-    item.h \
     worldchar.h \
     score.h \
-    enemy.h \
-    npc.h
+    worldenemy.h \
+    worlditem.h \
+    worldnpc.h \
+    worldplayer.h \
+    worldobject.h \
+    worldobstacle.h
 
 FORMS    += mainwindow.ui
 
