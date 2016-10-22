@@ -1,6 +1,3 @@
-#include "item.h"
+#include "worlditem.h"
 
-Item::Item() {
-
-}
 

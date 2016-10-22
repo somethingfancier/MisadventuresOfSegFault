@@ -1,19 +1,21 @@
 #ifndef WORLDCHAR_H
 #define WORLDCHAR_H
 
-class Character : public WorldObject {
+#include "worldobject.h"
 
-public:
+class WorldCharacter : public WorldObject {
+
+private:
     int health;
     int strength;
     int defense;
     bool dead;
     double orientation;
 
-    character();
+public:
+    WorldCharacter();
 
-bool attack(WorldObject*) {
-    return WorldObject;
-}
+    bool attack(WorldObject*);
+};
 
 #endif // WORLDCHAR_H

@@ -1,16 +1,21 @@
-#ifndef ITEM_H
-#define ITEM_H
+#ifndef WORLDITEM_H
+#define WORLDITEM_H
 
-class Item : public WorldObject {
+#include "worldobject.h"
+#include <QString>
 
-public:
+class WorldItem : public WorldObject {
+
+private:
     bool equippable;
     int strength;
     int defense;
     int heal;
-    string property;
+    QString property;
 
-    Item();
-}
+public:
 
-#endif // ITEM_H
+    WorldItem();
+};
+
+#endif // WORLDITEM_H

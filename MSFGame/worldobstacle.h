@@ -4,7 +4,7 @@
 #include <QString>
 #include "worldobject.h"
 
-class WorldObstacle{
+class WorldObstacle: public WorldObject{
 
 private:
     bool destroyable;

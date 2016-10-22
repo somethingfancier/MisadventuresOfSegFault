@@ -3,6 +3,8 @@
 
 #include <QString>
 #include "worldchar.h"
+#include "worlditem.h"
+#include <QString>
 
 class WorldNPC: public WorldCharacter {
 
@@ -14,7 +16,7 @@ private:
 public:
 
     WorldNPC();
-    string Speak();
+    QString Speak();
 };
 
 #endif // NPC_H

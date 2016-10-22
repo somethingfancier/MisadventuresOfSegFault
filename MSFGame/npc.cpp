@@ -1,5 +1,1 @@
-#include "npc.h"
-
-npc::npc()
-{
-}
+#include "worldnpc.h"

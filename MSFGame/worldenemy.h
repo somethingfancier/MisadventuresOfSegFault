@@ -1,10 +1,12 @@
 #ifndef WORLDENEMY_H
 #define WORLDENEMY_H
 
-class WorldEnemy
-{
+#include <QString>
+#include "worldchar.h"
+
+class WorldEnemy: public WorldCharacter{
 private:
-    string property;
+    QString property;
 
 public:
     WorldEnemy();

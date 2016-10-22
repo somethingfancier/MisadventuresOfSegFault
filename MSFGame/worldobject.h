@@ -1,8 +1,6 @@
 #ifndef WORLDOBJECT_H
 #define WORLDOBJECT_H
 
-#endif // WORLDOBJECT_H
-
 #include <QString>
 
 class WorldObject{
@@ -11,3 +9,5 @@ private:
     int x;
     int y;
 };
+
+#endif // WORLDOBJECT_H

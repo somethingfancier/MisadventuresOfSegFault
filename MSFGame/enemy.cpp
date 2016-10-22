@@ -1,4 +1,2 @@
-#include "enemy.h"
+#include "worldenemy.h"
 
-enemy::enemy() {
-}
