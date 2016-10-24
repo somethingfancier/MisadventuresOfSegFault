@@ -8,6 +8,9 @@ private:
     QString name;
     int x;
     int y;
+
+public:
+    WorldObject();
 };
 
 #endif // WORLDOBJECT_H

@@ -18,11 +18,14 @@ SOURCES += main.cpp\
     player.cpp \
     universe.cpp \
     world.cpp \
-    item.cpp \
     worldchar.cpp \
     score.cpp \
-    enemy.cpp \
-    npc.cpp
+    worlditem.cpp \
+    worldnpc.cpp \
+    worldenemy.cpp \
+    worldobject.cpp \
+    worldobstacle.cpp \
+    worldplayer.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
@@ -34,9 +37,9 @@ HEADERS  += mainwindow.h \
     worldenemy.h \
     worlditem.h \
     worldnpc.h \
-    worldplayer.h \
+    worldobstacle.h \
     worldobject.h \
-    worldobstacle.h
+    worldplayer.h
 
 FORMS    += mainwindow.ui
 

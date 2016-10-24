@@ -9,7 +9,7 @@
 
 class World{
 private:
-    int Id;
+    int id;
     WorldPlayer* player;
     vector<WorldNPC*> npcs;
     vector<WorldItem*> items;

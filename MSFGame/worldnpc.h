@@ -10,7 +10,7 @@ class WorldNPC: public WorldCharacter {
 
 private:
 
-    WorldItem* item;
+    WorldItem* giveableItem;
     QString advice;
 
 public:

@@ -10,7 +10,6 @@ private:
 
 public:
     WorldEnemy();
-    void Move();
 
 };
 
