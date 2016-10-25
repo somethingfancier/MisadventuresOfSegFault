@@ -10,6 +10,6 @@ private:
 public:
     void Save();
     void Load();
-}
+};
 
 #endif // SCORE_H

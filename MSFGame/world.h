@@ -7,6 +7,7 @@
 #include "worlditem.h"
 #include "worldnpc.h"
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ private:
 public:
     //Constructor
     World(int newId, string imageName):id(newId),name(imageName){}
+    World():id(0),name(""){}
 
     //Accessors
     int getId(){return id;}
@@ -32,8 +34,8 @@ public:
 
     //Adders for the Vectors
     void addCharacter(WorldCharacter*);
-    void addItem(WorldCharacter*);
-    void addObstacle(WorldCharacter*);
+    void addItem(WorldItem*);
+    void addObstacle(WorldObstacle*);
 
 };
 
