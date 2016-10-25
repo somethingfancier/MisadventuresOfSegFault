@@ -7,6 +7,7 @@
 class Universe{
 
 private:
+    WorldPlayer* player;
     Universe* instance;
     vector<World*> worlds;
     Score* score;

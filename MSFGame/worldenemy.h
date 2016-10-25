@@ -1,15 +1,24 @@
 #ifndef WORLDENEMY_H
 #define WORLDENEMY_H
 
-#include <QString>
+#include <string>
 #include "worldchar.h"
+
+using namespace std;
 
 class WorldEnemy: public WorldCharacter{
 private:
-    QString property;
+    string property;
 
 public:
-    WorldEnemy();
+    //Constructor
+    WorldEnemy():property(""){}
+
+    //Accessor
+    string getProperty(){return property;}
+
+    //Mutator
+    void setProperty(string newProperty){property = newProperty;}
 
 };
 

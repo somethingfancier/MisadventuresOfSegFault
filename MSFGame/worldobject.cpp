@@ -1,5 +1,8 @@
 #include "worldobject.h"
+#include <string>
 
-WorldObject::WorldObject()
-{
-}
+using namespace std;
+
+//May want to add a findDistance method
+
+//Add Save and Load Methods -to be overwritten by inherited classes

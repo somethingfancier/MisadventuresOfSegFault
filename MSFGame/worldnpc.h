@@ -1,22 +1,30 @@
 #ifndef WORLDNPC_H
 #define WORLDNPC_H
 
-#include <QString>
+#include <string>
 #include "worldchar.h"
 #include "worlditem.h"
-#include <QString>
+
+using namespace std;
 
 class WorldNPC: public WorldCharacter {
 
 private:
-
-    WorldItem* giveableItem;
-    QString advice;
+    string advice;          //Some knowledge that the NPC imparts to a player
+    WorldItem* giveableItem;//An item that can be given to the Player
+    bool gaveItem;          //Indicates if the NPC gave the item to a player already
 
 public:
+    //Constructor
+    WorldNPC(): advice("I have no advice for you."),gaveItem(false){giveableItem = NULL;}
 
-    WorldNPC();
-    QString Speak();
+    //Accessors
+    string getAdvice(){return advice;}
+    WorldItem* getItem(){return giveableItem;}
+
+    //Mutators
+    void setAdvice(string newAdvice){advice = newAdvice;}
+    void setGiveableItem(WorldItem* newItem){giveableItem = newItem;}
 };
 
 #endif // NPC_H
