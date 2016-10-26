@@ -5,6 +5,8 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include "player.h"
+#include "enemy.h"
+#include "universe.h"
 
 class Game: public QGraphicsView
 {
@@ -14,6 +16,7 @@ public:
     QGraphicsView *view;
     QGraphicsScene *scene;
     Player *player;
+    Universe *universe;
 
 };
 

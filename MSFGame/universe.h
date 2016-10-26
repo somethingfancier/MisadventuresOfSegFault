@@ -24,6 +24,9 @@ public:
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
 
+    //Get Specific World from Vector
+    World* getWorld(int id);
+
     //Adders for Vector
     void addWorld(World*);
     //void Save();

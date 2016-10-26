@@ -22,6 +22,7 @@ void MainWindow::on_pbStart_clicked()
 {
     Game *game = new Game();
     game->show();
+    
     QMainWindow::close();
 }
 

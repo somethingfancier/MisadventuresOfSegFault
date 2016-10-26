@@ -26,6 +26,16 @@ Universe& Universe::instance()
     return *instance_;
 }
 
+World *Universe::getWorld(int id)
+{
+    for (unsigned i=0; i<worlds.size(); i++) {
+        if (worlds.at(i)->getId() == id) {
+            return worlds.at(i);
+        }
+    }
+    //return worlds.at(1);
+}
+
 //Adder for worlds
 void Universe::addWorld(World* newWorld)
 {
@@ -37,8 +47,10 @@ void Universe::addWorld(World* newWorld)
 void Universe::createFirstWorld()
 {
     World* worldOne = new World();
+    worldOne->setId(1);
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
+
 
     badGuyOne->setX(200);
     badGuyOne->setY(200);
@@ -49,7 +61,8 @@ void Universe::createFirstWorld()
     worldOne->addCharacter(badGuyOne);
     worldOne->addCharacter(badGuyTwo);
 
-    player->setX(0);
-    player->setY(0);
+
+
+    addWorld(worldOne);
 
 }

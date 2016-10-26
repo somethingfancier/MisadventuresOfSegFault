@@ -27,6 +27,9 @@ public:
     //Accessors
     int getId(){return id;}
     string getName(){return name;}
+    vector<WorldCharacter*>& getCharacters() { return characters; }
+    vector<WorldItem*>& getItems() { return items; }
+    vector<WorldObstacle*>& getObstacles() { return obstacles; }
 
     //Mutators
     void setId(int newId){id = newId;}
