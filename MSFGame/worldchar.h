@@ -19,7 +19,7 @@ public:
     WorldCharacter():health(10),strength(1),defense(0),orientation(0),dead(false){}
 
     //Accesors
-    int gethealth(){return health;}
+    int getHealth(){return health;}
     int getStrength(){return strength;}
     int getDefense(){return defense;}
     int getOrientation(){return orientation;}

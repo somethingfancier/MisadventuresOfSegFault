@@ -18,6 +18,9 @@ private:
 public:
     static Universe& instance();
 
+    //Constructor
+    Universe():numWorlds(0){player = NULL;}
+
     //Accesors
     WorldPlayer* getPlayer(){return player;}
 
