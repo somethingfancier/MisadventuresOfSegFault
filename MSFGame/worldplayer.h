@@ -16,7 +16,7 @@ private:
 
 public:
     //Constructor
-    WorldPlayer(): lives(3), username("Segfault"){equippedItem = NULL;} //Lives of a player intially set to 3
+    WorldPlayer(): lives(3), username("<Segfault>"){equippedItem = NULL;} //Lives of a player intially set to 3
 
     //Accessors
     int getLives(){return lives;}
@@ -24,7 +24,7 @@ public:
 
     //Mutators
     void setLives(int newLives){lives = newLives;}
-    void setUsername(){username = "SegFault";}      //Indiscriminately set the player's name to SegFault
+    void setUsername(){username = "<SegFault>";}      //Indiscriminately set the player's name to SegFault
 };                                                  //(Thus the madness begins)
 
 
