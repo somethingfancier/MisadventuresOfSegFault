@@ -7,7 +7,7 @@ Game::Game(QWidget *parent) {
     universe->createFirstWorld();
     
     player = new Player();
-    player->setRect(0,0,20,20);
+    player->setPixmap(QPixmap(":/images/images/front2.PNG"));
     player->setPos(100,200);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
