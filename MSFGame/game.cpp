@@ -6,7 +6,8 @@ Game::Game(QWidget *parent) {
     universe = new Universe();
     universe->createFirstWorld();
     
-    player = new Player();
+    player = new Player(); //
+    player->setPlayer(universe->getPlayer());
     player->setPixmap(QPixmap(":/images/images/front2.PNG"));
     player->setPos(100,200);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -25,14 +26,14 @@ Game::Game(QWidget *parent) {
     World* world = universe->getWorld(1);
     for (unsigned i=0; i<world->getCharacters().size(); i++) {
         WorldCharacter* enemyData = world->getCharacters().at(i);
-        Enemy* enemy = new Enemy();
-        enemy->setRect(0,0,20,20);
-        enemy->setPos(enemyData->getX(), enemyData->getY());
+        Enemy* newEnemy = new Enemy();
+        if (dynamic_cast<WorldEnemy*>(enemyData)) {
+            newEnemy->setEnemy(enemyData);
+            newEnemy->setRect(0,0,20,20);
+            newEnemy->setPos(enemyData->getX(), enemyData->getY());
+        }
         scene->addItem(enemy);
     }
-
-
-
 
 
     show();
