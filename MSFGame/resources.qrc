@@ -21,5 +21,29 @@
         <file>images/front4.PNG</file>
         <file>images/left4.PNG</file>
         <file>images/right4.PNG</file>
+        <file>images/Dirt.png</file>
+        <file>images/DownEdge.png</file>
+        <file>images/DownLeftCorner.png</file>
+        <file>images/DownLeftEdge.png</file>
+        <file>images/DownRightCorner.png</file>
+        <file>images/DownRightEdge.png</file>
+        <file>images/Grass1.png</file>
+        <file>images/Grass2.png</file>
+        <file>images/LeftEdge.png</file>
+        <file>images/LeftEdge2.png</file>
+        <file>images/LeftRightRoad.png</file>
+        <file>images/RightEdge.png</file>
+        <file>images/Slime1.png</file>
+        <file>images/Slime2.png</file>
+        <file>images/SlimeBurst1.png</file>
+        <file>images/SlimeBurst2.png</file>
+        <file>images/SlimeBurst3.png</file>
+        <file>images/SlimeMove.png</file>
+        <file>images/UpDownRoad.png</file>
+        <file>images/UpEdge.png</file>
+        <file>images/UpLeftCorner.png</file>
+        <file>images/UpLeftEdge.png</file>
+        <file>images/UpRightCorner.png</file>
+        <file>images/UpRightEdge.png</file>
     </qresource>
 </RCC>

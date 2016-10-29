@@ -16,6 +16,7 @@ public:
     QGraphicsView *view;
     QGraphicsScene *scene;
     Player *player;
+    Enemy *enemy;
     Universe *universe;
 
 };

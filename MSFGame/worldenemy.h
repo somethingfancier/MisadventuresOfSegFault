@@ -15,10 +15,10 @@ public:
     WorldEnemy():property(""){}
 
     //Accessor
-    string getProperty(){return property;}
+    string getProperty() {return property;}
 
     //Mutator
-    void setProperty(string newProperty){property = newProperty;}
+    void setProperty(string newProperty) {property = newProperty;}
 
 };
 

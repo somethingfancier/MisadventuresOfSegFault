@@ -1,7 +1,7 @@
 #include "player.h"
 #include <QKeyEvent>
 #include <QTimer>
-
+#include "worldplayer.h"
 
 QSet<Qt::Key> keysPressed;
 
@@ -13,8 +13,6 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
     timertwo = new QTimer(this);
     timertwo->setInterval(100);
 
-
-
 }
 
 
@@ -24,6 +22,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Left) {
         if (timer->isActive() == false){
             setPixmap(QPixmap(":/images/images/left2.PNG"));
+            player->setOrientation(4);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
             timer->start();
         }
@@ -32,6 +31,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     else if (event->key() == Qt::Key_Right) {
         if (timer->isActive() == false){
             setPixmap(QPixmap(":/images/images/right2.PNG"));
+            player->setOrientation(2);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
             timer->start();
         }
@@ -40,6 +40,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     else if (event->key() == Qt::Key_Up) {
         if (timer->isActive() == false){
             setPixmap(QPixmap(":/images/images/back2.PNG"));
+            player->setOrientation(1);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
             timer->start();
         }
@@ -48,6 +49,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     else if (event->key() == Qt::Key_Down) {
         if (timer->isActive() == false){
             setPixmap(QPixmap(":/images/images/front2.PNG"));
+            player->setOrientation(3);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
             timer->start();
         }
