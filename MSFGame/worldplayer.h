@@ -25,7 +25,8 @@ public:
     //Mutators
     void setLives(int newLives){lives = newLives;}
     void setUsername(){username = "<SegFault>";}      //Indiscriminately set the player's name to SegFault
-};                                                  //(Thus the madness begins)
-
+                                                      //(Thus the madness begins)
+    bool longAttack();
+};
 
 #endif // WORLDPLAYER_H

@@ -26,6 +26,12 @@ public:
     void setX(int newX) {xPos = newX;}
     void setY(int newY) {yPos = newY;}
     void setName(string newName){name = newName;}
+    void setCoordinates(int, int);
+
+    //
+    int distance(WorldObject*);
+    int vDistance(WorldObject*);
+    int hDistance(WorldObject*);
 };
 
 #endif // WORLDOBJECT_H

@@ -32,7 +32,8 @@ public:
     void setOrientation(int newOrientation){orientation = newOrientation;}
     void setDead(bool lifeState){dead = lifeState;}
 
-    bool attack(WorldObject*);
+    //Methods to Be implemented
+    WorldObject* attack();
 };
 
 #endif // WORLDCHAR_H
