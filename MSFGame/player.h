@@ -40,10 +40,15 @@ private slots:
     void timerAnimDown();
     void timerAnimLeft();
     void timerAnimRight();
+    void timerSwordUp();
+    void timerSwordDown();
+    void timerSwordLeft();
+    void timerSwordRight();
 
 private:
     QTimer* timer;
     QTimer* timertwo;
+    QTimer* timerthree;
     int animation = 1;
 
 };

@@ -18,7 +18,9 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
 
 public:
 
+
     Enemy(QGraphicsItem * parent=0);
+
 
     //Accesors
     WorldEnemy* getEnemy(){return enemy;}

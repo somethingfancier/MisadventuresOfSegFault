@@ -84,28 +84,29 @@
         <file>images/SwordDown1.png</file>
         <file>images/SwordDown2.png</file>
         <file>images/SwordDown3.png</file>
-        <file>images/SwordDownSlash1.png</file>
-        <file>images/SwordDownSlash2.png</file>
-        <file>images/SwordDownSlash3.png</file>
         <file>images/SwordLeft1.png</file>
         <file>images/SwordLeft2.png</file>
         <file>images/SwordLeft3.png</file>
-        <file>images/SwordLeftSlash1.png</file>
-        <file>images/SwordLeftSlash2.png</file>
-        <file>images/SwordLeftSlash3.png</file>
         <file>images/SwordRight1.png</file>
         <file>images/SwordRight2.png</file>
         <file>images/SwordRight3.png</file>
-        <file>images/SwordRightSlash1.png</file>
-        <file>images/SwordRightSlash2.png</file>
-        <file>images/SwordRightSlash3.png</file>
         <file>images/SwordUp1.png</file>
         <file>images/SwordUp2.png</file>
         <file>images/SwordUp3.png</file>
-        <file>images/SwordUpSlash1.png</file>
-        <file>images/SwordUpSlash2.png</file>
-        <file>images/SwordUpSlash3.png</file>
         <file>images/landscape.png</file>
         <file>images/misadv.png</file>
+        <file>images/SwordDown4.png</file>
+        <file>images/SwordDown5.png</file>
+        <file>images/SwordDown6.png</file>
+        <file>images/SwordLeft4.png</file>
+        <file>images/SwordLeft5.png</file>
+        <file>images/SwordLeft6.png</file>
+        <file>images/SwordRight4.png</file>
+        <file>images/SwordRight5.png</file>
+        <file>images/SwordRight6.png</file>
+        <file>images/SwordUp4.png</file>
+        <file>images/SwordUp5.png</file>
+        <file>images/SwordUp6.png</file>
+        <file>images/World1.png</file>
     </qresource>
 </RCC>
