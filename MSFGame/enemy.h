@@ -27,6 +27,7 @@ public:
     //Mutators
     void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy;}
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
+    void setTimer(QTimer* newTimer);
 
 
     void updatePos(){this->setPos(enemy->getX(),enemy->getY());}

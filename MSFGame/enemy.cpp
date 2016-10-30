@@ -5,24 +5,20 @@
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
-    this->setPixmap(QPixmap(":/images/images/Slime1.png"));
-    timer = new QTimer(this);
-    timer->setInterval(8);
+    this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(40, 40));
 
-    timertwo = new QTimer(this);
-    timertwo->setInterval(100);
+}
+void Enemy::setTimer(QTimer* newTimer)
+{
+    timer = newTimer;
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-    timer->start();
-
 }
 
 void Enemy::move()
 {
-    timer->stop();
     if(player != NULL && enemy != NULL)
     {
         enemy->follow(player);
         this->updatePos();
     }
-    timer->start();
 }

@@ -2,6 +2,8 @@
 
 #include <QGraphicsTextItem>
 
+
+
 Game::Game(QWidget *parent) {
     
     universe = new Universe();
@@ -11,7 +13,7 @@ Game::Game(QWidget *parent) {
     player = new Player(); //
     player->setPlayer(universe->getPlayer());
     player->updatePos();
-    player->setPixmap(QPixmap(":/images/images/front2.PNG"));
+    player->setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     
@@ -34,7 +36,8 @@ Game::Game(QWidget *parent) {
         if (disEnemy) {
             newEnemy->setEnemy(disEnemy);
             newEnemy->setPlayer(player->getPlayer());
-            newEnemy->setPos(enemyData->getX(), enemyData->getY());
+            newEnemy->setTimer(player->getTimer());
+            newEnemy->updatePos();
         }
         scene->addItem(newEnemy);
     }

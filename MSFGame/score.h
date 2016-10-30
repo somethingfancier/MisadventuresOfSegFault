@@ -4,8 +4,7 @@
 class Score{
 
 private:
-    int items;
-    int enemies;
+
 
 public:
     void Save();

@@ -13,6 +13,7 @@ class Player: public QObject, public QGraphicsPixmapItem{
 
     WorldPlayer *player;
 
+
 public:
 
     Player(QGraphicsItem * parent=0);
@@ -22,6 +23,7 @@ public:
 
     //Accesors
     WorldPlayer* getPlayer(){return player;}
+    QTimer* getTimer(){return timer;}
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
@@ -42,6 +44,7 @@ private slots:
 private:
     QTimer* timer;
     QTimer* timertwo;
+    int animation = 1;
 
 };
 
