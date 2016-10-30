@@ -1,20 +1,22 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
+#include <QPixmap>
 #include <QObject>
 #include "worldenemy.h"
 
-class Enemy: public QObject, public QGraphicsRectItem{
+
+class Enemy: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
     WorldEnemy *enemy;
-    QTimer* timer;
-    QTimer* timertwo;
+    //QTimer* timer;
+    //QTimer* timertwo;
 
 public:
 
-    Enemy(QGraphicsItem * parent=0);
+    Enemy(QGraphicsItem * parent=0){this->setPixmap(QPixmap(":/images/images/Slime1.png"));}
 
     //Accesors
     WorldEnemy* getEnemy(){return enemy;}
@@ -23,7 +25,7 @@ public:
     void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy;}
 
 public slots:
-    void move();
+    //void move(){};
 
 };
 

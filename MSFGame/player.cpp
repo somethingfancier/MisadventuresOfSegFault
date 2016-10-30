@@ -93,7 +93,8 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
 
 void Player::timerHitUp()
 {
-    setPos(x(),y()-1);
+    player->decY();
+    this->updatePos();
 
 
 
@@ -101,20 +102,21 @@ void Player::timerHitUp()
 
 void Player::timerHitDown()
 {
-    setPos(x(),y()+1);
+    player->incY();
+    this->updatePos();
 
 }
 
 void Player::timerHitLeft()
 {
-    setPos(x()-1,y());
-
+    player->decX();
+    this->updatePos();
 }
 
 void Player::timerHitRight()
 {
-    setPos(x()+1,y());
-
+    player->incX();
+    this->updatePos();
 
 }
 

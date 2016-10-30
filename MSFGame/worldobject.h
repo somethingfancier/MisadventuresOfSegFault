@@ -28,6 +28,10 @@ public:
     void setName(string newName){name = newName;}
     void setCoordinates(int, int);
 
+    void incX(){xPos++;}
+    void decX(){xPos--;}
+    void incY(){yPos++;}
+    void decY(){yPos--;}
     //
     int distance(WorldObject*);
     int vDistance(WorldObject*);

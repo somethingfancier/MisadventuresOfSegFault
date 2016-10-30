@@ -47,6 +47,7 @@ void Universe::addWorld(World* newWorld)
 void Universe::createFirstWorld()
 {
     World* worldOne = new World();
+    player = new WorldPlayer();
     worldOne->setId(1);
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
