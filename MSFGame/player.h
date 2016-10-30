@@ -25,11 +25,12 @@ public:
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){
-        player = newPlayer;
-        if (player != NULL) {
-            this->setPos(newPlayer->getX(), newPlayer->getY());
+        if (newPlayer != NULL) {
+            player = newPlayer;
         }
     }
+
+    void updatePos(){this->setPos(player->getX(),player->getY());}
 
 private slots:
 

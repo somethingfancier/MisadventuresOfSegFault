@@ -1,15 +1,17 @@
 #include "game.h"
+
 #include <QGraphicsTextItem>
 
 Game::Game(QWidget *parent) {
     
     universe = new Universe();
     universe->createFirstWorld();
-    
+    universe->getPlayer()->setCoordinates(100,200);
+
     player = new Player(); //
     player->setPlayer(universe->getPlayer());
+    player->updatePos();
     player->setPixmap(QPixmap(":/images/images/front2.PNG"));
-    player->setPos(100,200);
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     
@@ -27,12 +29,13 @@ Game::Game(QWidget *parent) {
     for (unsigned i=0; i<world->getCharacters().size(); i++) {
         WorldCharacter* enemyData = world->getCharacters().at(i);
         Enemy* newEnemy = new Enemy();
-       if (dynamic_cast<WorldEnemy*>(enemyData)) {
-            newEnemy->setEnemy(enemyData);
-            newEnemy->setRect(0,0,20,20);
+        WorldEnemy* disEnemy = new WorldEnemy();
+        disEnemy = static_cast<WorldEnemy*>(enemyData);
+        if (disEnemy) {
+            newEnemy->setEnemy(disEnemy);
             newEnemy->setPos(enemyData->getX(), enemyData->getY());
         }
-        scene->addItem(enemy);
+        scene->addItem(newEnemy);
     }
 
 

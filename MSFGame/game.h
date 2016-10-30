@@ -19,6 +19,16 @@ public:
     Enemy *enemy;
     Universe *universe;
 
+    //Accesors
+    Player* getPlayer(){return player;}
+
+    //Mutators
+    void setPlayer(Player* newPlayer){
+        if (newPlayer != NULL) {
+            player = newPlayer;
+        }
+    }
+
 };
 
 #endif // GAME_H
