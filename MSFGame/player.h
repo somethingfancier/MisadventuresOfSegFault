@@ -23,13 +23,10 @@ public:
 
     //Accesors
     WorldPlayer* getPlayer(){return player;}
+    QTimer* getTimer(){return timer;}
 
     //Mutators
-    void setPlayer(WorldPlayer* newPlayer){
-        if (newPlayer != NULL) {
-            player = newPlayer;
-        }
-    }
+    void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
 
     void updatePos(){this->setPos(player->getX(),player->getY());}
 

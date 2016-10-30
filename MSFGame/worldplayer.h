@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 
-class WorldPlayer: public WorldCharacter
+class WorldPlayer : public WorldCharacter
 {
 private:
     int lives;                      //Total lives of a player
@@ -17,6 +17,7 @@ private:
 public:
     //Constructor
     WorldPlayer(): lives(3), username("<Segfault>"){equippedItem = NULL;} //Lives of a player intially set to 3
+    ~WorldPlayer(){}
 
     //Accessors
     int getLives(){return lives;}
@@ -26,6 +27,7 @@ public:
     void setLives(int newLives){lives = newLives;}
     void setUsername(){username = "<SegFault>";}      //Indiscriminately set the player's name to SegFault
                                                       //(Thus the madness begins)
+    void strike(WorldCharacter*);
     bool longAttack();
 };
 

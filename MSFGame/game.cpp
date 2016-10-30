@@ -40,7 +40,9 @@ Game::Game(QWidget *parent) {
         disEnemy = static_cast<WorldEnemy*>(enemyData);
         if (disEnemy) {
             newEnemy->setEnemy(disEnemy);
-            newEnemy->setPos(enemyData->getX(), enemyData->getY());
+            newEnemy->setPlayer(player->getPlayer());
+            newEnemy->setTimer(player->getTimer());
+            newEnemy->updatePos();
         }
         scene->addItem(newEnemy);
     }

@@ -28,14 +28,21 @@ public:
     void setName(string newName){name = newName;}
     void setCoordinates(int, int);
 
+    //Increment and Decrement x and y pos
     void incX(){xPos++;}
     void decX(){xPos--;}
     void incY(){yPos++;}
     void decY(){yPos--;}
-    //
+
+    //Distance Methods
     int distance(WorldObject*);
     int vDistance(WorldObject*);
     int hDistance(WorldObject*);
+
+    //Compares the Positions of two worldObjects, returns true if the caller's X or Y is greater than or equal to the WorldObject's
+    bool compareX(WorldObject*);
+    bool compareY(WorldObject*);
+
 };
 
 #endif // WORLDOBJECT_H

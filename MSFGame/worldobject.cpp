@@ -20,10 +20,30 @@ using namespace std;
 
  int WorldObject::vDistance(WorldObject* otherObj)
  {
-    return sqrt(((this->getX()-otherObj->getX())^2));
+    return abs(this->getY()-otherObj->getY());
  }
 
  int WorldObject::hDistance(WorldObject* otherObj)
  {
-    return sqrt(((this->getY()-otherObj->getY())^2));
+    return abs(this->getX()- otherObj->getX());
+ }
+
+
+ bool WorldObject::compareX(WorldObject* obj)
+ {
+     if(this->getX() >= obj->getX())
+     {
+         return true;
+     }
+     return false;
+ }
+
+
+ bool WorldObject::compareY(WorldObject* obj)
+ {
+     if(this->getY() >= obj->getY())
+     {
+         return true;
+     }
+     return false;
  }
