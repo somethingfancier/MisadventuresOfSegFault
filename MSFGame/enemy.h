@@ -16,7 +16,7 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
 
 public:
 
-    Enemy(QGraphicsItem * parent=0){this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(40, 40));}
+    Enemy(QGraphicsItem * parent=0){this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(60, 60));}
 
     //Accesors
     WorldEnemy* getEnemy(){return enemy;}

@@ -1,6 +1,8 @@
 #include "game.h"
 
 #include <QGraphicsTextItem>
+#include <QBrush>
+#include <QImage>
 
 
 
@@ -13,17 +15,20 @@ Game::Game(QWidget *parent) {
     player = new Player(); //
     player->setPlayer(universe->getPlayer());
     player->updatePos();
-    player->setPixmap(QPixmap(":/images/images/front2.PNG"));
+    player->setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1280,720);
+    setBackgroundBrush(QBrush(QImage(":/images/images/World1.png")));
+
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);
+
 
     scene->addItem(player);
 

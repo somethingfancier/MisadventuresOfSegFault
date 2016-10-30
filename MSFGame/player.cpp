@@ -15,6 +15,9 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
     timertwo = new QTimer(this);
     timertwo->setInterval(100);
 
+    timerthree = new QTimer(this);
+    timerthree->setInterval(80);
+
 }
 
 
@@ -67,17 +70,21 @@ void Player::keyPressEvent(QKeyEvent *event) {
     }
 
     else if (event->key() == Qt::Key_Space) {
-        if (player->getOrientation() == 1) {
-
+        if (player->getOrientation() == 1) {        //Up
+            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordUp()));
+            timerthree->start();
         }
-        else if (player->getOrientation() == 2) {
-
+        else if (player->getOrientation() == 2) {   //Right
+            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordRight()));
+            timerthree->start();
         }
-        else if (player->getOrientation() == 3) {
-
+        else if (player->getOrientation() == 3) {   //Down
+            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordDown()));
+            timerthree->start();
         }
-        else if (player->getOrientation() == 4) {
-
+        else if (player->getOrientation() == 4) {   //Left
+            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordLeft()));
+            timerthree->start();
         }
     }
 }
@@ -209,6 +216,66 @@ void Player::timerAnimRight()
     setPixmap(QPixmap(c).scaled(60,60));
     if (animation == 9) {
         animation = 1;
+    } else {
+        animation++;
+    }
+}
+
+void Player::timerSwordUp()
+{
+    string str = string(":/images/images/SwordUp") + to_string(animation) + ".png";
+    const char * c = str.c_str();
+    setPixmap(QPixmap(c).scaled(60,60));
+    if (animation == 6) {
+        animation = 1;
+        disconnect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordUp()));
+        timerthree->stop();
+        setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
+    } else {
+        animation++;
+    }
+}
+
+void Player::timerSwordDown()
+{
+    string str = string(":/images/images/SwordDown") + to_string(animation) + ".png";
+    const char * c = str.c_str();
+    setPixmap(QPixmap(c).scaled(60,60));
+    if (animation == 6) {
+        animation = 1;
+        disconnect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordDown()));
+        timerthree->stop();
+        setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
+    } else {
+        animation++;
+    }
+}
+
+void Player::timerSwordLeft()
+{
+    string str = string(":/images/images/SwordLeft") + to_string(animation) + ".png";
+    const char * c = str.c_str();
+    setPixmap(QPixmap(c).scaled(60,60));
+    if (animation == 6) {
+        animation = 1;
+        disconnect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordLeft()));
+        timerthree->stop();
+        setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
+    } else {
+        animation++;
+    }
+}
+
+void Player::timerSwordRight()
+{
+    string str = string(":/images/images/SwordRight") + to_string(animation) + ".png";
+    const char * c = str.c_str();
+    setPixmap(QPixmap(c).scaled(60,60));
+    if (animation == 6) {
+        animation = 1;
+        disconnect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordRight()));
+        timerthree->stop();
+        setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
     } else {
         animation++;
     }
