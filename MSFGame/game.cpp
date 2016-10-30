@@ -27,7 +27,7 @@ Game::Game(QWidget *parent) {
     for (unsigned i=0; i<world->getCharacters().size(); i++) {
         WorldCharacter* enemyData = world->getCharacters().at(i);
         Enemy* newEnemy = new Enemy();
-        if (dynamic_cast<WorldEnemy*>(enemyData)) {
+       if (dynamic_cast<WorldEnemy*>(enemyData)) {
             newEnemy->setEnemy(enemyData);
             newEnemy->setRect(0,0,20,20);
             newEnemy->setPos(enemyData->getX(), enemyData->getY());
