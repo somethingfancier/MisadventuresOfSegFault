@@ -24,11 +24,13 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QPushButton *pbLoad;
-    QPushButton *pbControls;
-    QPushButton *pbStart;
-    QPushButton *pbExit;
     QWidget *widget;
+    QPushButton *pbExit;
+    QPushButton *pbControls;
+    QPushButton *pbLoad;
+    QPushButton *pbStart;
+    QPushButton *pushButton;
+    QWidget *widget_2;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -42,48 +44,61 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setAutoFillBackground(false);
         centralWidget->setStyleSheet(QStringLiteral(""));
-        pbLoad = new QPushButton(centralWidget);
-        pbLoad->setObjectName(QStringLiteral("pbLoad"));
-        pbLoad->setGeometry(QRect(310, 210, 191, 61));
-        pbLoad->setStyleSheet(QStringLiteral("background-color: rgb(15, 5, 5);"));
+        widget = new QWidget(centralWidget);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(0, 0, 800, 600));
+        widget->setStyleSheet(QStringLiteral(""));
+        pbExit = new QPushButton(widget);
+        pbExit->setObjectName(QStringLiteral("pbExit"));
+        pbExit->setGeometry(QRect(310, 490, 191, 61));
+        pbExit->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/images/images/Load.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pbLoad->setIcon(icon);
-        pbLoad->setIconSize(QSize(160, 40));
-        pbControls = new QPushButton(centralWidget);
+        icon.addFile(QStringLiteral(":/images/images/Exit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbExit->setIcon(icon);
+        pbExit->setIconSize(QSize(160, 40));
+        pbControls = new QPushButton(widget);
         pbControls->setObjectName(QStringLiteral("pbControls"));
-        pbControls->setGeometry(QRect(310, 300, 191, 61));
-        pbControls->setStyleSheet(QStringLiteral("background-color: rgb(6, 6, 6);"));
+        pbControls->setGeometry(QRect(310, 400, 191, 61));
+        pbControls->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/images/images/Controls.png"), QSize(), QIcon::Normal, QIcon::Off);
         pbControls->setIcon(icon1);
         pbControls->setIconSize(QSize(160, 50));
-        pbStart = new QPushButton(centralWidget);
-        pbStart->setObjectName(QStringLiteral("pbStart"));
-        pbStart->setGeometry(QRect(310, 120, 191, 61));
-        pbStart->setStyleSheet(QStringLiteral("background-color: rgb(5, 2, 2);"));
+        pbLoad = new QPushButton(widget);
+        pbLoad->setObjectName(QStringLiteral("pbLoad"));
+        pbLoad->setGeometry(QRect(310, 310, 191, 61));
+        pbLoad->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/images/images/Start.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pbStart->setIcon(icon2);
-        pbStart->setIconSize(QSize(160, 40));
-        pbExit = new QPushButton(centralWidget);
-        pbExit->setObjectName(QStringLiteral("pbExit"));
-        pbExit->setGeometry(QRect(310, 390, 191, 61));
-        pbExit->setStyleSheet(QStringLiteral("background-color: rgb(6, 6, 6);"));
+        icon2.addFile(QStringLiteral(":/images/images/Load.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbLoad->setIcon(icon2);
+        pbLoad->setIconSize(QSize(160, 40));
+        pbStart = new QPushButton(widget);
+        pbStart->setObjectName(QStringLiteral("pbStart"));
+        pbStart->setGeometry(QRect(310, 220, 191, 61));
+        pbStart->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         QIcon icon3;
-        icon3.addFile(QStringLiteral(":/images/images/Exit.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pbExit->setIcon(icon3);
-        pbExit->setIconSize(QSize(160, 40));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(0, 0, 800, 600));
-        widget->setStyleSheet(QStringLiteral("image: url(:/images/images/color.jpg);"));
-        MainWindow->setCentralWidget(centralWidget);
-        widget->raise();
-        pbLoad->raise();
-        pbControls->raise();
-        pbStart->raise();
+        icon3.addFile(QStringLiteral(":/images/images/Start.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbStart->setIcon(icon3);
+        pbStart->setIconSize(QSize(160, 40));
+        pushButton = new QPushButton(widget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(50, 10, 701, 191));
+        pushButton->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/images/images/misadv.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon4);
+        pushButton->setIconSize(QSize(650, 400));
+        widget_2 = new QWidget(widget);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+        widget_2->setGeometry(QRect(0, 0, 800, 600));
+        widget_2->setStyleSheet(QStringLiteral("image: url(:/images/images/landscape.png);"));
+        widget_2->raise();
         pbExit->raise();
+        pbControls->raise();
+        pbLoad->raise();
+        pbStart->raise();
+        pushButton->raise();
+        MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
 
@@ -93,10 +108,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        pbLoad->setText(QString());
-        pbControls->setText(QString());
-        pbStart->setText(QString());
         pbExit->setText(QString());
+        pbControls->setText(QString());
+        pbLoad->setText(QString());
+        pbStart->setText(QString());
+        pushButton->setText(QString());
     } // retranslateUi
 
 };

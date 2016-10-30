@@ -2,6 +2,8 @@
 
 #include <QGraphicsTextItem>
 
+
+
 Game::Game(QWidget *parent) {
     
     universe = new Universe();

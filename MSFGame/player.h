@@ -13,6 +13,7 @@ class Player: public QObject, public QGraphicsPixmapItem{
 
     WorldPlayer *player;
 
+
 public:
 
     Player(QGraphicsItem * parent=0);
@@ -46,6 +47,7 @@ private slots:
 private:
     QTimer* timer;
     QTimer* timertwo;
+    int animation = 1;
 
 };
 

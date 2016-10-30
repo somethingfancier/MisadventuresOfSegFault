@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "game.h"
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,7 +34,9 @@ void MainWindow::on_pbLoad_clicked()
 
 void MainWindow::on_pbControls_clicked()
 {
-
+    QMessageBox msg;
+    msg.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
+    msg.exec();
 }
 
 void MainWindow::on_pbExit_clicked()

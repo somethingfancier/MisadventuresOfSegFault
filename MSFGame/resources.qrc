@@ -45,5 +45,67 @@
         <file>images/UpLeftEdge.png</file>
         <file>images/UpRightCorner.png</file>
         <file>images/UpRightEdge.png</file>
+        <file>images/WalkDown1.png</file>
+        <file>images/WalkDown2.png</file>
+        <file>images/WalkDown3.png</file>
+        <file>images/WalkDown4.png</file>
+        <file>images/WalkDown5.png</file>
+        <file>images/WalkDown6.png</file>
+        <file>images/WalkDown7.png</file>
+        <file>images/WalkDown8.png</file>
+        <file>images/WalkDown9.png</file>
+        <file>images/WalkLeft1.png</file>
+        <file>images/WalkLeft2.png</file>
+        <file>images/WalkLeft3.png</file>
+        <file>images/WalkLeft4.png</file>
+        <file>images/WalkLeft5.png</file>
+        <file>images/WalkLeft6.png</file>
+        <file>images/WalkLeft7.png</file>
+        <file>images/WalkLeft8.png</file>
+        <file>images/WalkLeft9.png</file>
+        <file>images/WalkRight1.png</file>
+        <file>images/WalkRight2.png</file>
+        <file>images/WalkRight3.png</file>
+        <file>images/WalkRight4.png</file>
+        <file>images/WalkRight5.png</file>
+        <file>images/WalkRight6.png</file>
+        <file>images/WalkRight7.png</file>
+        <file>images/WalkRight8.png</file>
+        <file>images/WalkRight9.png</file>
+        <file>images/WalkUp1.png</file>
+        <file>images/WalkUp2.png</file>
+        <file>images/WalkUp3.png</file>
+        <file>images/WalkUp4.png</file>
+        <file>images/WalkUp5.png</file>
+        <file>images/WalkUp6.png</file>
+        <file>images/WalkUp7.png</file>
+        <file>images/WalkUp8.png</file>
+        <file>images/WalkUp9.png</file>
+        <file>images/SwordDown1.png</file>
+        <file>images/SwordDown2.png</file>
+        <file>images/SwordDown3.png</file>
+        <file>images/SwordDownSlash1.png</file>
+        <file>images/SwordDownSlash2.png</file>
+        <file>images/SwordDownSlash3.png</file>
+        <file>images/SwordLeft1.png</file>
+        <file>images/SwordLeft2.png</file>
+        <file>images/SwordLeft3.png</file>
+        <file>images/SwordLeftSlash1.png</file>
+        <file>images/SwordLeftSlash2.png</file>
+        <file>images/SwordLeftSlash3.png</file>
+        <file>images/SwordRight1.png</file>
+        <file>images/SwordRight2.png</file>
+        <file>images/SwordRight3.png</file>
+        <file>images/SwordRightSlash1.png</file>
+        <file>images/SwordRightSlash2.png</file>
+        <file>images/SwordRightSlash3.png</file>
+        <file>images/SwordUp1.png</file>
+        <file>images/SwordUp2.png</file>
+        <file>images/SwordUp3.png</file>
+        <file>images/SwordUpSlash1.png</file>
+        <file>images/SwordUpSlash2.png</file>
+        <file>images/SwordUpSlash3.png</file>
+        <file>images/landscape.png</file>
+        <file>images/misadv.png</file>
     </qresource>
 </RCC>

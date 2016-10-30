@@ -29,110 +29,6 @@
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <widget class="QPushButton" name="pbLoad">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>210</y>
-      <width>191</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(15, 5, 5);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/images/Load.png</normaloff>:/images/images/Load.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>160</width>
-      <height>40</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pbControls">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>300</y>
-      <width>191</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(6, 6, 6);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/images/Controls.png</normaloff>:/images/images/Controls.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>160</width>
-      <height>50</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pbStart">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>120</y>
-      <width>191</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(5, 2, 2);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/images/Start.png</normaloff>:/images/images/Start.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>160</width>
-      <height>40</height>
-     </size>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pbExit">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>390</y>
-      <width>191</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(6, 6, 6);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset resource="resources.qrc">
-      <normaloff>:/images/images/Exit.png</normaloff>:/images/images/Exit.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>160</width>
-      <height>40</height>
-     </size>
-    </property>
-   </widget>
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
@@ -143,14 +39,158 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/images/images/color.jpg);</string>
+     <string notr="true"/>
     </property>
+    <widget class="QPushButton" name="pbExit">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>490</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Exit.png</normaloff>:/images/images/Exit.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>160</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pbControls">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>400</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Controls.png</normaloff>:/images/images/Controls.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>160</width>
+       <height>50</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pbLoad">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>310</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Load.png</normaloff>:/images/images/Load.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>160</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pbStart">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>220</y>
+       <width>191</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/Start.png</normaloff>:/images/images/Start.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>160</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>10</y>
+       <width>701</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/misadv.png</normaloff>:/images/images/misadv.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>650</width>
+       <height>400</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>800</width>
+       <height>600</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">image: url(:/images/images/landscape.png);</string>
+     </property>
+    </widget>
+    <zorder>widget_2</zorder>
+    <zorder>pbExit</zorder>
+    <zorder>pbControls</zorder>
+    <zorder>pbLoad</zorder>
+    <zorder>pbStart</zorder>
+    <zorder>pushButton</zorder>
    </widget>
-   <zorder>widget</zorder>
-   <zorder>pbLoad</zorder>
-   <zorder>pbControls</zorder>
-   <zorder>pbStart</zorder>
-   <zorder>pbExit</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
