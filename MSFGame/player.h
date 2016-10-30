@@ -24,11 +24,7 @@ public:
     WorldPlayer* getPlayer(){return player;}
 
     //Mutators
-    void setPlayer(WorldPlayer* newPlayer){
-        if (newPlayer != NULL) {
-            player = newPlayer;
-        }
-    }
+    void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
 
     void updatePos(){this->setPos(player->getX(),player->getY());}
 

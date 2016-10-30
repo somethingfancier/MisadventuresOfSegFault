@@ -36,6 +36,10 @@ static void runUnitTest()
     assert(playerOne->getY() == 556);
     myItem->setEquipped(true);
     assert(myItem->getEquipped() == true);
+
+    playerOne->strike(badDude);
+    assert(badDude->getHealth()==9);
+
     delete galaxy;
     delete aWholeNewWorld;
     delete playerOne;

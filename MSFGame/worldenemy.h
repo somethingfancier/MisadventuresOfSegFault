@@ -20,6 +20,10 @@ public:
     //Mutator
     void setProperty(string newProperty) {property = newProperty;}
 
+    //Additional Methods
+    void strike(WorldCharacter*);
+    void follow(WorldCharacter*);
+
 };
 
 #endif // ENEMY_H

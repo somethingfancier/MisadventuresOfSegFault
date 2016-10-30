@@ -5,27 +5,34 @@
 #include <QPixmap>
 #include <QObject>
 #include "worldenemy.h"
+#include "worldplayer.h"
 
 
 class Enemy: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
     WorldEnemy *enemy;
-    //QTimer* timer;
-    //QTimer* timertwo;
+    WorldPlayer *player;
+    QTimer* timer;
+    QTimer* timertwo;
 
 public:
 
-    Enemy(QGraphicsItem * parent=0){this->setPixmap(QPixmap(":/images/images/Slime1.png"));}
+    Enemy(QGraphicsItem * parent=0);
 
     //Accesors
     WorldEnemy* getEnemy(){return enemy;}
+    WorldPlayer* getPlayer(){return player;}
 
     //Mutators
     void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy;}
+    void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
+
+
+    void updatePos(){this->setPos(enemy->getX(),enemy->getY());}
 
 public slots:
-    //void move(){};
+    void move();
 
 };
 

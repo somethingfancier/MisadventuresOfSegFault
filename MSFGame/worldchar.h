@@ -18,6 +18,8 @@ public:
     //Constructor
     WorldCharacter():health(10),strength(1),defense(0),orientation(0),dead(false){}
 
+    virtual ~WorldCharacter(){}
+
     //Accesors
     int getHealth(){return health;}
     int getStrength(){return strength;}
@@ -32,8 +34,12 @@ public:
     void setOrientation(int newOrientation){orientation = newOrientation;}
     void setDead(bool lifeState){dead = lifeState;}
 
+    void hit(int attackDamage);
+    void heal(int healPower){health = health + healPower;}
+
     //Methods to Be implemented
     WorldObject* attack();
+    virtual void strike(WorldCharacter*)=0;
 };
 
 #endif // WORLDCHAR_H

@@ -25,6 +25,8 @@ public:
     //Mutators
     void setAdvice(string newAdvice){advice = newAdvice;}
     void setGiveableItem(WorldItem* newItem){giveableItem = newItem;}
+
+    void strike(WorldCharacter*){}
 };
 
 #endif // NPC_H
