@@ -18,31 +18,33 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
         int hTravel = this->hDistance(chosenPlayer);
         int vTravel = this->vDistance(chosenPlayer);
 
-        if (vTravel >= hTravel)
-        {
-            if (this->compareY(chosenPlayer))
+        //if (this->distance(chosenPlayer) < 25){
+            if (vTravel >= hTravel && vTravel > 10)
             {
-                this->setOrientation(3);
-                this->decY();
+                if (this->compareY(chosenPlayer))
+                {
+                    this->setOrientation(3);
+                    this->decY();
+                }
+                else
+                {
+                    this->setOrientation(1);
+                    this->incY();
+                }
             }
-            else
+            else if(hTravel > vTravel && hTravel > 10)
             {
-                this->setOrientation(1);
-                this->incY();
+                if (this->compareX(chosenPlayer))
+                {
+                    this->setOrientation(4);
+                    this->decX();
+                }
+                else
+                {
+                    this->setOrientation(2);
+                    this->incX();
+                }
             }
-        }
-        else if(hTravel > vTravel)
-        {
-            if (this->compareX(chosenPlayer))
-            {
-                this->setOrientation(4);
-                this->decX();
-            }
-            else
-            {
-                this->setOrientation(2);
-                this->incX();
-            }
-        }
+        //}
     }
 }

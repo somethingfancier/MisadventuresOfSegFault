@@ -12,7 +12,7 @@ private:
 
 public:
     //Constructor
-    WorldEnemy():property(""){}
+    WorldEnemy():property(""){this->setScaling(40);}
 
     //Accessor
     string getProperty() {return property;}

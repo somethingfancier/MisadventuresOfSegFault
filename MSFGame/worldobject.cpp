@@ -13,9 +13,9 @@ using namespace std;
  }
 
 
- int WorldObject::distance(WorldObject* otherObj)
+ double WorldObject::distance(WorldObject* otherObj)
  {
-    return sqrt(((this->getX()-otherObj->getX())^2) + ((this->getY()-otherObj->getY())^2));
+    return sqrt(((this->getXScaled()-otherObj->getXScaled())^2) + ((this->getYScaled()-otherObj->getYScaled())^2));
  }
 
  int WorldObject::vDistance(WorldObject* otherObj)
