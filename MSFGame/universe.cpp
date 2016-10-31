@@ -402,4 +402,14 @@ void Universe::createSecondWorld()
     addWorld(worldTwo);
 }
 
+int Universe::switchWorld()
+{
+    if (this->getPlayer()->getY() < 0)
+    {
+       return this->activeWorld->getUpWId();
+    }
+    cout << this->activeWorld->getUpWId();
+    return(0);
+}
+
 

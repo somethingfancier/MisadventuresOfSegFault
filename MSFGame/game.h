@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <QObject>
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
@@ -31,7 +32,6 @@ public:
     }
 
     void initialize(int id);
-
 };
 
 #endif // GAME_H

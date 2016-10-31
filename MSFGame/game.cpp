@@ -1,13 +1,11 @@
 #include "game.h"
-
 #include <QGraphicsTextItem>
 #include <QBrush>
 #include <QImage>
 
 
-
-Game::Game(QWidget *parent) {
-    
+Game::Game(QWidget *parent)
+{
     universe = new Universe();
     universe->createFirstWorld();
     universe->createSecondWorld();
@@ -69,3 +67,4 @@ void Game::initialize(int id)
     }
     scene->addItem(player);
 }
+

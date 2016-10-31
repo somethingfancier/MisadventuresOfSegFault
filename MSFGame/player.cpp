@@ -342,4 +342,3 @@ void Player::timerSwordRight()
         animation++;
     }
 }
-

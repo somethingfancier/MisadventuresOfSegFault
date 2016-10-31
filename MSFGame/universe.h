@@ -36,6 +36,7 @@ public:
     //void Reset();
     void createFirstWorld();
     void createSecondWorld();
+    int switchWorld();
 
 }; 
 
