@@ -1,19 +1,20 @@
 #ifndef SCORE_H
 #define SCORE_H
 
+#include "worldscore.h"
 #include <QGraphicsTextItem>
 #include <vector>
 
 class Score: public QGraphicsTextItem {
 
 private:
-    int score;
+    WorldScore* score;
 
 public:
     Score(QGraphicsItem * parent = 0);
-    void increase(int amount);
-    int getScore();
 
+    WorldScore* getScore(){return score;}
+    void updateScore();
     void Save();
     void Load();
 };

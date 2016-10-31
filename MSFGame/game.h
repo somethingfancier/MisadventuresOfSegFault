@@ -19,7 +19,6 @@ public:
     Player *player;
     Enemy *enemy;
     Universe *universe;
-    Score *score;
 
     //Accesors
     Player* getPlayer(){return player;}

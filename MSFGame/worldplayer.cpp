@@ -3,6 +3,7 @@
 #include "worldenemy.h"
 #include "world.h"
 #include <cmath>
+#include <iostream>
 
 void WorldPlayer::strike(WorldCharacter* chosenChar)
 {
@@ -10,6 +11,11 @@ void WorldPlayer::strike(WorldCharacter* chosenChar)
     if(chosenEnemy != NULL)
     {
         chosenEnemy->hit(this->getStrength());
+
+        if(chosenEnemy->isDead())
+        {
+            score->increase(50);
+        }
     }
 }
 
@@ -19,11 +25,11 @@ void WorldPlayer::attack(World* world)
     {
        WorldEnemy* chosenEnemy = static_cast<WorldEnemy*>(world->getCharacters().at(i));
 
-       if(chosenEnemy)
+       if(chosenEnemy != NULL && !(chosenEnemy->isDead()))
        {
            if(this->distance(chosenEnemy) < 20 && this->isFacing(chosenEnemy))
            {
-                this->strike(chosenEnemy);
+               this->strike(chosenEnemy);
            }
        }
     }

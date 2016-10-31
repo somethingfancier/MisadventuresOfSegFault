@@ -26,13 +26,13 @@ void Enemy::setTimer(QTimer* newTimer)
 
 void Enemy::move()
 {
-    if(player != NULL && enemy != NULL)
+    if(player != NULL && enemy != NULL && !(enemy->isDead()))
     {
         enemy->move(player);
         this->updatePos();
         numMoves++;
     }
-    if (numMoves == 20)
+    if (numMoves == 20 && !(enemy->isAlerted()))
     {
         enemy->rotateL();
         numMoves = 0;

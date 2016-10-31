@@ -3,7 +3,7 @@
 
 #include "world.h"
 #include "worldplayer.h"
-#include "score.h"
+#include "worldscore.h"
 
 class Universe{
 
@@ -13,7 +13,6 @@ private:
     static Universe* instance_;
     vector<World*> worlds;
     World* activeWorld;
-    //Score* score;
     //Score* highscore;
 
 public:
@@ -27,7 +26,6 @@ public:
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
-
     //Get Specific World from Vector
     World* getWorld(int id);
 

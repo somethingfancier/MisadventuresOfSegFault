@@ -14,6 +14,11 @@ using namespace std;
 class World{
 private:
     int id;
+    int upWId;
+    int downWId;
+    int leftWId;
+    int rightWId;
+
     string name;
     vector<WorldCharacter*> characters;
     vector<WorldItem*> items;
@@ -26,6 +31,11 @@ public:
 
     //Accessors
     int getId(){return id;}
+    int getUpWId(){return upWId;}
+    int getDownWId(){return downWId;}
+    int getRightId(){return rightWId;}
+    int getLeftWId(){return upWId;}
+
     string getName(){return name;}
     vector<WorldCharacter*>& getCharacters() { return characters; }
     vector<WorldItem*>& getItems() { return items; }
@@ -33,6 +43,10 @@ public:
 
     //Mutators
     void setId(int newId){id = newId;}
+    void setUpWId(int newId){upWId = newId;}
+    void setDownWId(int newId){downWId = newId;}
+    void setRightWId(int newId){rightWId = newId;}
+    void setLeftWId(int newId){leftWId = newId;}
     void setName(string newName){name = newName;}
 
     //Adders for the Vectors
