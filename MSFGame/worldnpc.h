@@ -27,7 +27,6 @@ public:
     void setGiveableItem(WorldItem* newItem){giveableItem = newItem;}
 
     void strike(WorldCharacter*){}
-    void attack(WorldObject*){}
 };
 
 #endif // NPC_H

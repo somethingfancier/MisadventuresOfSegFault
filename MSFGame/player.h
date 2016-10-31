@@ -6,13 +6,13 @@
 #include <QGraphicsItem>
 #include <QKeyEvent>
 #include "worldplayer.h"
-
+#include "world.h"
 
 class Player: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
     WorldPlayer *player;
-
+    World   *world;
 
 public:
 
@@ -27,6 +27,7 @@ public:
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
+    void setWorld(World* newWorld){world = newWorld;}
 
     void updatePos(){this->setPos(player->getX() - 15,player->getY() - 15);}
 

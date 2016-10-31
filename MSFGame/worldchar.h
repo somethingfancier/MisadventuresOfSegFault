@@ -34,11 +34,12 @@ public:
     void setOrientation(int newOrientation){orientation = newOrientation;}
     void setDead(bool lifeState){dead = lifeState;}
 
+    bool isFacing(WorldCharacter*);
+
     void hit(int attackDamage);
     void heal(int healPower){health = health + healPower;}
 
     //Methods to Be implemented
-    virtual void attack(WorldObject*) = 0;
     virtual void strike(WorldCharacter*)=0;
 };
 

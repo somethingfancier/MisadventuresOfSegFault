@@ -22,7 +22,6 @@ public:
 
     Enemy(QGraphicsItem * parent=0);
 
-
     //Accesors
     WorldEnemy* getEnemy(){return enemy;}
     WorldPlayer* getPlayer(){return player;}
