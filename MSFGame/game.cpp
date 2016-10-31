@@ -31,16 +31,7 @@ Game::Game(QWidget *parent)
     connect(timer, SIGNAL(timeout()), this, SLOT(newWorld()));
     timer->start();
 
-    if (player->getPlayer()->getY() < 0){
-        this->initialize(2);
-    }
-
-
-
     show();
-
-
-
 }
 
 void Game::initialize(int id)
@@ -86,9 +77,11 @@ void Game::initialize(int id)
 void Game::newWorld()
 {
     if (player->getPlayer()->getY() < 0){
+
         universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),680);
         player->setPos(player->getPlayer()->getX(),660);
         this->initialize(2);
+        player->setWorld(universe->getWorld(2));
 
     }
 }
