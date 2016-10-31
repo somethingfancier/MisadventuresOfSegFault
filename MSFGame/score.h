@@ -3,6 +3,7 @@
 
 #include "worldscore.h"
 #include <QGraphicsTextItem>
+#include <vector>
 
 class Score: public QGraphicsTextItem {
 

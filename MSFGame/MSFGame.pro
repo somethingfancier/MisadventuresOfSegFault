@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     worldplayer.cpp \
     enemy.cpp \
     score.cpp \
+    highscore.cpp\
     worldscore.cpp
+
 
 HEADERS  += mainwindow.h \
     game.h \
@@ -44,7 +46,9 @@ HEADERS  += mainwindow.h \
     worldobject.h \
     worldplayer.h \
     enemy.h \
+    highscore.h\
     worldscore.h
+
 
 FORMS    += mainwindow.ui
 

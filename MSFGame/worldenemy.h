@@ -14,7 +14,7 @@ private:
 
 public:
     //Constructor
-    WorldEnemy():property(""), awareness(1), alerted(false){}
+    WorldEnemy():property(""), awareness(1), alerted(false){this->setHealth(3);}
 
     //Accessor
     string getProperty() {return property;}

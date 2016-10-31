@@ -26,7 +26,7 @@ static void runUnitTest()
     galaxy->setPlayer(playerOne);
     assert(galaxy->getWorld(0)->getId()== 0);
     assert(oldWazerd->getAdvice() == "I have no advice for you.");
-    assert(badDude->getHealth() == 10);
+    assert(badDude->getHealth() == 3);
     assert(myItem->getName() == "");
     assert(playerOne->getX() == 0);
     assert(playerOne->getY() == 0);
@@ -44,7 +44,7 @@ static void runUnitTest()
     assert(badDude->distance(playerOne)== 50.0);
 
     playerOne->strike(badDude);
-    assert(badDude->getHealth()==9);
+    assert(badDude->getHealth()==2);
 
     delete galaxy;
     delete aWholeNewWorld;
