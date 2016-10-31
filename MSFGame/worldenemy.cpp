@@ -18,7 +18,7 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
         int hTravel = this->hDistance(chosenPlayer);
         int vTravel = this->vDistance(chosenPlayer);
 
-        //if (this->distance(chosenPlayer) < 25){
+        if(this->distance(chosenPlayer) < 100){
             if (vTravel >= hTravel && vTravel > 10)
             {
                 if (this->compareY(chosenPlayer))
@@ -45,6 +45,6 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
                     this->incX();
                 }
             }
-        //}
+        }
     }
 }

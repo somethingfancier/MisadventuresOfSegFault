@@ -10,6 +10,7 @@
 #include "worldnpc.h"
 #include "worlditem.h"
 #include "worldobstacle.h"
+#include <iostream>
 
 using namespace std;
 
@@ -37,6 +38,11 @@ static void runUnitTest()
     myItem->setEquipped(true);
     assert(myItem->getEquipped() == true);
 
+    playerOne->setX(50);
+    playerOne->setY(50);
+    badDude->setCoordinates(0,0);
+    cout << playerOne->distance(badDude);
+
     playerOne->strike(badDude);
     assert(badDude->getHealth()==9);
 
@@ -53,10 +59,10 @@ int main(int argc, char *argv[])
 {
     vector<string> args(&argv[0],&argv[argc]);
 
-    if (args.size() > 1 && args.at(1) == "-test")
-    {
+    //if (args.size() > 1 && args.at(1) == "-test")
+    //{
         runUnitTest();
-    }
+    //}
 
     Universe::instance().createFirstWorld(); //Creates the Universe and the First World in the Game
     QApplication a(argc, argv);

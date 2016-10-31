@@ -15,7 +15,7 @@ private:
 public:
 
     //Constructors
-    WorldObject(): xPos(0),yPos(0),scaling(60),name(""){}
+    WorldObject(): xPos(0),yPos(0),scaling(0),name(""){}
     WorldObject(int newX, int newY, string newName): xPos(newX),yPos(newY), name(newName){}
 
     //Accessors
