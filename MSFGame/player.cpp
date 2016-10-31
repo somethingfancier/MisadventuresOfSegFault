@@ -166,6 +166,7 @@ void Player::timerHitUp()
     }
     player->decY();
     this->updatePos();
+
 }
 
 void Player::timerHitDown()

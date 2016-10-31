@@ -24,6 +24,10 @@ Game::Game(QWidget *parent)
     player->setScore(score);
     player->getPlayer()->setScore(score->getScore());
 
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setFixedSize(1280,720);
+
     this->initialize(1);
 
     timer = new QTimer(this);
@@ -36,16 +40,16 @@ Game::Game(QWidget *parent)
 
 void Game::initialize(int id)
 {
+
+
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1280,720);
     setBackgroundBrush(QBrush(QImage()));
     scene->addItem(this->getPlayer()->getScore());
 
 
+
     setScene(scene);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1280,720);
 
     World* world = universe->getWorld(id);
     setBackgroundBrush(QBrush(QImage(world->getName())));
@@ -77,12 +81,28 @@ void Game::initialize(int id)
 void Game::newWorld()
 {
     if (player->getPlayer()->getY() < 0){
-
-        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),680);
-        player->setPos(player->getPlayer()->getX(),660);
-        this->initialize(2);
+        delete player;
+        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),670);
+        player = new Player(); //
+        player->setPlayer(universe->getPlayer());
+        player->updatePos();
+        player->setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
+        player->setFlag(QGraphicsItem::ItemIsFocusable);
+        player->setFocus();
         player->setWorld(universe->getWorld(2));
+        this->initialize(2);
 
+    } else if (player->getPlayer()->getY() > 720) {
+        delete player;
+        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),40);
+        player = new Player(); //
+        player->setPlayer(universe->getPlayer());
+        player->updatePos();
+        player->setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
+        player->setFlag(QGraphicsItem::ItemIsFocusable);
+        player->setFocus();
+        player->setWorld(universe->getWorld(1));
+        this->initialize(1);
     }
 }
 
