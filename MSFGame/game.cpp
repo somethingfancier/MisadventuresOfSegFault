@@ -41,7 +41,7 @@ Game::Game(QWidget *parent) {
         if (disEnemy) {
             newEnemy->setEnemy(disEnemy);
             newEnemy->setPlayer(player->getPlayer());
-            newEnemy->setTimer(player->getTimer());
+            //newEnemy->setTimer(player->getTimer());
             newEnemy->updatePos();
         }
         scene->addItem(newEnemy);

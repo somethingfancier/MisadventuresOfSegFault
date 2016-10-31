@@ -7,5 +7,4 @@ void WorldCharacter::hit(int attackDamage)
     if(attackDamage > defense){
         health = health - attackDamage + defense;
     }
-
 }
