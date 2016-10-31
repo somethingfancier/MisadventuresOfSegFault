@@ -46,8 +46,15 @@ Game::Game(QWidget *parent) {
             newEnemy->setPlayer(player->getPlayer());
             //newEnemy->setTimer(player->getTimer());
             newEnemy->updatePos();
+            newEnemy->getEnemy()->setAwareness(3);
         }
         scene->addItem(newEnemy);
+    }
+    for (unsigned i=0; i<world->getObstacles().size(); i++) {
+        WorldObstacle* obstacle = world->getObstacles().at(i);
+
+        scene->addRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight(), Qt::NoPen);
+
     }
 
 

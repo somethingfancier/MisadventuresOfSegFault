@@ -5,7 +5,7 @@
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
-    this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(40, 40));
+    this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(60, 60));
     numMoves = 0;
 
     timer = new QTimer(this);

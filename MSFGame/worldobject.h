@@ -15,14 +15,14 @@ private:
 public:
 
     //Constructors
-    WorldObject(): xPos(0),yPos(0),scaling(0),name(""){}
+    WorldObject(): xPos(0),yPos(0),scaling(60),name(""){}
     WorldObject(int newX, int newY, string newName): xPos(newX),yPos(newY), name(newName){}
 
     //Accessors
     int getX(){return xPos;}
     int getY(){return yPos;}
-    int getXScaled(){return (xPos + scaling/2);}
-    int getYScaled(){return (yPos + scaling/2);}
+    int getXScaled(){return (xPos + scaling);}
+    int getYScaled(){return (yPos + scaling);}
     string getName(){return name;}
 
     //Mutators
@@ -34,9 +34,13 @@ public:
 
     //Increment and Decrement x and y pos
     void incX(){xPos++;}
+    void incXX(){xPos = xPos+6;}
     void decX(){xPos--;}
+    void decXX(){xPos = xPos-6;}
     void incY(){yPos++;}
+    void incYY(){yPos = yPos+6;}
     void decY(){yPos--;}
+    void decYY(){yPos = yPos-6;}
 
     //Distance Methods
     double distance(WorldObject*);
