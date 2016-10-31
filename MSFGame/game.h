@@ -30,6 +30,8 @@ public:
         }
     }
 
+    void initialize(int id);
+
 };
 
 #endif // GAME_H

@@ -49,6 +49,8 @@ void Universe::createFirstWorld()
     activeWorld = new World();
     player = new WorldPlayer();
     activeWorld->setId(1);
+    activeWorld->setName(":/images/images/World1.png");
+    activeWorld->setUpWId(2);
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
     WorldObstacle* obsOne = new WorldObstacle();
@@ -168,9 +170,15 @@ void Universe::createFirstWorld()
 
     //Second world information
 
+}
+
+void Universe::createSecondWorld()
+{
     World* worldTwo = new World();
 
     worldTwo->setId(2);
+    worldTwo->setDownWId(1);
+    worldTwo->setName(":/images/images/World2.png");
 
     WorldObstacle* obs1 = new WorldObstacle();
     WorldObstacle* obs2 = new WorldObstacle();
@@ -392,5 +400,6 @@ void Universe::createFirstWorld()
     worldTwo->addObstacle(obs31);
 
     addWorld(worldTwo);
-
 }
+
+
