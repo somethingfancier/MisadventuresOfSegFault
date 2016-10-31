@@ -29,7 +29,6 @@ Game::Game(QWidget *parent) {
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);
 
-
     scene->addItem(player);
 
     World* world = universe->getWorld(1);

@@ -51,6 +51,8 @@ void Universe::createFirstWorld()
     worldOne->setId(1);
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldObstacle* obsOne = new WorldObstacle();
+    WorldObstacle* obsTwo = new WorldObstacle();
 
 
     badGuyOne->setX(200);
@@ -61,6 +63,16 @@ void Universe::createFirstWorld()
 
     worldOne->addCharacter(badGuyOne);
     worldOne->addCharacter(badGuyTwo);
+
+    obsOne->setX(0);
+    obsOne->setY(0);
+    obsOne->setWidth(609);
+    obsOne->setHeight(136);
+
+    obsTwo->setX(0);
+    obsTwo->setY(0);
+    obsTwo->setWidth(609);
+    obsTwo->setHeight(138);
 
 
 
