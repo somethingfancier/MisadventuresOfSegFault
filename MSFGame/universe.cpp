@@ -33,7 +33,7 @@ World *Universe::getWorld(int id)
             return worlds.at(i);
         }
     }
-    //return worlds.at(1);
+    return NULL;
 }
 
 //Adder for worlds
@@ -46,9 +46,9 @@ void Universe::addWorld(World* newWorld)
 //Set up some objects for the first world
 void Universe::createFirstWorld()
 {
-    World* worldOne = new World();
+    activeWorld = new World();
     player = new WorldPlayer();
-    worldOne->setId(1);
+    activeWorld->setId(1);
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
     WorldObstacle* obsOne = new WorldObstacle();
@@ -73,8 +73,8 @@ void Universe::createFirstWorld()
     badGuyTwo->setX(500);
     badGuyTwo->setY(500);
 
-    worldOne->addCharacter(badGuyOne);
-    worldOne->addCharacter(badGuyTwo);
+    activeWorld->addCharacter(badGuyOne);
+    activeWorld->addCharacter(badGuyTwo);
 
     obsOne->setX(0);
     obsOne->setY(0);
@@ -146,23 +146,23 @@ void Universe::createFirstWorld()
     obsFourt->setWidth(84);
     obsFourt->setHeight(108);
 
-    worldOne->addObstacle(obsOne);
-    worldOne->addObstacle(obsTwo);
-    worldOne->addObstacle(obsThree);
-    worldOne->addObstacle(obsFour);
-    worldOne->addObstacle(obsFive);
-    worldOne->addObstacle(obsSix);
-    worldOne->addObstacle(obsSeven);
-    worldOne->addObstacle(obsEight);
-    worldOne->addObstacle(obsNine);
-    worldOne->addObstacle(obsTen);
-    worldOne->addObstacle(obsEle);
-    worldOne->addObstacle(obsTwe);
-    worldOne->addObstacle(obsThir);
-    worldOne->addObstacle(obsFourt);
+    activeWorld->addObstacle(obsOne);
+    activeWorld->addObstacle(obsTwo);
+    activeWorld->addObstacle(obsThree);
+    activeWorld->addObstacle(obsFour);
+    activeWorld->addObstacle(obsFive);
+    activeWorld->addObstacle(obsSix);
+    activeWorld->addObstacle(obsSeven);
+    activeWorld->addObstacle(obsEight);
+    activeWorld->addObstacle(obsNine);
+    activeWorld->addObstacle(obsTen);
+    activeWorld->addObstacle(obsEle);
+    activeWorld->addObstacle(obsTwe);
+    activeWorld->addObstacle(obsThir);
+    activeWorld->addObstacle(obsFourt);
 
 
 
-    addWorld(worldOne);
+    addWorld(activeWorld);
 
 }

@@ -20,9 +20,6 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
     timerthree = new QTimer(this);
     timerthree->setInterval(80);
-
-
-
 }
 
 
@@ -279,6 +276,7 @@ void Player::timerAnimRight()
 
 void Player::timerSwordUp()
 {
+    this->getPlayer()->attack(this->world);
     string str = string(":/images/images/SwordUp") + to_string(animation) + ".png";
     const char * c = str.c_str();
     setPixmap(QPixmap(c).scaled(60,60));
@@ -294,6 +292,7 @@ void Player::timerSwordUp()
 
 void Player::timerSwordDown()
 {
+    this->getPlayer()->attack(this->world);
     string str = string(":/images/images/SwordDown") + to_string(animation) + ".png";
     const char * c = str.c_str();
     setPixmap(QPixmap(c).scaled(60,60));
@@ -309,6 +308,7 @@ void Player::timerSwordDown()
 
 void Player::timerSwordLeft()
 {
+    this->getPlayer()->attack(this->world);
     string str = string(":/images/images/SwordLeft") + to_string(animation) + ".png";
     const char * c = str.c_str();
     setPixmap(QPixmap(c).scaled(60,60));
@@ -324,6 +324,7 @@ void Player::timerSwordLeft()
 
 void Player::timerSwordRight()
 {
+    this->getPlayer()->attack(this->world);
     string str = string(":/images/images/SwordRight") + to_string(animation) + ".png";
     const char * c = str.c_str();
     setPixmap(QPixmap(c).scaled(60,60));

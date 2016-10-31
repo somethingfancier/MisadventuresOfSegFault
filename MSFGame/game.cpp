@@ -18,6 +18,7 @@ Game::Game(QWidget *parent) {
     player->setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
+    player->setWorld(universe->getWorld(1));
     
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1280,720);
@@ -46,11 +47,11 @@ Game::Game(QWidget *parent) {
         }
         scene->addItem(newEnemy);
     }
+
     for (unsigned i=0; i<world->getObstacles().size(); i++) {
         WorldObstacle* obstacle = world->getObstacles().at(i);
 
         scene->addRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight(), Qt::NoPen);
-
     }
 
 

@@ -3,6 +3,7 @@
 
 #include <worldchar.h>
 #include "worlditem.h"
+#include "world.h"
 #include <vector>
 #include <string>
 
@@ -29,7 +30,7 @@ public:
                                                       //(Thus the madness begins)
     void strike(WorldCharacter*);
     bool longAttack();
-    void attack(WorldObject*){}
+    void attack(World*);
 };
 
 #endif // WORLDPLAYER_H

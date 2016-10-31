@@ -12,7 +12,11 @@ void WorldEnemy::strike(WorldCharacter* chosenChar)
 
 void WorldEnemy::attack(WorldObject* obj)
 {
-
+    WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(obj);
+    if(chosenPlayer != NULL)
+    {
+        this->strike(chosenPlayer);
+    }
 }
 
 void WorldEnemy::follow(WorldCharacter* chosenChar)

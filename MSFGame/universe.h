@@ -12,6 +12,7 @@ private:
     WorldPlayer* player;
     static Universe* instance_;
     vector<World*> worlds;
+    World* activeWorld;
     //Score* score;
     //Score* highscore;
 
