@@ -15,6 +15,7 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
     WorldPlayer *player;
     QTimer* timer;
     QTimer* timertwo;
+    int numMoves;
 
 public:
 

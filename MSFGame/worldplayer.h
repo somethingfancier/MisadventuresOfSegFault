@@ -29,6 +29,7 @@ public:
                                                       //(Thus the madness begins)
     void strike(WorldCharacter*);
     bool longAttack();
+    WorldObject* attack(){return NULL;}
 };
 
 #endif // WORLDPLAYER_H
