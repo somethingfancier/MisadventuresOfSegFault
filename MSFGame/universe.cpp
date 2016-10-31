@@ -46,11 +46,11 @@ void Universe::addWorld(World* newWorld)
 //Set up some objects for the first world
 void Universe::createFirstWorld()
 {
-    activeWorld = new World();
+    World* world1= new World();
     player = new WorldPlayer();
-    activeWorld->setId(1);
-    activeWorld->setName(":/images/images/World1.png");
-    activeWorld->setUpWId(2);
+    world1->setId(1);
+    world1->setName(":/images/images/World1.png");
+    world1->setUpWId(2);
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
     WorldObstacle* obsOne = new WorldObstacle();
@@ -75,8 +75,8 @@ void Universe::createFirstWorld()
     badGuyTwo->setX(500);
     badGuyTwo->setY(500);
 
-    activeWorld->addCharacter(badGuyOne);
-    activeWorld->addCharacter(badGuyTwo);
+    world1->addCharacter(badGuyOne);
+    world1->addCharacter(badGuyTwo);
 
     obsOne->setX(0);
     obsOne->setY(0);
@@ -148,29 +148,29 @@ void Universe::createFirstWorld()
     obsFourt->setWidth(84);
     obsFourt->setHeight(108);
 
-    activeWorld->addObstacle(obsOne);
-    activeWorld->addObstacle(obsTwo);
-    activeWorld->addObstacle(obsThree);
-    activeWorld->addObstacle(obsFour);
-    activeWorld->addObstacle(obsFive);
-    activeWorld->addObstacle(obsSix);
-    activeWorld->addObstacle(obsSeven);
-    activeWorld->addObstacle(obsEight);
-    activeWorld->addObstacle(obsNine);
-    activeWorld->addObstacle(obsTen);
-    activeWorld->addObstacle(obsEle);
-    activeWorld->addObstacle(obsTwe);
-    activeWorld->addObstacle(obsThir);
-    activeWorld->addObstacle(obsFourt);
+    world1->addObstacle(obsOne);
+    world1->addObstacle(obsTwo);
+    world1->addObstacle(obsThree);
+    world1->addObstacle(obsFour);
+    world1->addObstacle(obsFive);
+    world1->addObstacle(obsSix);
+    world1->addObstacle(obsSeven);
+    world1->addObstacle(obsEight);
+    world1->addObstacle(obsNine);
+    world1->addObstacle(obsTen);
+    world1->addObstacle(obsEle);
+    world1->addObstacle(obsTwe);
+    world1->addObstacle(obsThir);
+    world1->addObstacle(obsFourt);
 
 
 
-    addWorld(activeWorld);
+    addWorld(world1);
 
-
-    //Second world information
 
 }
+
+    //Second world information
 
 void Universe::createSecondWorld()
 {
@@ -402,4 +402,14 @@ void Universe::createSecondWorld()
     addWorld(worldTwo);
 }
 
+/*int Universe::switchWorld()
+{
+    if (this->getPlayer()->getY() < 0)
+    {
+       return this->activeWorld->getUpWId();
+    }
+    cout << this->activeWorld->getUpWId();
+    return(0);
+}
+*/
 

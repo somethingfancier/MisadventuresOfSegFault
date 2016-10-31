@@ -8,6 +8,7 @@
 
 
 
+
 QSet<Qt::Key> keysPressed;
 
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
@@ -59,6 +60,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
             timer->start();
             connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimUp()));
             timertwo->start();
+
         }
     }
 
@@ -342,4 +344,3 @@ void Player::timerSwordRight()
         animation++;
     }
 }
-

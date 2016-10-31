@@ -12,7 +12,6 @@ private:
     WorldPlayer* player;
     static Universe* instance_;
     vector<World*> worlds;
-    World* activeWorld;
     //Score* highscore;
 
 public:
@@ -36,6 +35,7 @@ public:
     //void Reset();
     void createFirstWorld();
     void createSecondWorld();
+    //int switchWorld();
 
 }; 
 

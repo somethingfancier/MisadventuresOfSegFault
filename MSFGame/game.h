@@ -1,9 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <QObject>
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
+#include <QTimer>
 #include "player.h"
 #include "enemy.h"
 #include "universe.h"
@@ -11,6 +13,7 @@
 
 class Game: public QGraphicsView
 {
+    Q_OBJECT
 public:
     Game (QWidget *parent=0);
 
@@ -19,6 +22,7 @@ public:
     Player *player;
     Enemy *enemy;
     Universe *universe;
+
 
     //Accesors
     Player* getPlayer(){return player;}
@@ -32,6 +36,10 @@ public:
 
     void initialize(int id);
 
+private slots:
+    void newWorld();
+private:
+    QTimer *timer;
 };
 
 #endif // GAME_H

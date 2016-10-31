@@ -16,6 +16,7 @@ class Player: public QObject, public QGraphicsPixmapItem{
     World   *world;
     Score* score;
 
+
 public:
 
     Player(QGraphicsItem * parent=0);
@@ -49,6 +50,7 @@ private slots:
     void timerSwordDown();
     void timerSwordLeft();
     void timerSwordRight();
+
 
 private:
     QTimer* timer;

@@ -1,13 +1,11 @@
 #include "game.h"
-
 #include <QGraphicsTextItem>
 #include <QBrush>
 #include <QImage>
 
 
-
-Game::Game(QWidget *parent) {
-    
+Game::Game(QWidget *parent)
+{
     universe = new Universe();
     universe->createFirstWorld();
     universe->createSecondWorld();
@@ -20,7 +18,7 @@ Game::Game(QWidget *parent) {
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     player->setWorld(universe->getWorld(1));
-    
+
     // create score
     Score* score = new Score();
     player->setScore(score);
@@ -28,8 +26,21 @@ Game::Game(QWidget *parent) {
 
     this->initialize(1);
 
+    timer = new QTimer(this);
+    timer->setInterval(500);
+    connect(timer, SIGNAL(timeout()), this, SLOT(newWorld()));
+    timer->start();
+
+    if (player->getPlayer()->getY() < 0){
+        this->initialize(2);
+    }
+
+
 
     show();
+
+
+
 }
 
 void Game::initialize(int id)
@@ -38,6 +49,7 @@ void Game::initialize(int id)
     scene->setSceneRect(0,0,1280,720);
     setBackgroundBrush(QBrush(QImage()));
     scene->addItem(this->getPlayer()->getScore());
+
 
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -70,3 +82,16 @@ void Game::initialize(int id)
     }
     scene->addItem(player);
 }
+
+void Game::newWorld()
+{
+    if (player->getPlayer()->getY() < 0){
+        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),680);
+        player->setPos(player->getPlayer()->getX(),660);
+        this->initialize(2);
+
+    }
+}
+
+
+
