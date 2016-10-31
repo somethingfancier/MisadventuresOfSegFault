@@ -43,6 +43,7 @@ Game::Game(QWidget *parent) {
             newEnemy->setPlayer(player->getPlayer());
             //newEnemy->setTimer(player->getTimer());
             newEnemy->updatePos();
+            newEnemy->getEnemy()->setAwareness(3);
         }
         scene->addItem(newEnemy);
     }

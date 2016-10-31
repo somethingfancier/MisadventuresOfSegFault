@@ -10,6 +10,11 @@ void WorldEnemy::strike(WorldCharacter* chosenChar)
     }
 }
 
+void WorldEnemy::attack(WorldObject* obj)
+{
+
+}
+
 void WorldEnemy::follow(WorldCharacter* chosenChar)
 {
     WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(chosenChar);
@@ -18,8 +23,8 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
         int hTravel = this->hDistance(chosenPlayer);
         int vTravel = this->vDistance(chosenPlayer);
 
-        if(this->distance(chosenPlayer) < 100*awareness){
-            if (vTravel >= hTravel && vTravel > 10)
+        if(this->distance(chosenPlayer) < 100*awareness && this->distance(chosenPlayer) >= 15){
+            if (vTravel >= hTravel)
             {
                 if (this->compareY(chosenPlayer))
                 {
@@ -32,7 +37,7 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
                     this->incY();
                 }
             }
-            else if(hTravel > vTravel && hTravel > 10)
+            else if(hTravel > vTravel)
             {
                 if (this->compareX(chosenPlayer))
                 {

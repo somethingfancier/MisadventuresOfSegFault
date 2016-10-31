@@ -27,7 +27,7 @@ public:
 
     //Additional Methods
     void strike(WorldCharacter*);
-    WorldObject* attack(){return NULL;}
+    void attack(WorldObject*);
     void follow(WorldCharacter*);
     void wander();
     void move(WorldCharacter*);

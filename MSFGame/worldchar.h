@@ -38,7 +38,7 @@ public:
     void heal(int healPower){health = health + healPower;}
 
     //Methods to Be implemented
-    virtual WorldObject* attack() = 0;
+    virtual void attack(WorldObject*) = 0;
     virtual void strike(WorldCharacter*)=0;
 };
 
