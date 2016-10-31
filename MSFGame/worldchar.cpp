@@ -24,3 +24,5 @@ bool WorldCharacter::isFacing(WorldCharacter* chosenChar)
     }
     return false;
 }
+
+

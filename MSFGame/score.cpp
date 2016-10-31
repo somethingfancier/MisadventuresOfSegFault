@@ -19,7 +19,6 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent) {
 void Score::updateScore()
 {
     setPlainText(QString("SCORE: ") + QString::number(score->getScore()));
-    std::cout << score->getScore();
-    setDefaultTextColor(Qt::black);
+    setDefaultTextColor(Qt::cyan);
     setFont(QFont("utopia", 25, 75));
 }

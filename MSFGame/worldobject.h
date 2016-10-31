@@ -47,6 +47,11 @@ public:
     int vDistance(WorldObject*);
     int hDistance(WorldObject*);
 
+    int vDistance(int,int);
+    int hDistance(int,int);
+
+    bool boardering(WorldObject*);
+
     //Compares the Positions of two worldObjects, returns true if the caller's X or Y is greater than or equal to the WorldObject's
     bool compareX(WorldObject*);
     bool compareY(WorldObject*);

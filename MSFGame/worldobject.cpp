@@ -48,3 +48,8 @@ using namespace std;
      }
      return false;
  }
+
+ bool WorldObject::boardering(WorldObject* obj)
+ {
+     //if(){}
+ }
