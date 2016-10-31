@@ -29,6 +29,9 @@ Game::Game(QWidget *parent) {
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);
 
+    // create score
+    score = new Score();
+    scene->addItem(score);
 
     scene->addItem(player);
 

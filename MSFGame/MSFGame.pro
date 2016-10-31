@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     worldobject.cpp \
     worldobstacle.cpp \
     worldplayer.cpp \
-    enemy.cpp
+    enemy.cpp \
+    score.cpp
 
 HEADERS  += mainwindow.h \
     game.h \

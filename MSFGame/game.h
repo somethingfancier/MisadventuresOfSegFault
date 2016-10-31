@@ -7,6 +7,7 @@
 #include "player.h"
 #include "enemy.h"
 #include "universe.h"
+#include "score.h"
 
 class Game: public QGraphicsView
 {
@@ -18,6 +19,7 @@ public:
     Player *player;
     Enemy *enemy;
     Universe *universe;
+    Score *score;
 
     //Accesors
     Player* getPlayer(){return player;}
