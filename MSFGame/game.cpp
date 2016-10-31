@@ -31,8 +31,10 @@ Game::Game(QWidget *parent) {
     setFixedSize(1280,720);
 
     // create score
-    score = new Score();
+    Score* score = new Score();
+    player->setScore(score);
     scene->addItem(score);
+    player->getPlayer()->setScore(score->getScore());
 
     scene->addItem(player);
 

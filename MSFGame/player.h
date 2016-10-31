@@ -7,12 +7,14 @@
 #include <QKeyEvent>
 #include "worldplayer.h"
 #include "world.h"
+#include "score.h"
 
 class Player: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 
     WorldPlayer *player;
     World   *world;
+    Score* score;
 
 public:
 
@@ -24,10 +26,12 @@ public:
     //Accesors
     WorldPlayer* getPlayer(){return player;}
     QTimer* getTimer(){return timer;}
+    Score* getScore(){return score;}
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
     void setWorld(World* newWorld){world = newWorld;}
+    void setScore(Score* newScore){score = newScore;}
 
     void updatePos(){this->setPos(player->getX() - 15,player->getY() - 15);}
 
