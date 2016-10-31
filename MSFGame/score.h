@@ -2,6 +2,7 @@
 #define SCORE_H
 
 #include <QGraphicsTextItem>
+#include <vector>
 
 class Score: public QGraphicsTextItem {
 
