@@ -9,7 +9,7 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent) {
 
     // draw the text
     setPlainText(QString("SCORE: ") + QString::number(score)); // Score: 0
-    setDefaultTextColor(Qt::black);
+    setDefaultTextColor(Qt::cyan);
     setFont(QFont("utopia", 25, 75));
 }
 
