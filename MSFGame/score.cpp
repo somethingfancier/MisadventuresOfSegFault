@@ -10,8 +10,9 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent) {
     score = new WorldScore();
 
     // draw the text
+
     setPlainText(QString("SCORE: ") + QString::number(score->getScore())); // Score: 0
-    setDefaultTextColor(Qt::black);
+    setDefaultTextColor(Qt::cyan);
     setFont(QFont("utopia", 25, 75));
 }
 

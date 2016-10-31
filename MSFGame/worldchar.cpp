@@ -1,8 +1,7 @@
 #include "worldchar.h"
 #include "worldplayer.h"
 #include "worldenemy.h"
-
-
+#include "score.h"
 #include <cmath>
 #include <iostream>
 
@@ -13,7 +12,6 @@ void WorldCharacter::hit(int attackDamage)
         if (health == 0) {
             this->setDead(true);
         }
-
     }
 }
 
