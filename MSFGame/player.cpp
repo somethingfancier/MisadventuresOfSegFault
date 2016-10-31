@@ -26,7 +26,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
 
 
     if (event->key() == Qt::Key_Left) {
-        if (!timer->isActive() && !event->isAutoRepeat()){
+        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
             player->setOrientation(4);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
@@ -37,7 +37,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
 
     }
     else if (event->key() == Qt::Key_Right) {
-        if (!timer->isActive() && !event->isAutoRepeat()){
+        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
             player->setOrientation(2);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
@@ -48,7 +48,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     }
 
     else if (event->key() == Qt::Key_Up) {
-        if (!timer->isActive() && !event->isAutoRepeat()){
+        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
             player->setOrientation(1);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
@@ -59,7 +59,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     }
 
     else if (event->key() == Qt::Key_Down) {
-        if (!timer->isActive() && !event->isAutoRepeat()){
+        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
             player->setOrientation(3);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
@@ -70,19 +70,19 @@ void Player::keyPressEvent(QKeyEvent *event) {
     }
 
     else if (event->key() == Qt::Key_Space) {
-        if (player->getOrientation() == 1) {        //Up
+        if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 1) {        //Up
             connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordUp()));
             timerthree->start();
         }
-        else if (player->getOrientation() == 2) {   //Right
+        else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 2) {   //Right
             connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordRight()));
             timerthree->start();
         }
-        else if (player->getOrientation() == 3) {   //Down
+        else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 3) {   //Down
             connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordDown()));
             timerthree->start();
         }
-        else if (player->getOrientation() == 4) {   //Left
+        else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 4) {   //Left
             connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordLeft()));
             timerthree->start();
         }
