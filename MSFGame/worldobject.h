@@ -34,9 +34,13 @@ public:
 
     //Increment and Decrement x and y pos
     void incX(){xPos++;}
+    void incXX(){xPos = xPos+6;}
     void decX(){xPos--;}
+    void decXX(){xPos = xPos-6;}
     void incY(){yPos++;}
+    void incYY(){yPos = yPos+6;}
     void decY(){yPos--;}
+    void decYY(){yPos = yPos-6;}
 
     //Distance Methods
     double distance(WorldObject*);
