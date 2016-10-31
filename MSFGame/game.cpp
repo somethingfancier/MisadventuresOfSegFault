@@ -29,7 +29,6 @@ Game::Game(QWidget *parent) {
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);
 
-
     scene->addItem(player);
 
     World* world = universe->getWorld(1);
@@ -46,6 +45,12 @@ Game::Game(QWidget *parent) {
             newEnemy->getEnemy()->setAwareness(3);
         }
         scene->addItem(newEnemy);
+    }
+    for (unsigned i=0; i<world->getObstacles().size(); i++) {
+        WorldObstacle* obstacle = world->getObstacles().at(i);
+
+        scene->addRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight(), Qt::NoPen);
+
     }
 
 
