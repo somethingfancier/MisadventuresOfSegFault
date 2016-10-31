@@ -10,6 +10,7 @@ Game::Game(QWidget *parent) {
     
     universe = new Universe();
     universe->createFirstWorld();
+
     universe->getPlayer()->setCoordinates(100,200);
 
     player = new Player(); //
