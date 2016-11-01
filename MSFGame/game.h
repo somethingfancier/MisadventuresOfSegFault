@@ -40,6 +40,10 @@ private slots:
     void newWorld();
 private:
     QTimer *timer;
+    int currentWUp;
+    int currentWDown;
+    int currentWLeft;
+    int currentWRight;
 };
 
 #endif // GAME_H

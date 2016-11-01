@@ -52,6 +52,13 @@ void Game::initialize(int id)
     setScene(scene);
 
     World* world = universe->getWorld(id);
+
+    //set the world ids that are connected
+    currentWUp = world->getUpWId();
+    currentWDown = world->getDownWId();
+    currentWLeft = world->getLeftWId();
+    currentWRight = world->getRightId();
+
     setBackgroundBrush(QBrush(QImage(world->getName())));
     for (unsigned i=0; i<world->getCharacters().size(); i++) {
         WorldCharacter* enemyData = world->getCharacters().at(i);
@@ -82,15 +89,15 @@ void Game::newWorld()
 {
     if (player->getPlayer()->getY() < 0){
         delete player;
-        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),670);
+        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),680);
         player = new Player(); //
         player->setPlayer(universe->getPlayer());
         player->updatePos();
         player->setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
-        player->setWorld(universe->getWorld(2));
-        this->initialize(2);
+        player->setWorld(universe->getWorld(currentWUp));
+        this->initialize(currentWUp);
 
     } else if (player->getPlayer()->getY() > 720) {
         delete player;
@@ -101,8 +108,32 @@ void Game::newWorld()
         player->setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
-        player->setWorld(universe->getWorld(1));
-        this->initialize(1);
+        player->setWorld(universe->getWorld(currentWDown));
+        this->initialize(currentWDown);
+
+    } else if (player->getPlayer()->getX() < 0) {
+        delete player;
+        universe->getPlayer()->setCoordinates(1240,player->getPlayer()->getY());
+        player = new Player(); //
+        player->setPlayer(universe->getPlayer());
+        player->updatePos();
+        player->setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
+        player->setFlag(QGraphicsItem::ItemIsFocusable);
+        player->setFocus();
+        player->setWorld(universe->getWorld(currentWLeft));
+        this->initialize(currentWLeft);
+
+    }else if (player->getPlayer()->getY() > 720) {
+        delete player;
+        universe->getPlayer()->setCoordinates(40,player->getPlayer()->getY());
+        player = new Player(); //
+        player->setPlayer(universe->getPlayer());
+        player->updatePos();
+        player->setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
+        player->setFlag(QGraphicsItem::ItemIsFocusable);
+        player->setFocus();
+        player->setWorld(universe->getWorld(currentWRight));
+        this->initialize(currentWRight);
     }
 }
 
