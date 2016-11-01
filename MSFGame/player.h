@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QKeyEvent>
+#include <QGraphicsScene>
 #include "worldplayer.h"
 #include "world.h"
 #include "score.h"
@@ -28,6 +29,7 @@ public:
     WorldPlayer* getPlayer(){return player;}
     QTimer* getTimer(){return timer;}
     Score* getScore(){return score;}
+    World* getWorld(){return world;}
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}

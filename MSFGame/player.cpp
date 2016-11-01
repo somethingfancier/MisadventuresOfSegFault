@@ -1,10 +1,13 @@
 #include "player.h"
 #include <QKeyEvent>
+#include <QGraphicsScene>
 #include <QTimer>
 #include <string>
 #include <typeinfo>
 #include "worldplayer.h"
 #include "enemy.h"
+#include "magic.h"
+
 
 
 
@@ -93,6 +96,26 @@ void Player::keyPressEvent(QKeyEvent *event) {
             timerthree->start();
         }
     }
+
+    else if (event->key() == Qt::Key_Alt) {
+
+        Magic * magic = new Magic();
+        if (player->getOrientation() == 1){  //Up
+            magic->setPos(x()+14,y()-8);
+            magic->setDirection(1);
+        } else if (player->getOrientation() ==2) {  //Right
+            magic->setPos(x()+28,y()+20);
+            magic->setDirection(2);
+        } else if (player->getOrientation() ==3) {  //Down
+            magic->setPos(x()+14,y()+30);
+            magic->setDirection(3);
+        } else if (player->getOrientation() ==4) {  //Left
+            magic->setPos(x(),y()+20);
+            magic->setDirection(4);
+        }
+        scene()->addItem(magic);
+
+    }
 }
 
 void Player::keyReleaseEvent(QKeyEvent *event) {
@@ -153,7 +176,7 @@ void Player::timerHitUp()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy)) {
+        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
             timer->stop();
@@ -173,7 +196,7 @@ void Player::timerHitDown()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy)) {
+        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
             timer->stop();
@@ -193,7 +216,7 @@ void Player::timerHitLeft()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy)) {
+        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
             timer->stop();
@@ -212,7 +235,7 @@ void Player::timerHitRight()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy)) {
+        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
             timer->stop();

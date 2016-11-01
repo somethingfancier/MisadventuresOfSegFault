@@ -5,22 +5,6 @@
         <file>images/Exit.png</file>
         <file>images/Load.png</file>
         <file>images/Start.png</file>
-        <file>images/back1.PNG</file>
-        <file>images/back2.PNG</file>
-        <file>images/back3.PNG</file>
-        <file>images/front1.PNG</file>
-        <file>images/front2.PNG</file>
-        <file>images/front3.PNG</file>
-        <file>images/left1.PNG</file>
-        <file>images/left2.PNG</file>
-        <file>images/left3.PNG</file>
-        <file>images/right1.PNG</file>
-        <file>images/right2.PNG</file>
-        <file>images/right3.PNG</file>
-        <file>images/back4.PNG</file>
-        <file>images/front4.PNG</file>
-        <file>images/left4.PNG</file>
-        <file>images/right4.PNG</file>
         <file>images/Dirt.png</file>
         <file>images/DownEdge.png</file>
         <file>images/DownLeftCorner.png</file>
@@ -109,5 +93,21 @@
         <file>images/SwordUp6.png</file>
         <file>images/World1.png</file>
         <file>images/World2.png</file>
+        <file>images/BodySheet.png</file>
+        <file>images/fire1.png</file>
+        <file>images/fire2.png</file>
+        <file>images/fire3.png</file>
+        <file>images/fire4.png</file>
+        <file>images/fire5.png</file>
+        <file>images/fire6.png</file>
+        <file>images/fire7.png</file>
+        <file>images/fire8.png</file>
+        <file>images/fire9.png</file>
+        <file>images/fire10.png</file>
+        <file>images/fire11.png</file>
+        <file>images/fire12.png</file>
+        <file>images/fire13.png</file>
+        <file>images/fire14.png</file>
+        <file>images/fire15.png</file>
     </qresource>
 </RCC>
