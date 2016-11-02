@@ -11,7 +11,7 @@ Game::Game(QWidget *parent)
     universe->createSecondWorld();
     universe->getPlayer()->setCoordinates(100,200);
 
-    player = new Player(); //
+    player = new Player();
     player->setPlayer(universe->getPlayer());
     player->updatePos();
     player->setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
@@ -123,7 +123,7 @@ void Game::newWorld()
         player->setWorld(universe->getWorld(currentWLeft));
         this->initialize(currentWLeft);
 
-    }else if (player->getPlayer()->getY() > 720) {
+    }else if (player->getPlayer()->getX() > 1280) {
         delete player;
         universe->getPlayer()->setCoordinates(40,player->getPlayer()->getY());
         player = new Player(); //
