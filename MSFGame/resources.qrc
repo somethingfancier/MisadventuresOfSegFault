@@ -109,5 +109,6 @@
         <file>images/fire13.png</file>
         <file>images/fire14.png</file>
         <file>images/fire15.png</file>
+        <file>images/heart.png</file>
     </qresource>
 </RCC>

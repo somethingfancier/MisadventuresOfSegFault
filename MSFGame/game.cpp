@@ -89,6 +89,9 @@ void Game::initialize(int id)
         Item* newItem = new Item();
         newItem->setPos(item->getX(), item->getY());
         newItem->setProperty(item->getProperty());
+        string str = string(":/images/images/") + item->getProperty() + ".png";
+        const char * c = str.c_str();
+        newItem->setPixmap(QPixmap(c).scaled(30, 30));
 
         scene->addItem(newItem);
     }
