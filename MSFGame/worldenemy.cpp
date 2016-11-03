@@ -1,5 +1,6 @@
 #include "worldenemy.h"
 #include "worldplayer.h"
+#include <iostream>
 
 void WorldEnemy::strike(WorldCharacter* chosenChar)
 {
@@ -13,7 +14,7 @@ void WorldEnemy::strike(WorldCharacter* chosenChar)
 void WorldEnemy::attack(WorldObject* obj)
 {
     WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(obj);
-    if(chosenPlayer != NULL)
+    if(chosenPlayer != NULL && this->distance(chosenPlayer) <= 15)
     {
         this->strike(chosenPlayer);
     }
@@ -112,6 +113,7 @@ void WorldEnemy::move(WorldCharacter* chosenChar)
     if(chosenPlayer != NULL && this->distance(chosenPlayer) <= 100*this->awareness)
     {
         this->follow(chosenChar);
+        this->attack(chosenChar);
     }
     else
     {
