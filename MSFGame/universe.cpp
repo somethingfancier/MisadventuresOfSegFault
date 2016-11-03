@@ -54,8 +54,10 @@ void Universe::createFirstWorld()
     world1->setDownWId(1);
     world1->setLeftWId(1);
     world1->setRightWId(1);
+
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
+
     WorldObstacle* obsOne = new WorldObstacle();
     WorldObstacle* obsTwo = new WorldObstacle();
     WorldObstacle* obsThree = new WorldObstacle();
@@ -71,6 +73,9 @@ void Universe::createFirstWorld()
     WorldObstacle* obsThir = new WorldObstacle();
     WorldObstacle* obsFourt = new WorldObstacle();
 
+    WorldItem* itemOne = new WorldItem("health", 500, 500);
+
+    world1->addItem(itemOne);
 
     badGuyOne->setX(200);
     badGuyOne->setY(200);

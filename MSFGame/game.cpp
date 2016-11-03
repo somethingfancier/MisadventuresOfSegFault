@@ -76,12 +76,23 @@ void Game::initialize(int id)
     }
 
 
-
+    //Add Obstacles
     for (unsigned i=0; i<world->getObstacles().size(); i++) {
         WorldObstacle* obstacle = world->getObstacles().at(i);
 
         scene->addRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight(), Qt::NoPen);
     }
+
+    //Add Items
+    for (unsigned i=0; i<world->getItems().size(); i++) {
+        WorldItem* item = world->getItems().at(i);
+        Item* newItem = new Item();
+        newItem->setPos(item->getX(), item->getY());
+        newItem->setProperty(item->getProperty());
+
+        scene->addItem(newItem);
+    }
+
     scene->addItem(player);
 }
 

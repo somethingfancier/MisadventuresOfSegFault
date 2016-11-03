@@ -10,6 +10,7 @@
 #include "enemy.h"
 #include "universe.h"
 #include "score.h"
+#include "item.h"
 
 class Game: public QGraphicsView
 {

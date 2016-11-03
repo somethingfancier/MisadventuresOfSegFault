@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     score.cpp \
     highscore.cpp\
     worldscore.cpp\
-    magic.cpp
+    magic.cpp \
+    item.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -49,7 +50,8 @@ HEADERS  += mainwindow.h \
     enemy.h \
     worldscore.h\
     highscore.h\
-    magic.h
+    magic.h \
+    item.h
 
 
 FORMS    += mainwindow.ui

@@ -7,6 +7,7 @@
 #include "worldplayer.h"
 #include "enemy.h"
 #include "magic.h"
+#include "item.h"
 
 
 
@@ -24,6 +25,9 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
     timerthree = new QTimer(this);
     timerthree->setInterval(80);
+
+    timerCooldown = new QTimer(this);
+    timerCooldown->setInterval(1000);
 }
 
 
@@ -99,21 +103,25 @@ void Player::keyPressEvent(QKeyEvent *event) {
 
     else if (event->key() == Qt::Key_Alt) {
 
-        Magic * magic = new Magic();
-        if (player->getOrientation() == 1){  //Up
-            magic->setPos(x()+14,y()-8);
-            magic->setDirection(1);
-        } else if (player->getOrientation() ==2) {  //Right
-            magic->setPos(x()+28,y()+20);
-            magic->setDirection(2);
-        } else if (player->getOrientation() ==3) {  //Down
-            magic->setPos(x()+14,y()+30);
-            magic->setDirection(3);
-        } else if (player->getOrientation() ==4) {  //Left
-            magic->setPos(x(),y()+20);
-            magic->setDirection(4);
+        if (!timerCooldown->isActive()) {
+            connect(timerCooldown, SIGNAL(timeout()), this, SLOT(timerCool()));
+            Magic * magic = new Magic();
+            if (player->getOrientation() == 1) {  //Up
+             magic->setPos(x()+14,y()-8);
+                magic->setDirection(1);
+            } else if (player->getOrientation() ==2) {  //Right
+                magic->setPos(x()+28,y()+20);
+                magic->setDirection(2);
+            } else if (player->getOrientation() ==3) {  //Down
+                magic->setPos(x()+14,y()+30);
+                magic->setDirection(3);
+            } else if (player->getOrientation() ==4) {  //Left
+                magic->setPos(x(),y()+20);
+                magic->setDirection(4);
+            }
+            scene()->addItem(magic);
+            timerCooldown->start();
         }
-        scene()->addItem(magic);
 
     }
 }
@@ -165,8 +173,6 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
             setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
             animation = 1;
          }
-
-
     }
 }
 
@@ -176,7 +182,13 @@ void Player::timerHitUp()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+
+        if (typeid(*(colliding_items[i])) == typeid(Item)) {
+            scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];
+        }
+
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
             timer->stop();
@@ -196,7 +208,14 @@ void Player::timerHitDown()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+
+        if (typeid(*(colliding_items[i])) == typeid(Item)) {
+            scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];
+        }
+
+
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
             timer->stop();
@@ -216,7 +235,13 @@ void Player::timerHitLeft()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+
+        if (typeid(*(colliding_items[i])) == typeid(Item)) {
+            scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];
+        }
+
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
             timer->stop();
@@ -235,7 +260,13 @@ void Player::timerHitRight()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
-        if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+
+        if (typeid(*(colliding_items[i])) == typeid(Item)) {
+            scene()->removeItem(colliding_items[i]);
+            delete colliding_items[i];
+        }
+
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
             timer->stop();
@@ -366,5 +397,16 @@ void Player::timerSwordRight()
         setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
     } else {
         animation++;
+    }
+}
+
+void Player::timerCool()
+{
+    if (mag == false) {
+        mag = true;
+    } else {
+        disconnect(timerCooldown, SIGNAL(timeout()), this, SLOT(timerCool()));
+        timerCooldown->stop();
+        mag = false;
     }
 }

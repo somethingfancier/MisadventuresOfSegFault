@@ -15,10 +15,13 @@ private:
     int defense;      //
     int healing;      //
     string property;  //representing the type of item eg fire, ice, etc
+    int x;
+    int y;
 
 public:
     //Constructor
     WorldItem(): equippable(false),equipped(false),strength(0),defense(0),healing(0),property(""){}
+    WorldItem(string newProp, int newX, int newY): property(newProp), x(newX), y(newY) {}
 
     //Accessors
     bool getEquippable(){return equippable;}
@@ -29,6 +32,9 @@ public:
     int getHealing(){return healing;}
 
     string getProperty(){return property;}
+    int getX(){return x;}
+    int getY(){return y;}
+
 
     //Setters
     void setEquippable(bool newState){equippable = newState;}
@@ -39,6 +45,8 @@ public:
     void setHealing(int newHealing){healing = newHealing;}
 
     void setProperty(string newProperty){property = newProperty;}
+    void setX(int newX){x = newX;}
+    void setY(int newY){y = newY;}
 };
 
 #endif // WORLDITEM_H
