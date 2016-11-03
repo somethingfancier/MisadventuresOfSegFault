@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include "enemy.h"
 #include "player.h"
+#include <iostream>
 
 
 
@@ -21,9 +22,12 @@ void Magic::move(){
         QList<QGraphicsItem *> colliding_items = collidingItems();
         for (int i = 0, n = colliding_items.size(); i<n; ++i) {
             if (typeid(*(colliding_items[i])) == typeid(Enemy)) {
-
+                Enemy* curEnemy = static_cast<Enemy*>(colliding_items.at(i));
+                if(curEnemy != NULL)
+                {
+                    curEnemy->getEnemy()->hit(1);
+                }
 //Insert enemy damage here
-
                 scene()->removeItem(this);
                 delete this;
                 return;
@@ -50,7 +54,11 @@ void Magic::move(){
         for (int i = 0, n = colliding_items.size(); i<n; ++i) {
             if (typeid(*(colliding_items[i])) == typeid(Enemy)) {
 
-//Insert enemy damage here
+                Enemy* curEnemy = static_cast<Enemy*>(colliding_items.at(i));
+                if(curEnemy != NULL)
+                {
+                    curEnemy->getEnemy()->hit(1);
+                }
 
                 scene()->removeItem(this);
                 delete this;
@@ -78,7 +86,11 @@ void Magic::move(){
         for (int i = 0, n = colliding_items.size(); i<n; ++i) {
             if (typeid(*(colliding_items[i])) == typeid(Enemy)) {
 
-//Insert enemy damage here
+                Enemy* curEnemy = static_cast<Enemy*>(colliding_items.at(i));
+                if(curEnemy != NULL)
+                {
+                    curEnemy->getEnemy()->hit(1);
+                }
 
                 scene()->removeItem(this);
                 delete this;
@@ -106,8 +118,11 @@ void Magic::move(){
         for (int i = 0, n = colliding_items.size(); i<n; ++i) {
             if (typeid(*(colliding_items[i])) == typeid(Enemy)) {
 
-//Insert enemy damage here
-
+                Enemy* curEnemy = static_cast<Enemy*>(colliding_items.at(i));
+                if(curEnemy != NULL)
+                {
+                    curEnemy->getEnemy()->hit(1);
+                }
                 scene()->removeItem(this);
                 delete this;
                 return;
