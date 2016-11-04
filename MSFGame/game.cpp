@@ -24,6 +24,11 @@ Game::Game(QWidget *parent)
     player->setScore(score);
     player->getPlayer()->setScore(score->getScore());
 
+    // create lives
+    Lives* lives = new Lives();
+    player->setLives(lives);
+    player->getPlayer()->setLives(lives->getLives());
+
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);

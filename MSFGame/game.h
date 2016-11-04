@@ -11,6 +11,7 @@
 #include "universe.h"
 #include "score.h"
 #include "item.h"
+#include "lives.h"
 
 class Game: public QGraphicsView
 {

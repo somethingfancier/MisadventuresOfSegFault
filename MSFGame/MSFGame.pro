@@ -31,7 +31,9 @@ SOURCES += main.cpp\
     highscore.cpp\
     worldscore.cpp\
     magic.cpp \
-    item.cpp
+    item.cpp \
+    lives.cpp \
+    worldlives.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -51,7 +53,9 @@ HEADERS  += mainwindow.h \
     worldscore.h\
     highscore.h\
     magic.h \
-    item.h
+    item.h \
+    lives.h \
+    worldlives.h
 
 
 FORMS    += mainwindow.ui
