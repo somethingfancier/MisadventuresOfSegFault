@@ -5,6 +5,26 @@
 #include <cmath>
 #include <iostream>
 
+void WorldCharacter::knockBack(WorldCharacter* character)
+{
+    if(orientation == 1)
+    {
+        character->setY(this->getY() - 5);
+    }
+    if(orientation == 2)
+    {
+        character->setX(this->getX() + 5);
+    }
+    if(orientation == 3)
+    {
+        character->setY(this->getY() + 5);
+    }
+    if(orientation == 4)
+    {
+        character->setX(this->getX() - 5);
+    }
+}
+
 void WorldCharacter::hit(int attackDamage)
 {
     if(attackDamage > defense && health > 0){

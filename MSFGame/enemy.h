@@ -15,7 +15,9 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
     WorldPlayer *player;
     QTimer* timer;
     QTimer* timertwo;
+    QTimer* timerthree;
     int numMoves;
+    int animation;
 
 public:
 
@@ -36,6 +38,8 @@ public:
 
 public slots:
     void move();
+    void bounceAnimation();
+    void deathAnimation();
 };
 
 

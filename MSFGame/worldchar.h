@@ -38,6 +38,7 @@ public:
 
     void hit(int attackDamage);
     void heal(int healPower){health = health + healPower;}
+    void knockBack(WorldCharacter*);
 
     //Methods to Be implemented
     virtual void strike(WorldCharacter*)=0;
