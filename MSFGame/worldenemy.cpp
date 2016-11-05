@@ -1,6 +1,9 @@
 #include "worldenemy.h"
 #include "worldplayer.h"
 #include <iostream>
+#include "worldhealth.h"
+#include "world.h"
+#include "worldchar.h"
 
 void WorldEnemy::strike(WorldCharacter* chosenChar)
 {

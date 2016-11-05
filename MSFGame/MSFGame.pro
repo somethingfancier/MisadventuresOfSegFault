@@ -33,7 +33,9 @@ SOURCES += main.cpp\
     magic.cpp \
     item.cpp \
     lives.cpp \
-    worldlives.cpp
+    worldlives.cpp \
+    health.cpp \
+    worldhealth.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -55,7 +57,9 @@ HEADERS  += mainwindow.h \
     magic.h \
     item.h \
     lives.h \
-    worldlives.h
+    worldlives.h \
+    health.h \
+    worldhealth.h
 
 
 FORMS    += mainwindow.ui

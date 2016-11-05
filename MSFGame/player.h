@@ -10,6 +10,7 @@
 #include "world.h"
 #include "score.h"
 #include "lives.h"
+#include "health.h"
 
 class Player: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -18,6 +19,7 @@ class Player: public QObject, public QGraphicsPixmapItem{
     World   *world;
     Score* score;
     Lives* lives;
+    Health* health;
 
 
 public:
@@ -33,12 +35,14 @@ public:
     Score* getScore(){return score;}
     World* getWorld(){return world;}
     Lives* getLives(){return lives;}
+    Health* getHealth(){return health;}
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
     void setWorld(World* newWorld){world = newWorld;}
     void setScore(Score* newScore){score = newScore;}
     void setLives(Lives* newLives){lives = newLives;}
+    void setHealth(Health* newHealth){health = newHealth;}
 
     void updatePos(){this->setPos(player->getX() - 15,player->getY() - 15);}
 

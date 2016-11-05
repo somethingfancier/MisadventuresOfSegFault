@@ -11,7 +11,7 @@ Lives::Lives(QGraphicsItem *parent): QGraphicsTextItem(parent) {
 
     // draw the text
 
-    setPos(1000, 0);
+    setPos(1100, 0);
     setPlainText(QString("LIVES: ") + QString::number(lives->getLives())); // Lives: 0
     setDefaultTextColor(Qt::cyan);
     setFont(QFont("utopia", 25, 75));

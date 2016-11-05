@@ -29,6 +29,11 @@ Game::Game(QWidget *parent)
     player->setLives(lives);
     player->getPlayer()->setLives(lives->getLives());
 
+    // create health
+    Health* health = new Health();
+    player->setHealth(health);
+    player->getPlayer()->setHealth(health->getHealth());
+
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);
@@ -51,6 +56,8 @@ void Game::initialize(int id)
     scene->setSceneRect(0,0,1280,720);
     setBackgroundBrush(QBrush(QImage()));
     scene->addItem(this->getPlayer()->getScore());
+    scene->addItem(this->getPlayer()->getLives());
+    scene->addItem(this->getPlayer()->getHealth());
 
 
 
