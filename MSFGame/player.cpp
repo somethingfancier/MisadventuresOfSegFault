@@ -186,12 +186,22 @@ void Player::timerHitUp()
             delete colliding_items[i];
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+            Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
 
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->incY();
+                }
+            }
+            else if(enemy != nullptr){
+                if(player->isBoardering(enemy->getEnemy())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
                     timer->stop();
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
@@ -217,12 +227,21 @@ void Player::timerHitDown()
         }
 
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
-
+            Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->decY();
+                }
+            }
+            else if(enemy != nullptr){
+                if(player->isBoardering(enemy->getEnemy())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
                     timer->stop();
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
@@ -248,12 +267,22 @@ void Player::timerHitLeft()
             delete colliding_items[i];
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+            Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
 
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->incX();
+                }
+            }
+            else if(enemy != nullptr){
+                if(player->isBoardering(enemy->getEnemy())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
                     timer->stop();
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
@@ -278,12 +307,22 @@ void Player::timerHitRight()
             delete colliding_items[i];
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i])) == typeid(Obstacle)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i])) == typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+            Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
 
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->decX();
+                }
+            }
+            else if(enemy != nullptr){
+                if(player->isBoardering(enemy->getEnemy())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
                     timer->stop();
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));

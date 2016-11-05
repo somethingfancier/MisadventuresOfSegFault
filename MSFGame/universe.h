@@ -36,7 +36,7 @@ public:
 
     //Adders for Vector
     void addWorld(World*);
-    //void Save();
+    void Save();
     //void Load();
     //void Reset();
     void createFirstWorld();
@@ -46,7 +46,6 @@ public:
     void createFifthWorld();
     void createSixthWorld();
     void createEighthWorld();
-
 
 }; 
 

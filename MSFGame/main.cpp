@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
         runUnitTest();
     //}
 
-    Universe::instance().createFirstWorld(); //Creates the Universe and the First World in the Game
+    //Universe::instance()->createFirstWorld(); //Creates the Universe and the First World in the Game
     QApplication a(argc, argv);
     MainWindow w;
     w.setFixedSize(800,600);
