@@ -100,19 +100,20 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
     else if(enemy != nullptr){
         if(orientation == 1)
         {
-            return(this->withinXBound(enemy) && enemy->vSDistance(this) <= 10);
+            return(this->withinXBound(enemy) && enemy->vSDistance(this) > 10 && enemy->isNegativeD());
         }
         else if(orientation == 2)
         {
-            return(this->withinYBound(enemy) && enemy->hSDistance(this) > 10);
+            return(this->withinYBound(enemy) && enemy->hSDistance(this) > 10 && !(enemy->isNegativeD()));
         }
         else if(orientation == 3)
         {
-            return(this->withinXBound(enemy) && enemy->vSDistance(this) > 10);
+            return(this->withinXBound(enemy) && enemy->vSDistance(this) > 10 && !(enemy->isNegativeD()));
         }
         else if(orientation == 4)
         {
-            return(this->withinYBound(enemy) && enemy->hSDistance(this) <= 10);
+            cout << enemy->isNegativeD();
+            return(this->withinYBound(enemy) && enemy->hSDistance(this) > 10 && enemy->isNegativeD());
         }
     }
     else if(player != nullptr){

@@ -12,12 +12,13 @@ private:
     int width;         //accounts for the size of an image being scaled by 60,60 for instance
     int height;
     string name;       //represents the image associated with the object
+    bool negativeD;
 
 
 public:
 
     //Constructors
-    WorldObject(): xPos(0),yPos(0),width(60),height(60),name(""){}
+    WorldObject(): xPos(0),yPos(0),width(60),height(60),name(""), negativeD(false){}
     WorldObject(int newX, int newY, string newName): xPos(newX),yPos(newY), name(newName){}
 
     //Accessors
@@ -28,6 +29,7 @@ public:
     int getWidth(){return width;}
     int getHeight(){return height;}
     string getName(){return name;}
+    bool isNegativeD(){return negativeD;}
 
     //Mutators
     void setX(int newX) {xPos = newX;}
