@@ -68,6 +68,13 @@ public:
     bool compareX(WorldObject*);
     bool compareY(WorldObject*);
 
+    string getData() {
+        string data;
+        data += (to_string(this->getX()) + ","
+                + to_string(this->getY()));
+        return data;
+    }
+
 };
 
 #endif // WORLDOBJECT_H

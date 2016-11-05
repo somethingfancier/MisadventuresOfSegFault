@@ -29,7 +29,11 @@ void MainWindow::on_pbStart_clicked()
 
 void MainWindow::on_pbLoad_clicked()
 {
+    Game *game = new Game();
+    //game->load();
+    game->show();
 
+    QMainWindow::close();
 }
 
 void MainWindow::on_pbControls_clicked()

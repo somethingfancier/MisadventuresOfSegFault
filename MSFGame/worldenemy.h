@@ -34,6 +34,12 @@ public:
     void rotateR();
     void rotateL();
 
+    string getData() {
+        string data = getData();
+        data += to_string(this->isAlerted());
+        return data;
+    }
+
 };
 
 #endif // ENEMY_H
