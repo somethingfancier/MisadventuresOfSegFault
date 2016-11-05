@@ -52,7 +52,7 @@ void Universe::createFirstWorld()
     world1->setName(":/images/images/World1.png");
     world1->setUpWId(2);
     world1->setDownWId(1);
-    world1->setLeftWId(1);
+    world1->setLeftWId(6);
     world1->setRightWId(1);
 
     WorldEnemy* badGuyOne = new WorldEnemy();
@@ -178,23 +178,37 @@ void Universe::createFirstWorld()
 
 }
 
-    //Second world information
+void Universe::createSecondWorld() {
 
-void Universe::createSecondWorld()
+    World* world2 = new World();
+
+    world2->setId(2);
+    world2->setDownWId(1);
+    world2->setLeftWId(5);
+    world2->setRightWId(2);
+    world2->setUpWId(3);
+    world2->setName(":/images/images/World2.png");
+
+    addWorld(world2);
+
+}
+
+
+void Universe::createThirdWorld()
 {
-    World* worldTwo = new World();
+    World* world3 = new World();
 
-    worldTwo->setId(2);
-    worldTwo->setDownWId(1);
-    worldTwo->setLeftWId(2);
-    worldTwo->setRightWId(2);
-    worldTwo->setUpWId(2);
-    worldTwo->setName(":/images/images/World2.png");
+    world3->setId(3);
+    world3->setDownWId(2);
+    world3->setLeftWId(4);
+    world3->setRightWId(3);
+    world3->setUpWId(3);
+    world3->setName(":/images/images/World3.png");
 
 
     WorldObstacle* obs1 = new WorldObstacle();
     WorldObstacle* obs2 = new WorldObstacle();
-    WorldObstacle* obs3 = new WorldObstacle();
+    //WorldObstacle* obs3 = new WorldObstacle();
     WorldObstacle* obs4 = new WorldObstacle();
     WorldObstacle* obs5 = new WorldObstacle();
     WorldObstacle* obs6 = new WorldObstacle();
@@ -234,10 +248,10 @@ void Universe::createSecondWorld()
     obs2->setWidth(124);
     obs2->setHeight(52);
 
-    obs3->setX(0);
-    obs3->setY(247);
-    obs3->setWidth(94);
-    obs3->setHeight(321);
+    //obs3->setX(0);
+    //obs3->setY(247);
+    //obs3->setWidth(94);
+    //obs3->setHeight(321);
 
     obs4->setX(101);
     obs4->setY(233);
@@ -332,7 +346,7 @@ void Universe::createSecondWorld()
     obs22->setX(413);
     obs22->setY(553);
     obs22->setWidth(121);
-    obs22->setHeight(167);
+    obs22->setHeight(90);
 
     obs23->setX(400);
     obs23->setY(398);
@@ -379,49 +393,99 @@ void Universe::createSecondWorld()
     obs31->setWidth(119);
     obs31->setHeight(194);
 
-    worldTwo->addObstacle(obs1);
-    worldTwo->addObstacle(obs2);
-    worldTwo->addObstacle(obs3);
-    worldTwo->addObstacle(obs4);
-    worldTwo->addObstacle(obs5);
-    worldTwo->addObstacle(obs6);
-    worldTwo->addObstacle(obs7);
-    worldTwo->addObstacle(obs8);
-    worldTwo->addObstacle(obs9);
-    worldTwo->addObstacle(obs10);
-    worldTwo->addObstacle(obs11);
-    worldTwo->addObstacle(obs12);
-    worldTwo->addObstacle(obs13);
-    worldTwo->addObstacle(obs14);
-    worldTwo->addObstacle(obs15);
-    worldTwo->addObstacle(obs16);
-    worldTwo->addObstacle(obs17);
-    worldTwo->addObstacle(obs18);
-    worldTwo->addObstacle(obs19);
-    worldTwo->addObstacle(obs20);
-    worldTwo->addObstacle(obs21);
-    worldTwo->addObstacle(obs22);
-    worldTwo->addObstacle(obs23);
-    worldTwo->addObstacle(obs24);
-    worldTwo->addObstacle(obs25);
-    worldTwo->addObstacle(obs26);
-    worldTwo->addObstacle(obs27);
-    worldTwo->addObstacle(obs28);
-    worldTwo->addObstacle(obs29);
-    worldTwo->addObstacle(obs30);
-    worldTwo->addObstacle(obs31);
+    world3->addObstacle(obs1);
+    world3->addObstacle(obs2);
+    //world3->addObstacle(obs3);
+    world3->addObstacle(obs4);
+    world3->addObstacle(obs5);
+    world3->addObstacle(obs6);
+    world3->addObstacle(obs7);
+    world3->addObstacle(obs8);
+    world3->addObstacle(obs9);
+    world3->addObstacle(obs10);
+    world3->addObstacle(obs11);
+    world3->addObstacle(obs12);
+    world3->addObstacle(obs13);
+    world3->addObstacle(obs14);
+    world3->addObstacle(obs15);
+    world3->addObstacle(obs16);
+    world3->addObstacle(obs17);
+    world3->addObstacle(obs18);
+    world3->addObstacle(obs19);
+    world3->addObstacle(obs20);
+    world3->addObstacle(obs21);
+    world3->addObstacle(obs22);
+    world3->addObstacle(obs23);
+    world3->addObstacle(obs24);
+    world3->addObstacle(obs25);
+    world3->addObstacle(obs26);
+    world3->addObstacle(obs27);
+    world3->addObstacle(obs28);
+    world3->addObstacle(obs29);
+    world3->addObstacle(obs30);
+    world3->addObstacle(obs31);
 
-    addWorld(worldTwo);
+    addWorld(world3);
 }
 
-/*int Universe::switchWorld()
-{
-    if (this->getPlayer()->getY() < 0)
-    {
-       return this->activeWorld->getUpWId();
-    }
-    cout << this->activeWorld->getUpWId();
-    return(0);
-}*/
+void Universe::createFourthWorld() {
+
+    World* world4 = new World();
+
+    world4->setId(4);
+    world4->setDownWId(5);
+    world4->setLeftWId(9);
+    world4->setRightWId(3);
+    world4->setUpWId(4);
+    world4->setName(":/images/images/World4.png");
+
+    addWorld(world4);
+
+}
+
+void Universe::createFifthWorld() {
+
+    World* world5 = new World();
+
+    world5->setId(5);
+    world5->setDownWId(6);
+    world5->setLeftWId(8);
+    world5->setRightWId(2);
+    world5->setUpWId(4);
+    world5->setName(":/images/images/World5.png");
+
+    addWorld(world5);
+
+}
+
+void Universe::createSixthWorld() {
+
+    World* world6 = new World();
+
+    world6->setId(6);
+    world6->setDownWId(6);
+    world6->setLeftWId(6);
+    world6->setRightWId(1);
+    world6->setUpWId(5);
+    world6->setName(":/images/images/World6.png");
+
+    addWorld(world6);
+
+}
+
+void Universe::createEighthWorld() {
+
+    World* world8 = new World();
+
+    world8->setId(8);
+    world8->setDownWId(8);
+    world8->setLeftWId(8);
+    world8->setRightWId(5);
+    world8->setUpWId(8);
+    world8->setName(":/images/images/World8.png");
+
+    addWorld(world8);
+
+}
 
 

@@ -10,6 +10,11 @@ Game::Game(QWidget *parent)
     universe = new Universe();
     universe->createFirstWorld();
     universe->createSecondWorld();
+    universe->createThirdWorld();
+    universe->createFourthWorld();
+    universe->createFifthWorld();
+    universe->createSixthWorld();
+    universe->createEighthWorld();
     universe->getPlayer()->setCoordinates(100,200);
 
     player = new Player();
@@ -24,6 +29,16 @@ Game::Game(QWidget *parent)
     Score* score = new Score();
     player->setScore(score);
     player->getPlayer()->setScore(score->getScore());
+
+    // create lives
+    Lives* lives = new Lives();
+    player->setLives(lives);
+    player->getPlayer()->setLives(lives->getLives());
+
+    // create health
+    Health* health = new Health();
+    player->setHealth(health);
+    player->getPlayer()->setHealth(health->getHealth());
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -47,6 +62,8 @@ void Game::initialize(int id)
     scene->setSceneRect(0,0,1280,720);
     setBackgroundBrush(QBrush(QImage()));
     scene->addItem(this->getPlayer()->getScore());
+    scene->addItem(this->getPlayer()->getLives());
+    scene->addItem(this->getPlayer()->getHealth());
 
 
 

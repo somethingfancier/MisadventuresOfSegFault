@@ -35,6 +35,11 @@ public:
     //void Reset();
     void createFirstWorld();
     void createSecondWorld();
+    void createThirdWorld();
+    void createFourthWorld();
+    void createFifthWorld();
+    void createSixthWorld();
+    void createEighthWorld();
 
 
 }; 

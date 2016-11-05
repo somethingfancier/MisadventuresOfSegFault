@@ -34,7 +34,7 @@ public:
     int getUpWId(){return upWId;}
     int getDownWId(){return downWId;}
     int getRightId(){return rightWId;}
-    int getLeftWId(){return upWId;}
+    int getLeftWId(){return leftWId;}
 
     const char* getName(){return name;}
     vector<WorldCharacter*>& getCharacters() { return characters; }

@@ -14,7 +14,7 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+    mainwindow.cpp \
     game.cpp \
     player.cpp \
     universe.cpp \
@@ -32,7 +32,11 @@ SOURCES += main.cpp\
     worldscore.cpp\
     magic.cpp \
     item.cpp \
-    obstacle.cpp
+    obstacle.cpp \
+    lives.cpp \
+    worldlives.cpp \
+    health.cpp \
+    worldhealth.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -53,8 +57,11 @@ HEADERS  += mainwindow.h \
     highscore.h\
     magic.h \
     item.h \
-    obstacle.h
-
+    obstacle.h \
+    lives.h \
+    worldlives.h \
+    health.h \
+    worldhealth.h
 
 FORMS    += mainwindow.ui
 
