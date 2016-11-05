@@ -1,14 +1,6 @@
 #include <iostream>
 #include <QDebug>
 #include "universe.h"
-#include "world.h"
-#include "worldobject.h"
-#include "worldchar.h"
-#include "worldplayer.h"
-#include "worldenemy.h"
-#include "worldnpc.h"
-#include "worlditem.h"
-#include "worldobstacle.h"
 
 using namespace std;
 
@@ -428,7 +420,7 @@ void Universe::createThirdWorld()
     addWorld(world3);
 }
 
-void Universe::createFourthWorld() {
+/*void Universe::createFourthWorld() {
 
     World* world4 = new World();
 
@@ -441,7 +433,7 @@ void Universe::createFourthWorld() {
 
     addWorld(world4);
 
-}
+}*/
 
 void Universe::createFifthWorld() {
 

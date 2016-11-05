@@ -1,9 +1,15 @@
 #ifndef UNIVERSE_H
 #define UNIVERSE_H
 
-#include "world.h"
-#include "worldplayer.h"
 #include "worldscore.h"
+#include "world.h"
+#include "worldobject.h"
+#include "worldchar.h"
+#include "worldplayer.h"
+#include "worldenemy.h"
+#include "worldnpc.h"
+#include "worlditem.h"
+#include "worldobstacle.h"
 
 class Universe{
 

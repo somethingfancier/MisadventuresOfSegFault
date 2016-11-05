@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     lives.cpp \
     worldlives.cpp \
     health.cpp \
-    worldhealth.cpp
+    worldhealth.cpp \
+    saveload.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -59,7 +60,8 @@ HEADERS  += mainwindow.h \
     lives.h \
     worldlives.h \
     health.h \
-    worldhealth.h
+    worldhealth.h \
+    saveload.h
 
 
 FORMS    += mainwindow.ui
