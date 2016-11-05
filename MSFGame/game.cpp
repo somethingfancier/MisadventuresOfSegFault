@@ -7,23 +7,23 @@
 
 Game::Game(QWidget *parent)
 {
-    universe = new Universe();
-    universe->createFirstWorld();
-    universe->createSecondWorld();
-    universe->createThirdWorld();
-    //universe->createFourthWorld();
-    universe->createFifthWorld();
-    universe->createSixthWorld();
-    universe->createEighthWorld();
-    universe->getPlayer()->setCoordinates(100,200);
+
+    Universe::instance().createFirstWorld();
+    Universe::instance().createSecondWorld();
+    Universe::instance().createThirdWorld();
+    //Universe::instance()->createFourthWorld();
+    Universe::instance().createFifthWorld();
+    Universe::instance().createSixthWorld();
+    Universe::instance().createEighthWorld();
+    Universe::instance().getPlayer()->setCoordinates(100,200);
 
     player = new Player();
-    player->setPlayer(universe->getPlayer());
+    player->setPlayer(Universe::instance().getPlayer());
     player->updatePos();
     player->setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    player->setWorld(universe->getWorld(1));
+    player->setWorld(Universe::instance().getWorld(1));
 
     // create score
     Score* score = new Score();
@@ -69,7 +69,7 @@ void Game::initialize(int id)
 
     setScene(scene);
 
-    World* world = universe->getWorld(id);
+    World* world = Universe::instance().getWorld(id);
 
     //set the world ids that are connected
     currentWUp = world->getUpWId();
@@ -125,50 +125,50 @@ void Game::newWorld()
 {
     if (player->getPlayer()->getY() < 0){
         delete player;
-        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),680);
+        Universe::instance().getPlayer()->setCoordinates(player->getPlayer()->getX(),680);
         player = new Player(); //
-        player->setPlayer(universe->getPlayer());
+        player->setPlayer(Universe::instance().getPlayer());
         player->updatePos();
         player->setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
-        player->setWorld(universe->getWorld(currentWUp));
+        player->setWorld(Universe::instance().getWorld(currentWUp));
         this->initialize(currentWUp);
 
     } else if (player->getPlayer()->getY() > 720) {
         delete player;
-        universe->getPlayer()->setCoordinates(player->getPlayer()->getX(),40);
+        Universe::instance().getPlayer()->setCoordinates(player->getPlayer()->getX(),40);
         player = new Player(); //
-        player->setPlayer(universe->getPlayer());
+        player->setPlayer(Universe::instance().getPlayer());
         player->updatePos();
         player->setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
-        player->setWorld(universe->getWorld(currentWDown));
+        player->setWorld(Universe::instance().getWorld(currentWDown));
         this->initialize(currentWDown);
 
     } else if (player->getPlayer()->getX() < 0) {
         delete player;
-        universe->getPlayer()->setCoordinates(1240,player->getPlayer()->getY());
+        Universe::instance().getPlayer()->setCoordinates(1240,player->getPlayer()->getY());
         player = new Player(); //
-        player->setPlayer(universe->getPlayer());
+        player->setPlayer(Universe::instance().getPlayer());
         player->updatePos();
         player->setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
-        player->setWorld(universe->getWorld(currentWLeft));
+        player->setWorld(Universe::instance().getWorld(currentWLeft));
         this->initialize(currentWLeft);
 
     }else if (player->getPlayer()->getX() > 1280) {
         delete player;
-        universe->getPlayer()->setCoordinates(40,player->getPlayer()->getY());
+        Universe::instance().getPlayer()->setCoordinates(40,player->getPlayer()->getY());
         player = new Player(); //
-        player->setPlayer(universe->getPlayer());
+        player->setPlayer(Universe::instance().getPlayer());
         player->updatePos();
         player->setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
-        player->setWorld(universe->getWorld(currentWRight));
+        player->setWorld(Universe::instance().getWorld(currentWRight));
         this->initialize(currentWRight);
     }
 }
