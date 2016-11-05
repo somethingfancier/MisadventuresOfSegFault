@@ -1,6 +1,8 @@
 #include "enemy.h"
 #include "worldenemy.h"
 #include <QTimer>
+#include "obstacle.h"
+#include <typeinfo>
 
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
@@ -31,6 +33,8 @@ void Enemy::setTimer(QTimer* newTimer)
 
 void Enemy::move()
 {
+    QList<QGraphicsItem *> colliding_items = collidingItems();
+
     if(player != NULL && enemy != NULL)
     {
         if(enemy->isDead())
@@ -54,7 +58,25 @@ void Enemy::move()
             timertwo->start();
         }
 
-        enemy->move(player);
+        for (int i = 0, n = colliding_items.size(); i<n; ++i) {
+
+            if (colliding_items[i]) {
+
+                Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+
+                if(obj != nullptr){
+                    if(!(enemy->isBoardering(obj->getObstacle()))){
+                        enemy->move(player);
+                    }
+                }
+            }
+        }
+
+        if(colliding_items.size() == 0){
+            enemy->move(player);
+        }
+
+
         this->updatePos();
         numMoves++;
 

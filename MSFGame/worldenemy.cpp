@@ -13,8 +13,8 @@ void WorldEnemy::strike(WorldCharacter* chosenChar)
 
 void WorldEnemy::attack(WorldObject* obj)
 {
-    WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(obj);
-    if(chosenPlayer != NULL && this->distance(chosenPlayer) <= 15)
+    WorldPlayer* chosenPlayer = dynamic_cast<WorldPlayer*>(obj);
+    if(chosenPlayer != NULL && this->isBoardering(chosenPlayer))
     {
         this->strike(chosenPlayer);
     }
@@ -28,17 +28,17 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
         int hTravel = this->hDistance(chosenPlayer);
         int vTravel = this->vDistance(chosenPlayer);
 
-        if(this->distance(chosenPlayer) < 100*awareness && this->distance(chosenPlayer) >= 15){
+        if(this->distance(chosenPlayer) < 100*awareness){
             if (vTravel >= hTravel)
             {
                 if (this->compareY(chosenPlayer))
                 {
-                    this->setOrientation(3);
+                    this->setOrientation(1);
                     this->decY();
                 }
                 else
                 {
-                    this->setOrientation(1);
+                    this->setOrientation(3);
                     this->incY();
                 }
             }

@@ -9,28 +9,33 @@ class WorldObject{
 private:
     int xPos;          //x coordinate of object
     int yPos;          //y coordinate of object
-    int scaling;       //accounts for the size of an image being scaled by 60,60 for instance
+    int width;         //accounts for the size of an image being scaled by 60,60 for instance
+    int height;
     string name;       //represents the image associated with the object
+
 
 public:
 
     //Constructors
-    WorldObject(): xPos(0),yPos(0),scaling(60),name(""){}
+    WorldObject(): xPos(0),yPos(0),width(60),height(60),name(""){}
     WorldObject(int newX, int newY, string newName): xPos(newX),yPos(newY), name(newName){}
 
     //Accessors
-    int getX(){return xPos;}
-    int getY(){return yPos;}
-    int getXScaled(){return (xPos + scaling);}
-    int getYScaled(){return (yPos + scaling);}
+    virtual int getX(){return xPos;}
+    virtual int getY(){return yPos;}
+    int getXScaled(){return (xPos + width);}
+    int getYScaled(){return (yPos + height);}
+    int getWidth(){return width;}
+    int getHeight(){return height;}
     string getName(){return name;}
 
     //Mutators
     void setX(int newX) {xPos = newX;}
     void setY(int newY) {yPos = newY;}
     void setName(string newName){name = newName;}
-    void setScaling(int newScaling){scaling = newScaling;}
     void setCoordinates(int, int);
+    void setWidth(int newWidth){width = newWidth;}
+    void setHeight(int newHeight){height = newHeight;}
 
     //Increment and Decrement x and y pos
     void incX(){xPos++;}
@@ -47,10 +52,17 @@ public:
     int vDistance(WorldObject*);
     int hDistance(WorldObject*);
 
-    int vDistance(int,int);
-    int hDistance(int,int);
+    int hSDistance(WorldObject*);
+    int vSDistance(WorldObject*);
 
-    bool boardering(WorldObject*);
+    int hSSDistance(WorldObject*);
+    int vSSDistance(WorldObject*);
+
+    bool withinXBound(WorldObject*);
+    bool withinYBound(WorldObject *);
+
+    bool withinXSBound(WorldObject*);
+    bool withinYSBound(WorldObject *);
 
     //Compares the Positions of two worldObjects, returns true if the caller's X or Y is greater than or equal to the WorldObject's
     bool compareX(WorldObject*);

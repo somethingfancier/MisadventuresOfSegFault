@@ -8,10 +8,8 @@
 #include "enemy.h"
 #include "magic.h"
 #include "item.h"
-
-
-
-
+#include "obstacle.h"
+#include <iostream>
 
 QSet<Qt::Key> keysPressed;
 
@@ -38,11 +36,11 @@ void Player::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Left) {
         if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
-            player->setOrientation(4);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
-            timer->start();
             connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+
             timertwo->start();
+            timer->start();
 
 
         }
@@ -51,22 +49,22 @@ void Player::keyPressEvent(QKeyEvent *event) {
     else if (event->key() == Qt::Key_Right) {
         if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
-            player->setOrientation(2);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
-            timer->start();
             connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimRight()));
+
             timertwo->start();
+            timer->start();
         }
     }
 
     else if (event->key() == Qt::Key_Up) {
         if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
-            player->setOrientation(1);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
-            timer->start();
             connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimUp()));
+
             timertwo->start();
+            timer->start();
 
         }
     }
@@ -74,11 +72,10 @@ void Player::keyPressEvent(QKeyEvent *event) {
     else if (event->key() == Qt::Key_Down) {
         if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
-            player->setOrientation(3);
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
-            timer->start();
             connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimDown()));
             timertwo->start();
+            timer->start();
         }
     }
 
@@ -181,6 +178,7 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
 void Player::timerHitUp()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
+    player->setOrientation(1);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
@@ -188,25 +186,29 @@ void Player::timerHitUp()
             delete colliding_items[i];
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle)) {
 
-            disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
-            timer->stop();
-            disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimUp()));
-            timertwo->stop();
-            player->incYY();
-            this->updatePos();
-            return;
+            Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+
+            if(obj != nullptr){
+                if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->incY();
+                }
+            }
         }
     }
     player->decY();
     this->updatePos();
-
 }
 
 void Player::timerHitDown()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
+    player->setOrientation(3);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
@@ -215,15 +217,19 @@ void Player::timerHitDown()
         }
 
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle)) {
 
-            disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
-            timer->stop();
-            disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimDown()));
-            timertwo->stop();
-            player->decYY();
-            this->updatePos();
-            return;
+            Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+
+            if(obj != nullptr){
+                if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->decY();
+                }
+            }
         }
     }
     player->incY();
@@ -234,6 +240,7 @@ void Player::timerHitDown()
 void Player::timerHitLeft()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
+    player->setOrientation(4);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
@@ -241,15 +248,19 @@ void Player::timerHitLeft()
             delete colliding_items[i];
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle)) {
 
-            disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
-            timer->stop();
-            disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
-            timertwo->stop();
-            player->incXX();
-            this->updatePos();
-            return;
+            Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+
+            if(obj != nullptr){
+                if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->incX();
+                }
+            }
         }
     }
     player->decX();
@@ -259,6 +270,7 @@ void Player::timerHitLeft()
 void Player::timerHitRight()
 {
     QList<QGraphicsItem *> colliding_items = collidingItems();
+    player->setOrientation(2);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
@@ -266,18 +278,23 @@ void Player::timerHitRight()
             delete colliding_items[i];
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Enemy) && typeid(*(colliding_items[i]))!= typeid(Magic)) {
+        else if (colliding_items[i] && typeid(*(colliding_items[i])) == typeid(Obstacle)) {
 
-            disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
-            timer->stop();
-            disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimRight()));
-            timertwo->stop();
-            player->decXX();
-            this->updatePos();
-            return;
+            Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+
+            if(obj != nullptr){
+                if(player->isBoardering(obj->getObstacle())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->decX();
+                }
+            }
         }
     }
     player->incX();
+    player->setDirections();
     this->updatePos();
 
 }

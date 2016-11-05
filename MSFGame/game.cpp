@@ -2,6 +2,7 @@
 #include <QGraphicsTextItem>
 #include <QBrush>
 #include <QImage>
+#include <obstacle.h>
 
 
 Game::Game(QWidget *parent)
@@ -78,9 +79,13 @@ void Game::initialize(int id)
 
     //Add Obstacles
     for (unsigned i=0; i<world->getObstacles().size(); i++) {
-        WorldObstacle* obstacle = world->getObstacles().at(i);
-
-        scene->addRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight(), Qt::NoPen);
+        WorldObstacle* obstacle = new WorldObstacle;
+        obstacle = world->getObstacles().at(i);
+        Obstacle* obj = new Obstacle();
+        obj->setRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight());
+        obj->setObstacle(obstacle);
+        obj->setPen(Qt::NoPen);
+        scene->addItem(obj);
     }
 
     //Add Items

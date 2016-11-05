@@ -27,7 +27,7 @@ void WorldPlayer::attack(World* world)
 
        if(chosenEnemy != NULL && !(chosenEnemy->isDead()))
        {
-           if(this->distance(chosenEnemy) < 20 && this->isFacing(chosenEnemy))
+           if(this->isBoardering(chosenEnemy))
            {
                this->strike(chosenEnemy);
            }

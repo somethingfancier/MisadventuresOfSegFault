@@ -46,6 +46,14 @@ static void runUnitTest()
     playerOne->strike(badDude);
     assert(badDude->getHealth()==2);
 
+    badDude->setCoordinates(60,70);
+    assert(playerOne->withinXBound(badDude));
+    assert(!playerOne->withinYBound(badDude));
+    assert(!(playerOne->isBoardering(badDude)));
+    playerOne->setOrientation(3);
+    assert(playerOne->isBoardering(badDude));
+
+
     delete galaxy;
     delete aWholeNewWorld;
     delete playerOne;
