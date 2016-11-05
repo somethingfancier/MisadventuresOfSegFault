@@ -110,5 +110,12 @@
         <file>images/fire14.png</file>
         <file>images/fire15.png</file>
         <file>images/heart.png</file>
+        <file>images/World3.png</file>
+        <file>images/World5.png</file>
+        <file>images/World6.png</file>
+        <file>images/World8.png</file>
+        <file>images/npc1.png</file>
+        <file>images/npc2.png</file>
+        <file>images/npc3.png</file>
     </qresource>
 </RCC>
