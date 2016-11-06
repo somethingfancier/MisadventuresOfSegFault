@@ -51,12 +51,16 @@ void Player::keyPressEvent(QKeyEvent *event) {
         msg.addButton(trUtf8("Resume"),QMessageBox::NoRole);
         QAbstractButton *btSave = msg.addButton(QMessageBox::Save);
         QAbstractButton *btHelp = msg.addButton(QMessageBox::Help);
+        QAbstractButton *btCheat = msg.addButton(trUtf8("Cheat Mode"),QMessageBox::YesRole);
         QAbstractButton *btExit = msg.addButton(trUtf8("Exit Game"),QMessageBox::YesRole);
         msg.setDefaultButton(QMessageBox::Save);
         msg.exec();
         if(msg.clickedButton() == btSave){
           // do save stuff
-        } else if (msg.clickedButton() == btHelp){
+        } else if (msg.clickedButton() == btCheat){
+            setHealth(100);
+            getPlayer()->setHealth(100->getHealth());
+        }else if (msg.clickedButton() == btHelp){
             QMessageBox ms;
             ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
             ms.exec();
@@ -219,12 +223,12 @@ void Player::timerHitUp()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                //delete colliding_items[i];
-                //scene()->removeItem(colliding_items[i]);
+                delete colliding_items[i];
+                scene()->removeItem(colliding_items[i]);
             }
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
+        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
@@ -266,13 +270,13 @@ void Player::timerHitDown()
                 player->setItem(item->getItem());
                 cout << player->getItem()->getProperty();
                 player->applyItem();
-                //delete colliding_items[i];
+                delete colliding_items[i];
                 scene()->removeItem(colliding_items[i]);
             }
         }
 
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
+        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
@@ -312,12 +316,12 @@ void Player::timerHitLeft()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                //delete colliding_items[i];
-                //scene()->removeItem(colliding_items[i]);
+                delete colliding_items[i];
+                scene()->removeItem(colliding_items[i]);
             }
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
+        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
@@ -357,12 +361,12 @@ void Player::timerHitRight()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                //delete colliding_items[i];
-                //scene()->removeItem(colliding_items[i]);
+                delete colliding_items[i];
+                scene()->removeItem(colliding_items[i]);
             }
         }
 
-        else if (colliding_items[i] && typeid(*(colliding_items[i])) == typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
+        else if (colliding_items[i] && (typeid(*(colliding_items[i])) == typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
