@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+static QWidget* mw;
+
 namespace Ui {
 class MainWindow;
 
