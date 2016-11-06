@@ -37,7 +37,7 @@ public:
     //Adders for Vector
     void addWorld(World*);
     void Save();
-    //void Load();
+    void Load();
     //void Reset();
     void createFirstWorld();
     void createSecondWorld();

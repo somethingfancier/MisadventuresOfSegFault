@@ -39,7 +39,7 @@ void MainWindow::on_pbLoad_clicked()
 void MainWindow::on_pbControls_clicked()
 {
     QMessageBox msg;
-    msg.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
+    msg.setText("Controls: \n\n*Move - Arrow Keys \n*Melee Attack - Spacebar \n*Ranged Attack - Alt Key \n*Pause - Esc Key");
     msg.exec();
 }
 
