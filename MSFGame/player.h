@@ -38,7 +38,7 @@ public:
     Health* getHealth(){return health;}
 
     //Mutators
-    void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
+    void setPlayer(WorldPlayer* newPlayer){player = newPlayer; player->setWidth(this->pixmap().width()); player->setHeight(this->pixmap().height());}
     void setWorld(World* newWorld){world = newWorld;}
     void setScore(Score* newScore){score = newScore;}
     void setLives(Lives* newLives){lives = newLives;}

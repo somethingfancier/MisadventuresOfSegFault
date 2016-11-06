@@ -18,6 +18,8 @@ public:
 
 
     NPC(QGraphicsItem * parent=0);
+    WorldNPC* getNPC(){return npc;}
+    void setNPC(WorldNPC* newNPC){npc = newNPC;}
 
     void setAdvice(string newAdv) {advice = newAdv;}
 
