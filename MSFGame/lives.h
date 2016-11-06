@@ -15,6 +15,7 @@ public:
 
     WorldLives* getLives(){return lives;}
     void updateLives();
+    void setLives(WorldLives* newLives){lives = newLives;}
     void Save();
     void Load();
 };

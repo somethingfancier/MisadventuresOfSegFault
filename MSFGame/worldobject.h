@@ -72,8 +72,7 @@ public:
 
     virtual string getData() {
         string data;
-        data += (to_string(this->getX()) + ","
-                + to_string(this->getY()));
+        data = data + (to_string(this->getX()) + "," + to_string(this->getY()));
         return data;
     }
 

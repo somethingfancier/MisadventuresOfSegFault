@@ -15,6 +15,7 @@ public:
 
     WorldHealth* getHealth(){return health;}
     void updateHealth();
+    void setHeath(WorldHealth* newHealth){health = newHealth;}
     void Save();
     void Load();
 };

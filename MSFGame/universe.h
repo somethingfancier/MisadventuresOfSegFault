@@ -15,6 +15,7 @@ class Universe{
 
 private:
     int numWorlds;
+    int currentWorld;
     WorldPlayer* player;
     static Universe* instance_;
     vector<World*> worlds;

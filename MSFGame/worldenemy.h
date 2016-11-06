@@ -11,19 +11,22 @@ private:
     string property;
     double awareness;
     bool alerted;
+    bool canAttack;
 
 public:
     //Constructor
-    WorldEnemy():property(""), awareness(1), alerted(false){this->setHealth(3); this->setName(":/images/images/Slime");}
+    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(false){this->setHealth(3); this->setName(":/images/images/Slime");}
 
     //Accessor
     string getProperty() {return property;}
     bool isAlerted(){return alerted;}
+    bool engaged(){return canAttack;}
 
     //Mutator
     void setProperty(string newProperty) {property = newProperty;}
     void setAwareness(double newAwareness) {awareness = newAwareness;}
     void setAlerted(bool newState){alerted = newState;}
+    void setAttack(bool newState){canAttack = newState;}
 
     //Additional Methods
     void strike(WorldCharacter*);

@@ -37,9 +37,9 @@ public:
     int getLeftWId(){return leftWId;}
 
     const char* getName(){return name;}
-    vector<WorldCharacter*>& getCharacters() { return characters; }
-    vector<WorldItem*>& getItems() { return items; }
-    vector<WorldObstacle*>& getObstacles() { return obstacles; }
+    vector<WorldCharacter*> getCharacters() { return characters; }
+    vector<WorldItem*> getItems() { return items; }
+    vector<WorldObstacle*> getObstacles() { return obstacles; }
 
     //Mutators
     void setId(int newId){id = newId;}

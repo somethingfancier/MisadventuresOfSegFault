@@ -10,4 +10,5 @@ public:
     int getScore();
 };
 
+
 #endif // WORLDSCORE_H

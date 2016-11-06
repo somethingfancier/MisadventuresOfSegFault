@@ -49,6 +49,7 @@ void Universe::createFirstWorld()
 
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldNPC* goodGuy = new WorldNPC();
 
     WorldObstacle* obsOne = new WorldObstacle();
     WorldObstacle* obsTwo = new WorldObstacle();
@@ -65,7 +66,9 @@ void Universe::createFirstWorld()
     WorldObstacle* obsThir = new WorldObstacle();
     WorldObstacle* obsFourt = new WorldObstacle();
 
-    WorldItem* itemOne = new WorldItem("heart", 1020, 230);
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("heart");
+    itemOne->setCoordinates(1020, 230);
 
     world1->addItem(itemOne);
 
@@ -75,8 +78,13 @@ void Universe::createFirstWorld()
     badGuyTwo->setX(500);
     badGuyTwo->setY(500);
 
+    goodGuy->setX(1020);
+    goodGuy->setY(180);
+    goodGuy->setName("npc1");
+
     world1->addCharacter(badGuyOne);
     world1->addCharacter(badGuyTwo);
+    world1->addCharacter(goodGuy);
 
     obsOne->setX(0);
     obsOne->setY(0);

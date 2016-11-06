@@ -34,3 +34,12 @@ void WorldPlayer::attack(World* world)
        }
     }
 }
+
+void WorldPlayer::applyItem()
+{
+    if(equippedItem != NULL){
+        if(equippedItem->getProperty() == "heart"){
+            this->getLives()->increase(1);
+        }
+    }
+}
