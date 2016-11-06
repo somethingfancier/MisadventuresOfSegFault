@@ -19,6 +19,8 @@ public:
 
     NPC(QGraphicsItem * parent=0);
 
+    string getAdvice(){return advice;}
+
     void setAdvice(string newAdv) {advice = newAdv;}
 
 
