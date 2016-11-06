@@ -32,11 +32,13 @@ using namespace std;
 
  int WorldObject::hSDistance(WorldObject *otherObj)
  {
+     negativeD = (this->getX() < otherObj->getX());
      return abs(this->getXScaled()-otherObj->getX());
  }
 
  int WorldObject::vSDistance(WorldObject *otherObj)
  {
+     negativeD = (this->getY() < otherObj->getY());
      return abs(this->getYScaled()- otherObj->getY());
  }
 
@@ -52,32 +54,16 @@ using namespace std;
 
  bool WorldObject::withinXBound(WorldObject *obj)
  {
-     if(this->getWidth() <= obj->getWidth())
-     {
-         int cmpWidthT = obj->hSDistance(this) + this->hDistance(obj);
-         int cmpWidthB = obj->hSSDistance(this) + this->hSDistance(obj);
-         return(cmpWidthT == obj->getWidth() || cmpWidthB == obj->getWidth());
-     }
-     else
-     {
-        int cmpWidth = this->hSDistance(obj) + obj->hDistance(this);
-        return(cmpWidth == this->getWidth());
-     }
+     int cmpWidthT = obj->hSDistance(this) + this->hDistance(obj);
+     int cmpWidthB = obj->hSSDistance(this) + this->hSDistance(obj);
+     return(cmpWidthT == obj->getWidth() || cmpWidthB == obj->getWidth());
  }
 
  bool WorldObject::withinYBound(WorldObject *obj)
  {
-     if(this->getHeight() <= obj->getHeight())
-     {
-         int cmpHeightT = obj->vSDistance(this) + this->vDistance(obj);
-         int cmpHeightB = obj->vSSDistance(this) + this->vSDistance(obj);
-         return(cmpHeightT == obj->getHeight() || cmpHeightB == obj->getHeight());
-     }
-     else
-     {
-        int cmpHeight = obj->vSDistance(this) + obj->vDistance(this);
-        return(cmpHeight == this->getHeight());
-     }
+     int cmpHeightT = obj->vSDistance(this) + this->vDistance(obj);
+     int cmpHeightB = obj->vSSDistance(this) + this->vSDistance(obj);
+     return(cmpHeightT == obj->getHeight() || cmpHeightB == obj->getHeight());
 
  }
 
