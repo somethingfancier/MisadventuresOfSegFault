@@ -4,15 +4,14 @@
 #include <QImage>
 #include <obstacle.h>
 #include <iostream>
-
+#include <QCloseEvent>
 
 Game::Game(QWidget *parent)
 {
-
     Universe::instance().createFirstWorld();
     Universe::instance().createSecondWorld();
     Universe::instance().createThirdWorld();
-    //Universe::instance()->createFourthWorld();
+    Universe::instance().createFourthWorld();
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();
@@ -122,6 +121,7 @@ void Game::initialize(int id)
     }
 
     scene->addItem(player);
+
 }
 
 void Game::newWorld()
@@ -177,4 +177,9 @@ void Game::newWorld()
 }
 
 
+void closeEvent(QCloseEvent *event) {
+    if (event->Close) {
+        Universe::instance().Save();
+    }
 
+}

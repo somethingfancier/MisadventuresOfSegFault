@@ -21,6 +21,7 @@ public:
     //Accessors
     string getAdvice(){return advice;}
     WorldItem* getItem(){return giveableItem;}
+    bool hasGivenItem(){return gaveItem;}
 
     //Mutators
     void setAdvice(string newAdvice){advice = newAdvice;}

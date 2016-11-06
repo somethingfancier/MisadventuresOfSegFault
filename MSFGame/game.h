@@ -13,6 +13,7 @@
 #include "item.h"
 #include "lives.h"
 #include "health.h"
+#include "QCloseEvent"
 
 class Game: public QGraphicsView
 {
@@ -38,6 +39,8 @@ public:
     }
 
     void initialize(int id);
+
+    virtual void closeEvent(QCloseEvent *) { }
 
 private slots:
     void newWorld();

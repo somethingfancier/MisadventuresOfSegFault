@@ -18,7 +18,7 @@ Universe& Universe::instance()
     return *instance_;
 }
 
-World *Universe::getWorld(int id)
+World* Universe::getWorld(int id)
 {
     for (unsigned i=0; i<worlds.size(); i++) {
         if (worlds.at(i)->getId() == id) {
@@ -422,7 +422,7 @@ void Universe::createThirdWorld()
     addWorld(world3);
 }
 
-/*void Universe::createFourthWorld() {
+void Universe::createFourthWorld() {
 
     World* world4 = new World();
 
@@ -431,11 +431,11 @@ void Universe::createThirdWorld()
     world4->setLeftWId(9);
     world4->setRightWId(3);
     world4->setUpWId(4);
-    world4->setName(":/images/images/World4.png");
+    //world4->setName(":/images/images/World4.png");
 
     addWorld(world4);
 
-}*/
+}
 
 void Universe::createFifthWorld() {
 
@@ -480,6 +480,19 @@ void Universe::createEighthWorld() {
 
     addWorld(world8);
 
+}
+
+void Universe::Save()
+{
+    cout << player->getData();
+    for (int i = 0; i < Universe::instance().getWorld(1)->getCharacters().size(); i++) {
+        WorldCharacter* enemy1 = Universe::instance().getWorld(1)->getCharacters().at(i);
+        cout << enemy1->getData();
+    }
+    for (int i = 0; i < Universe::instance().getWorld(1)->getItems().size(); i++) {
+        WorldItem* item1 = Universe::instance().getWorld(1)->getItems().at(i);
+        cout << item1->getData();
+    }
 }
 
 

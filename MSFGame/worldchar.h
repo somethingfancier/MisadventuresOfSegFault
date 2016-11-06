@@ -64,10 +64,10 @@ public:
     //Methods to Be implemented
     virtual void strike(WorldCharacter*)=0;
 
-    virtual string getData() {
+    string getData() {
 
-        string data = getData();
-        data += (to_string(this->getHealth()) + ","
+        string data = WorldObject::getData();
+        data += ("," + to_string(this->getHealth()) + ","
                 + to_string(this->getStrength()) + ","
                 + to_string(this->getDefense()) + ","
                 + to_string(this->getOrientation()) + ","

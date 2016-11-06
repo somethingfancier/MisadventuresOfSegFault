@@ -1,34 +1,15 @@
 <RCC>
     <qresource prefix="/images">
-        <file>images/color.jpg</file>
         <file>images/Controls.png</file>
         <file>images/Exit.png</file>
         <file>images/Load.png</file>
         <file>images/Start.png</file>
-        <file>images/Dirt.png</file>
-        <file>images/DownEdge.png</file>
-        <file>images/DownLeftCorner.png</file>
-        <file>images/DownLeftEdge.png</file>
-        <file>images/DownRightCorner.png</file>
-        <file>images/DownRightEdge.png</file>
-        <file>images/Grass1.png</file>
-        <file>images/Grass2.png</file>
-        <file>images/LeftEdge.png</file>
-        <file>images/LeftEdge2.png</file>
-        <file>images/LeftRightRoad.png</file>
-        <file>images/RightEdge.png</file>
         <file>images/Slime1.png</file>
         <file>images/Slime2.png</file>
         <file>images/SlimeBurst1.png</file>
         <file>images/SlimeBurst2.png</file>
         <file>images/SlimeBurst3.png</file>
         <file>images/SlimeMove.png</file>
-        <file>images/UpDownRoad.png</file>
-        <file>images/UpEdge.png</file>
-        <file>images/UpLeftCorner.png</file>
-        <file>images/UpLeftEdge.png</file>
-        <file>images/UpRightCorner.png</file>
-        <file>images/UpRightEdge.png</file>
         <file>images/WalkDown1.png</file>
         <file>images/WalkDown2.png</file>
         <file>images/WalkDown3.png</file>
@@ -92,7 +73,6 @@
         <file>images/SwordUp5.png</file>
         <file>images/SwordUp6.png</file>
         <file>images/World1.png</file>
-        <file>images/BodySheet.png</file>
         <file>images/fire1.png</file>
         <file>images/fire2.png</file>
         <file>images/fire3.png</file>
@@ -116,5 +96,6 @@
         <file>images/npc1.png</file>
         <file>images/npc2.png</file>
         <file>images/npc3.png</file>
+        <file>images/World2.png</file>
     </qresource>
 </RCC>
