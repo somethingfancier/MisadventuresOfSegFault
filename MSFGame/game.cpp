@@ -3,6 +3,7 @@
 #include <QBrush>
 #include <QImage>
 #include <obstacle.h>
+#include <QCloseEvent>
 
 
 Game::Game(QWidget *parent)
@@ -119,6 +120,7 @@ void Game::initialize(int id)
     }
 
     scene->addItem(player);
+
 }
 
 void Game::newWorld()
@@ -174,4 +176,9 @@ void Game::newWorld()
 }
 
 
+void closeEvent(QCloseEvent *event) {
+    if (event->Close) {
+        Universe::instance().Save();
+    }
 
+}

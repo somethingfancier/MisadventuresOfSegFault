@@ -35,8 +35,8 @@ public:
     void rotateL();
 
     string getData() {
-        string data = getData();
-        data += to_string(this->isAlerted());
+        string data = WorldCharacter::getData();
+        data += "," + to_string(this->isAlerted());
         return data;
     }
 

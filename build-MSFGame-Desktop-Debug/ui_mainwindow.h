@@ -58,12 +58,12 @@ public:
         pbExit->setIconSize(QSize(160, 40));
         pbControls = new QPushButton(widget);
         pbControls->setObjectName(QStringLiteral("pbControls"));
-        pbControls->setGeometry(QRect(310, 400, 191, 61));
+        pbControls->setGeometry(QRect(280, 400, 251, 61));
         pbControls->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/images/images/Controls.png"), QSize(), QIcon::Normal, QIcon::Off);
         pbControls->setIcon(icon1);
-        pbControls->setIconSize(QSize(160, 50));
+        pbControls->setIconSize(QSize(224, 70));
         pbLoad = new QPushButton(widget);
         pbLoad->setObjectName(QStringLiteral("pbLoad"));
         pbLoad->setGeometry(QRect(310, 310, 191, 61));
