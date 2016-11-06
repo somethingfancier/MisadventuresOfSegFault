@@ -8,6 +8,7 @@
 #include <QTimer>
 #include "player.h"
 #include "enemy.h"
+#include "npc.h"
 #include "universe.h"
 #include "score.h"
 #include "item.h"
