@@ -291,6 +291,7 @@ void Player::timerHitDown()
 
         else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy) || typeid(*(colliding_items[i]))== typeid(NPC))) {
 
+
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
             NPC* npc = dynamic_cast<NPC*>(colliding_items[i]);
