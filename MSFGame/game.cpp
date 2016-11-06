@@ -11,7 +11,7 @@ Game::Game(QWidget *parent)
     Universe::instance().createFirstWorld();
     Universe::instance().createSecondWorld();
     Universe::instance().createThirdWorld();
-    //Universe::instance()->createFourthWorld();
+    Universe::instance().createFourthWorld();
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();

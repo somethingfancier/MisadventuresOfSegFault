@@ -10,6 +10,11 @@
 #include "item.h"
 #include "obstacle.h"
 #include <iostream>
+#include <QMessageBox>
+#include <QPushButton>
+#include "ui_mainwindow.h"
+
+
 
 QSet<Qt::Key> keysPressed;
 
@@ -33,7 +38,28 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 void Player::keyPressEvent(QKeyEvent *event) {
 
 
-    if (event->key() == Qt::Key_Left) {
+    if (event->key() == Qt::Key_Escape) {
+        QMessageBox msg;
+        msg.setWindowTitle("Menu");
+        msg.addButton(trUtf8("Resume"),QMessageBox::NoRole);
+        QAbstractButton *btSave = msg.addButton(QMessageBox::Save);
+        QAbstractButton *btHelp = msg.addButton(QMessageBox::Help);
+        QAbstractButton *btExit = msg.addButton(trUtf8("Exit Game"),QMessageBox::YesRole);
+        msg.setDefaultButton(QMessageBox::Save);
+        msg.exec();
+        if(msg.clickedButton() == btSave){
+          // do save stuff
+        } else if (msg.clickedButton() == btHelp){
+            QMessageBox ms;
+            ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
+            ms.exec();
+        } else if (msg.clickedButton() == btExit){
+            QApplication::quit();
+        }
+
+    }
+
+    else if (event->key() == Qt::Key_Left) {
         if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
             setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));

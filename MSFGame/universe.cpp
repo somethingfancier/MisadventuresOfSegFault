@@ -420,7 +420,7 @@ void Universe::createThirdWorld()
     addWorld(world3);
 }
 
-/*void Universe::createFourthWorld() {
+void Universe::createFourthWorld() {
 
     World* world4 = new World();
 
@@ -429,11 +429,11 @@ void Universe::createThirdWorld()
     world4->setLeftWId(9);
     world4->setRightWId(3);
     world4->setUpWId(4);
-    world4->setName(":/images/images/World4.png");
+    //world4->setName(":/images/images/World4.png");
 
     addWorld(world4);
 
-}*/
+}
 
 void Universe::createFifthWorld() {
 
