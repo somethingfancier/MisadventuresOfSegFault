@@ -21,21 +21,25 @@ private:
     WorldHealth* health;
 public:
     //Constructor
-    WorldPlayer(): username("<Segfault>"){equippedItem = NULL;} //Lives of a player intially set to 3
+    WorldPlayer(): username("<Segfault>"){lives = NULL; equippedItem = NULL; score = NULL; health = NULL;} //Lives of a player intially set to 3
     ~WorldPlayer(){}
 
     //Accessors
     string getUserName(){return username;}
+    WorldLives* getLives(){return lives;}
+    WorldItem* getItem(){return equippedItem;}
 
     //Mutators
     void setLives(WorldLives* newLives){lives = newLives;}
     void setScore(WorldScore* newScore){score = newScore;}
     void setHealth(WorldHealth* newHealth){health = newHealth;}
+    void setItem(WorldItem* newItem){equippedItem = newItem;}
     void setUsername(){username = "<SegFault>";}      //Indiscriminately set the player's name to SegFault
                                                       //(Thus the madness begins)
     void strike(WorldCharacter*);
     bool longAttack();
     void attack(World*);
+    void applyItem();
 };
 
 #endif // WORLDPLAYER_H

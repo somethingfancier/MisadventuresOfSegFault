@@ -3,6 +3,7 @@
 #include <QBrush>
 #include <QImage>
 #include <obstacle.h>
+#include <iostream>
 
 
 Game::Game(QWidget *parent)
@@ -108,9 +109,11 @@ void Game::initialize(int id)
     //Add Items
     for (unsigned i=0; i<world->getItems().size(); i++) {
         WorldItem* item = world->getItems().at(i);
+        cout << item->getProperty();
         Item* newItem = new Item();
         newItem->setPos(item->getX(), item->getY());
-        newItem->setProperty(item->getProperty());
+        newItem->setItem(item);
+
         string str = string(":/images/images/") + item->getProperty() + ".png";
         const char * c = str.c_str();
         newItem->setPixmap(QPixmap(c).scaled(30, 30));

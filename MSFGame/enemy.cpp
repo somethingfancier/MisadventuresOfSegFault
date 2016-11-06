@@ -19,6 +19,12 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 
     timerthree = new QTimer(this);
     timerthree->setInterval(100);
+
+    attacktimer = new QTimer(this);
+    attacktimer->setInterval(1000);
+    connect(attacktimer, SIGNAL(timeout()),this,SLOT(setAttack()));
+    attacktimer->start();
+
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start();
 
@@ -140,4 +146,9 @@ void Enemy::deathAnimation()
         this->setPixmap(QPixmap(cImg).scaled(60,60));
         animation++;
     }
+}
+
+void Enemy::setAttack()
+{
+    enemy->setAttack(true);
 }

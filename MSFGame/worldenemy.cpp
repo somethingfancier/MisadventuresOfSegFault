@@ -17,9 +17,10 @@ void WorldEnemy::strike(WorldCharacter* chosenChar)
 void WorldEnemy::attack(WorldObject* obj)
 {
     WorldPlayer* chosenPlayer = dynamic_cast<WorldPlayer*>(obj);
-    if(chosenPlayer != NULL && this->isBoardering(chosenPlayer))
+    if(chosenPlayer != NULL && this->isBoardering(chosenPlayer) && canAttack)
     {
         this->strike(chosenPlayer);
+        canAttack = false;
     }
 }
 

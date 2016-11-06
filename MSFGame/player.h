@@ -61,6 +61,7 @@ private slots:
     void timerSwordLeft();
     void timerSwordRight();
     void timerCool();
+    void updateDisplay();
 
 
 private:
@@ -68,6 +69,7 @@ private:
     QTimer* timertwo;
     QTimer* timerthree;
     QTimer* timerCooldown;
+    QTimer* displayTimer;
     int animation = 1;
     bool mag = false;
 

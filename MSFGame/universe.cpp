@@ -65,7 +65,9 @@ void Universe::createFirstWorld()
     WorldObstacle* obsThir = new WorldObstacle();
     WorldObstacle* obsFourt = new WorldObstacle();
 
-    WorldItem* itemOne = new WorldItem("heart", 1020, 230);
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("heart");
+    itemOne->setCoordinates(1020, 230);
 
     world1->addItem(itemOne);
 

@@ -26,6 +26,13 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
     timerCooldown = new QTimer(this);
     timerCooldown->setInterval(1000);
+
+    displayTimer = new QTimer(this);
+    displayTimer->setInterval(100);
+
+    connect(displayTimer, SIGNAL(timeout()), this, SLOT(updateDisplay()));
+    displayTimer->start();
+
 }
 
 
@@ -182,8 +189,13 @@ void Player::timerHitUp()
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
-            scene()->removeItem(colliding_items[i]);
-            delete colliding_items[i];
+            Item* item = dynamic_cast<Item*>(colliding_items[i]);
+            if(item != nullptr){
+                player->setItem(item->getItem());
+                player->applyItem();
+                //delete colliding_items[i];
+                //scene()->removeItem(colliding_items[i]);
+            }
         }
 
         else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
@@ -222,8 +234,15 @@ void Player::timerHitDown()
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
-            scene()->removeItem(colliding_items[i]);
-            delete colliding_items[i];
+            Item* item = dynamic_cast<Item*>(colliding_items[i]);
+            if(item != nullptr){
+
+                player->setItem(item->getItem());
+                cout << player->getItem()->getProperty();
+                player->applyItem();
+                //delete colliding_items[i];
+                scene()->removeItem(colliding_items[i]);
+            }
         }
 
 
@@ -263,8 +282,13 @@ void Player::timerHitLeft()
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
-            scene()->removeItem(colliding_items[i]);
-            delete colliding_items[i];
+            Item* item = dynamic_cast<Item*>(colliding_items[i]);
+            if(item != nullptr){
+                player->setItem(item->getItem());
+                player->applyItem();
+                //delete colliding_items[i];
+                //scene()->removeItem(colliding_items[i]);
+            }
         }
 
         else if (colliding_items[i] && typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
@@ -303,8 +327,13 @@ void Player::timerHitRight()
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
         if (typeid(*(colliding_items[i])) == typeid(Item)) {
-            scene()->removeItem(colliding_items[i]);
-            delete colliding_items[i];
+            Item* item = dynamic_cast<Item*>(colliding_items[i]);
+            if(item != nullptr){
+                player->setItem(item->getItem());
+                player->applyItem();
+                //delete colliding_items[i];
+                //scene()->removeItem(colliding_items[i]);
+            }
         }
 
         else if (colliding_items[i] && typeid(*(colliding_items[i])) == typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)) {
@@ -465,4 +494,12 @@ void Player::timerCool()
         timerCooldown->stop();
         mag = false;
     }
+}
+
+void Player::updateDisplay()
+{
+    health->getHealth()->setHealth(player->getHealth());
+    lives->getLives()->setLives(player->getLives()->getLives());
+    health->updateHealth();
+    lives->updateLives();
 }
