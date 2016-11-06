@@ -8,7 +8,6 @@
 
 Game::Game(QWidget *parent)
 {
-
     Universe::instance().createFirstWorld();
     Universe::instance().createSecondWorld();
     Universe::instance().createThirdWorld();

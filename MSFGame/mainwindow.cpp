@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    mw = this->window();
 }
 
 MainWindow::~MainWindow()
@@ -38,7 +39,7 @@ void MainWindow::on_pbLoad_clicked()
 
 void MainWindow::on_pbControls_clicked()
 {
-    QMessageBox msg;
+    QMessageBox msg(mw);
     msg.setText("Controls: \n\n*Move - Arrow Keys \n*Melee Attack - Spacebar \n*Ranged Attack - Alt Key \n*Pause - Esc Key");
     msg.exec();
 }
