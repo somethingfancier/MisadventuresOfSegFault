@@ -93,6 +93,20 @@ void Game::initialize(int id)
         scene->addItem(newEnemy);
     }
 
+    for (unsigned i=0; i<world->getCharacters().size(); i++) {
+        WorldCharacter* npcData = world->getCharacters().at(i);
+        NPC* newNPC = new NPC();
+        WorldNPC* disNPC = new WorldNPC();
+        disNPC = static_cast<WorldNPC*>(npcData);
+        if (disNPC) {
+            newNPC->setPos(npcData->getX(),npcData->getY());
+            string str = string(":/images/images/") + npcData->getName() + ".png";
+            const char * c = str.c_str();
+            newNPC->setPixmap(QPixmap(c).scaled(34, 40));
+        }
+        scene->addItem(newNPC);
+    }
+
 
     //Add Obstacles
     for (unsigned i=0; i<world->getObstacles().size(); i++) {
