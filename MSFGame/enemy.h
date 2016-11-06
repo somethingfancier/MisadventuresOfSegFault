@@ -30,7 +30,7 @@ public:
     WorldPlayer* getPlayer(){return player;}
 
     //Mutators
-    void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy;}
+    void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy; enemy->setWidth(this->pixmap().width()); enemy->setHeight(this->pixmap().height());}
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
     void setTimer(QTimer* newTimer);
 

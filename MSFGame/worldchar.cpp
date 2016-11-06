@@ -79,6 +79,7 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
     WorldObstacle* obstacle = dynamic_cast<WorldObstacle*>(obj);
     WorldEnemy* enemy = dynamic_cast<WorldEnemy*>(obj);
     WorldPlayer* player = dynamic_cast<WorldPlayer*>(obj);
+    WorldNPC* npc = dynamic_cast<WorldNPC*>(obj);
     if(obstacle != nullptr){
         if(orientation == 1)
         {
@@ -86,11 +87,11 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
         }
         else if(orientation == 2)
         {
-            return(this->withinYBound(obstacle) && obstacle->hSDistance(this) > 10);
+            return(this->withinYBound(obstacle) && this->hSDistance(obstacle) <= 10);
         }
         else if(orientation == 3)
         {
-            return(this->withinXBound(obstacle) && obstacle->vSDistance(this) > 10);
+            return(this->withinXBound(obstacle) && this->vSDistance(obstacle) <= 10);
         }
         else if(orientation == 4)
         {
@@ -100,20 +101,19 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
     else if(enemy != nullptr){
         if(orientation == 1)
         {
-            return(this->withinXBound(enemy) && enemy->vSDistance(this) > 10 && enemy->isNegativeD());
+            return(this->withinXBound(enemy) && enemy->vSDistance(this) <= 30);
         }
         else if(orientation == 2)
         {
-            return(this->withinYBound(enemy) && enemy->hSDistance(this) > 10 && !(enemy->isNegativeD()));
+            return(this->withinYBound(enemy) && this->hSDistance(enemy) <= 20);
         }
         else if(orientation == 3)
         {
-            return(this->withinXBound(enemy) && enemy->vSDistance(this) > 10 && !(enemy->isNegativeD()));
+            return(this->withinXBound(enemy) && this->vSDistance(enemy) <= 20);
         }
         else if(orientation == 4)
         {
-            cout << enemy->isNegativeD();
-            return(this->withinYBound(enemy) && enemy->hSDistance(this) > 10 && enemy->isNegativeD());
+            return(this->withinYBound(enemy) && enemy->hSDistance(this) <= 30);
         }
     }
     else if(player != nullptr){
@@ -123,15 +123,34 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
             }
             else if(orientation == 2)
             {
-                return(this->withinYBound(player) && player->hSDistance(this) > 10);
+                return(this->withinYBound(player) && this->hSDistance(player) < 10);
             }
             else if(orientation == 3)
             {
-                return(this->withinXBound(player) && player->vSDistance(this) > 10);
+                return(this->withinXBound(player) && this->vSDistance(player) < 10);
             }
             else if(orientation == 4)
             {
                 return(this->withinYBound(player) && player->hSDistance(this) <= 10);
+            }
+        }
+
+        else if(npc != nullptr){
+            if(orientation == 1)
+            {
+                return(this->withinXBound(npc) && npc->vSDistance(this) <= 30);
+            }
+            else if(orientation == 2)
+            {
+                return(this->withinYBound(npc) && this->hSDistance(npc) <= 20);
+            }
+            else if(orientation == 3)
+            {
+                return(this->withinXBound(npc) && this->vSDistance(npc) <= 20);
+            }
+            else if(orientation == 4)
+            {
+                return(this->withinYBound(npc) && npc->hSDistance(this) <= 30);
             }
         }
     return false;

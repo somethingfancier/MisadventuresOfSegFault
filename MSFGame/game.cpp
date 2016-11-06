@@ -97,9 +97,10 @@ void Game::initialize(int id)
         WorldCharacter* npcData = world->getCharacters().at(i);
         NPC* newNPC = new NPC();
         WorldNPC* disNPC = new WorldNPC();
-        disNPC = static_cast<WorldNPC*>(npcData);
+        disNPC = dynamic_cast<WorldNPC*>(npcData);
         if (disNPC) {
             newNPC->setPos(npcData->getX(),npcData->getY());
+            newNPC->setNPC(disNPC);
             string str = string(":/images/images/") + npcData->getName() + ".png";
             const char * c = str.c_str();
             newNPC->setPixmap(QPixmap(c).scaled(34, 40));
@@ -122,7 +123,6 @@ void Game::initialize(int id)
     //Add Items
     for (unsigned i=0; i<world->getItems().size(); i++) {
         WorldItem* item = world->getItems().at(i);
-        cout << item->getProperty();
         Item* newItem = new Item();
         newItem->setPos(item->getX(), item->getY());
         newItem->setItem(item);

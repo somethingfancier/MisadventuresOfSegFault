@@ -9,6 +9,7 @@
 #include "npc.h"
 #include "magic.h"
 #include "item.h"
+#include "npc.h"
 #include "obstacle.h"
 #include <iostream>
 #include <QMessageBox>
@@ -21,6 +22,8 @@ QSet<Qt::Key> keysPressed;
 
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
+    this->boundingRect().setHeight(60);
+    this->boundingRect().setWidth(60);
     timer = new QTimer(this);
     timer->setInterval(13);
 
@@ -59,7 +62,10 @@ void Player::keyPressEvent(QKeyEvent *event) {
         if(msg.clickedButton() == btSave){
           // do save stuff
         } else if (msg.clickedButton() == btCheat){
-            //Cheat mode stuff
+
+            player->getHealth()->increase(90);
+            player->setDefense(100);
+
         }else if (msg.clickedButton() == btHelp){
             QMessageBox ms;
             ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
@@ -214,7 +220,7 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
 
 void Player::timerHitUp()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemShape);
     player->setOrientation(1);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
@@ -237,10 +243,13 @@ void Player::timerHitUp()
                    scene()->addItem(txtAdv);
             }
 
-        } else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
+        }
+        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle)|| typeid(*(colliding_items[i]))== typeid(Enemy) || typeid(*(colliding_items[i]))== typeid(NPC))){
+
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
+            NPC* npc = dynamic_cast<NPC*>(colliding_items[i]);
 
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
@@ -260,6 +269,15 @@ void Player::timerHitUp()
                     player->incY();
                 }
             }
+            else if(npc != nullptr){
+                if(player->isBoardering(npc->getNPC())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->incY();
+                }
+            }
         }
     }
     player->decY();
@@ -268,7 +286,7 @@ void Player::timerHitUp()
 
 void Player::timerHitDown()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemShape);
     player->setOrientation(3);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
@@ -285,10 +303,13 @@ void Player::timerHitDown()
         }
 
 
-        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
+        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy) || typeid(*(colliding_items[i]))== typeid(NPC))) {
+
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
+            NPC* npc = dynamic_cast<NPC*>(colliding_items[i]);
+
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
@@ -301,6 +322,15 @@ void Player::timerHitDown()
 
             else if(enemy != nullptr){
                 if(player->isBoardering(enemy->getEnemy())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->decY();
+                }
+            }
+            else if(npc != nullptr){
+                if(player->isBoardering(npc->getNPC())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
                     timer->stop();
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
@@ -317,7 +347,7 @@ void Player::timerHitDown()
 
 void Player::timerHitLeft()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemShape);
     player->setOrientation(4);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
@@ -331,10 +361,11 @@ void Player::timerHitLeft()
             }
         }
 
-        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
+        else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)|| typeid(*(colliding_items[i]))== typeid(NPC))) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
+            NPC* npc = dynamic_cast<NPC*>(colliding_items[i]);
 
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
@@ -347,6 +378,15 @@ void Player::timerHitLeft()
             }
             else if(enemy != nullptr){
                 if(player->isBoardering(enemy->getEnemy())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->incX();
+                }
+            }
+            else if(npc != nullptr){
+                if(player->isBoardering(npc->getNPC())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
                     timer->stop();
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
@@ -362,7 +402,7 @@ void Player::timerHitLeft()
 
 void Player::timerHitRight()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemShape);
     player->setOrientation(2);
     for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
@@ -376,10 +416,11 @@ void Player::timerHitRight()
             }
         }
 
-        else if (colliding_items[i] && (typeid(*(colliding_items[i])) == typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy))) {
+        else if (colliding_items[i] && (typeid(*(colliding_items[i])) == typeid(Obstacle) || typeid(*(colliding_items[i]))== typeid(Enemy)|| typeid(*(colliding_items[i]))== typeid(NPC))) {
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
+            NPC* npc = dynamic_cast<NPC*>(colliding_items[i]);
 
             if(obj != nullptr){
                 if(player->isBoardering(obj->getObstacle())){
@@ -392,6 +433,15 @@ void Player::timerHitRight()
             }
             else if(enemy != nullptr){
                 if(player->isBoardering(enemy->getEnemy())){
+                    disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                    timer->stop();
+                    disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+                    timertwo->stop();
+                    player->decX();
+                }
+            }
+            else if(npc != nullptr){
+                if(player->isBoardering(npc->getNPC())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
                     timer->stop();
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
@@ -538,7 +588,7 @@ void Player::timerCool()
 
 void Player::updateDisplay()
 {
-    health->getHealth()->setHealth(player->getHealth());
+    health->setHeath(player->getHealth());
     lives->getLives()->setLives(player->getLives()->getLives());
     health->updateHealth();
     lives->updateLives();

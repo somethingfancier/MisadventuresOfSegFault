@@ -8,6 +8,8 @@
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(60, 60));
+    this->boundingRect().setHeight(60);
+    this->boundingRect().setWidth(60);
     numMoves = 0;
     animation = 1;
 
@@ -39,7 +41,7 @@ void Enemy::setTimer(QTimer* newTimer)
 
 void Enemy::move()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems();
+    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemBoundingRect);
 
     if(player != NULL && enemy != NULL)
     {

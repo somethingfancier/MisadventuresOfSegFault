@@ -13,7 +13,7 @@
 class WorldPlayer : public WorldCharacter
 {
 private:
-    WorldLives* lives;                      //Total lives of a player
+    WorldLives* lives;              //Total lives of a player
     WorldItem* equippedItem;        //Item that the player is using
     vector<WorldItem*> playerItems; //All of the items that a player has collected
     string username;                //Entered name of a Player
@@ -28,6 +28,7 @@ public:
     string getUserName(){return username;}
     WorldLives* getLives(){return lives;}
     WorldItem* getItem(){return equippedItem;}
+    WorldHealth* getHealth(){return health;}
 
     //Mutators
     void setLives(WorldLives* newLives){lives = newLives;}
