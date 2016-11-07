@@ -18,15 +18,19 @@ private:
     vector<WorldItem*> playerItems; //All of the items that a player has collected
     string username;                //Entered name of a Player
     WorldScore* score;
+    int onDeadX;
+    int onDeadY;
 public:
     //Constructor
-    WorldPlayer(): username("<Segfault>"){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
+    WorldPlayer(): username("<Segfault>"),onDeadX(100),onDeadY(100){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
     ~WorldPlayer(){}
 
     //Accessors
     string getUserName(){return username;}
     WorldLives* getLives(){return lives;}
     WorldItem* getItem(){return equippedItem;}
+    int getDeadLocX(){return onDeadX;}
+    int getDeadLocy(){return onDeadY;}
 
     //Mutators
     void setLives(WorldLives* newLives){lives = newLives;}

@@ -118,7 +118,6 @@ void WorldEnemy::move(WorldCharacter* chosenChar)
     if(chosenPlayer != NULL && this->distance(chosenPlayer) <= 100*this->awareness)
     {
         this->follow(chosenChar);
-        this->attack(chosenChar);
     }
     else
     {
