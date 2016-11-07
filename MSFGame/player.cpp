@@ -62,7 +62,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
         msg.setDefaultButton(QMessageBox::Save);
         msg.exec();
         if(msg.clickedButton() == btSave){
-          // do save stuff
+          Universe::instance().Save();
         } else if (msg.clickedButton() == btCheat){
             player->setHealth(100);
             player->setDefense(100);
