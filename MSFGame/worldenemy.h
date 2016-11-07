@@ -41,7 +41,7 @@ public:
     void rotateL();
 
     string getData() {
-        string data = WorldCharacter::getData();
+        string data = "enemy," + WorldCharacter::getData();
         data += "," + to_string(this->isAlerted());
         return data;
     }

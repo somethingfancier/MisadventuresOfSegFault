@@ -42,6 +42,13 @@ public:
 
     void setProperty(string newProperty){property = newProperty;}
 
+    string getData()
+    {
+        string data = "item," + WorldObject::getData();
+        data += "," + to_string(this->getEquipped());
+        return data;
+    }
+
 };
 
 #endif // WORLDITEM_H

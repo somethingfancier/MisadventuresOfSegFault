@@ -14,6 +14,7 @@ Universe& Universe::instance()
         instance_->numWorlds = 0;
         WorldPlayer* newPlayer = new WorldPlayer();
         instance_->setPlayer(newPlayer);
+
     }
     return *instance_;
 }
@@ -170,11 +171,7 @@ void Universe::createFirstWorld()
     world1->addObstacle(obsThir);
     world1->addObstacle(obsFourt);
 
-
-
-    addWorld(world1);
-
-
+    instance().addWorld(world1);
 }
 
 void Universe::createSecondWorld() {
@@ -386,7 +383,7 @@ void Universe::createSecondWorld() {
     world2->addObstacle(obs27);
     world2->addObstacle(obs28);
 
-    addWorld(world2);
+    instance().addWorld(world2);
 
 }
 
@@ -629,7 +626,7 @@ void Universe::createThirdWorld()
     world3->addObstacle(obs31);
     world3->addObstacle(obs32);
 
-    addWorld(world3);
+    instance().addWorld(world3);
 }
 
 void Universe::createFourthWorld() {
@@ -658,7 +655,7 @@ void Universe::createFifthWorld() {
     world5->setUpWId(4);
     world5->setName(":/images/images/World5.png");
 
-    addWorld(world5);
+    instance().addWorld(world5);
 
 }
 
@@ -673,7 +670,7 @@ void Universe::createSixthWorld() {
     world6->setUpWId(5);
     world6->setName(":/images/images/World6.png");
 
-    addWorld(world6);
+    instance().addWorld(world6);
 
 }
 
@@ -688,20 +685,29 @@ void Universe::createEighthWorld() {
     world8->setUpWId(8);
     world8->setName(":/images/images/World8.png");
 
-    addWorld(world8);
+    instance().addWorld(world8);
 
 }
 
 void Universe::Save()
 {
-    cout << player->getData();
-    for (unsigned int i = 0; i < Universe::instance().getWorld(1)->getCharacters().size(); i++) {
-        WorldCharacter* enemy1 = Universe::instance().getWorld(1)->getCharacters().at(i);
-        cout << enemy1->getData();
-    }
-    for (unsigned int i = 0; i < Universe::instance().getWorld(1)->getItems().size(); i++) {
-        WorldItem* item1 = Universe::instance().getWorld(1)->getItems().at(i);
-        cout << item1->getData();
+    cout << player->getData() << "\n";
+    for (int index = 1; index < Universe::instance().getWorlds().size(); index++) {
+        cout << "world" << Universe::instance().getWorld(index)->getId() << "\n";
+
+        if(Universe::instance().getWorld(index)->charsEnabled()){
+            for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getCharacters().size(); i++) {
+                    WorldCharacter* enemy1 = Universe::instance().getWorld(index)->getCharacters().at(i);
+                    cout << enemy1->getData() << "\n";
+                }
+            }
+
+        if(Universe::instance().getWorld(index)->itemsEnabled()){
+            for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getItems().size(); i++) {
+                WorldItem* item1 = Universe::instance().getWorld(index)->getItems().at(i);
+                cout << item1->getData() << "\n";
+            }
+        }
     }
 }
 

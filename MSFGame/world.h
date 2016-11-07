@@ -18,16 +18,18 @@ private:
     int downWId;
     int leftWId;
     int rightWId;
-
     const char* name;
+    bool charAdded;
+    bool itemsAdded;
+
     vector<WorldCharacter*> characters;
     vector<WorldItem*> items;
     vector<WorldObstacle*> obstacles;
 
 public:
     //Constructor
-    World(int newId, const char* imageName):id(newId),upWId(0),downWId(0),leftWId(0),rightWId(0),name(imageName){}
-    World():id(0),upWId(0),downWId(0),leftWId(0),rightWId(0),name(""){}
+    World(int newId, const char* imageName):id(newId),upWId(0),downWId(0),leftWId(0),rightWId(0),name(imageName), charAdded(false), itemsAdded(false){}
+    World():id(0),upWId(0),downWId(0),leftWId(0),rightWId(0),name(""), charAdded(false), itemsAdded(false){}
 
     //Accessors
     int getId(){return id;}
@@ -35,6 +37,8 @@ public:
     int getDownWId(){return downWId;}
     int getRightId(){return rightWId;}
     int getLeftWId(){return leftWId;}
+    bool charsEnabled(){return charAdded;}
+    bool itemsEnabled(){return itemsAdded;}
 
     const char* getName(){return name;}
     vector<WorldCharacter*> getCharacters() { return characters; }

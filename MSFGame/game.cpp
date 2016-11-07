@@ -51,8 +51,6 @@ Game::Game(QWidget *parent)
 
 void Game::initialize(int id)
 {
-
-
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1280,720);
     setBackgroundBrush(QBrush(QImage()));
@@ -125,7 +123,6 @@ void Game::initialize(int id)
 
         scene->addItem(newItem);
     }
-
     scene->addItem(player);
 
 }

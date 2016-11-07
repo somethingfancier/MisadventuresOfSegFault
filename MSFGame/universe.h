@@ -29,6 +29,7 @@ public:
 
     //Accesors
     WorldPlayer* getPlayer(){return player;}
+    vector<World*> getWorlds(){return worlds;}
 
     //Mutators
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
