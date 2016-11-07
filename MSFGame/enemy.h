@@ -22,7 +22,6 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
 
 public:
 
-
     Enemy(QGraphicsItem * parent=0);
 
     //Accesors
@@ -30,7 +29,7 @@ public:
     WorldPlayer* getPlayer(){return player;}
 
     //Mutators
-    void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy; enemy->setWidth(this->pixmap().width()); enemy->setHeight(this->pixmap().height());}
+    void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy;}
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
     void setTimer(QTimer* newTimer);
 

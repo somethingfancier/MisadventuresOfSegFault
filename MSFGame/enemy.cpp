@@ -3,13 +3,14 @@
 #include <QTimer>
 #include "obstacle.h"
 #include <typeinfo>
+#include "universe.h"
 
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
+    enemy = new WorldEnemy();
+    player = Universe::instance().getPlayer();
     this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(60, 60));
-    this->boundingRect().setHeight(60);
-    this->boundingRect().setWidth(60);
     numMoves = 0;
     animation = 1;
 
@@ -41,7 +42,7 @@ void Enemy::setTimer(QTimer* newTimer)
 
 void Enemy::move()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemBoundingRect);
+    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemShape);
 
     if(player != NULL && enemy != NULL)
     {
@@ -79,11 +80,7 @@ void Enemy::move()
                 }
             }
         }
-
-        if(colliding_items.size() == 0){
-            enemy->move(player);
-        }
-
+        enemy->move(player);
 
         this->updatePos();
         numMoves++;

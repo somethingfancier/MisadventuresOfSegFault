@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/images">
-        <file>images/Controls.png</file>
         <file>images/Exit.png</file>
         <file>images/Load.png</file>
         <file>images/Start.png</file>
@@ -97,5 +96,7 @@
         <file>images/npc2.png</file>
         <file>images/npc3.png</file>
         <file>images/World2.png</file>
+        <file>images/Help.png</file>
+        <file>images/Highscores.png</file>
     </qresource>
 </RCC>

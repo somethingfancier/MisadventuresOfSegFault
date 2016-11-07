@@ -41,11 +41,37 @@
     <property name="styleSheet">
      <string notr="true"/>
     </property>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>10</y>
+       <width>701</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(255, 255, 255, 0);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/images/images/misadv.png</normaloff>:/images/images/misadv.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>650</width>
+       <height>400</height>
+      </size>
+     </property>
+    </widget>
     <widget class="QPushButton" name="pbExit">
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>490</y>
+       <y>480</y>
        <width>191</width>
        <height>61</height>
       </rect>
@@ -67,12 +93,12 @@
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pbControls">
+    <widget class="QPushButton" name="pbHighscore">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>400</y>
-       <width>251</width>
+       <x>270</x>
+       <y>410</y>
+       <width>271</width>
        <height>61</height>
       </rect>
      </property>
@@ -84,11 +110,11 @@
      </property>
      <property name="icon">
       <iconset resource="resources.qrc">
-       <normaloff>:/images/images/Controls.png</normaloff>:/images/images/Controls.png</iconset>
+       <normaloff>:/images/images/Highscores.png</normaloff>:/images/images/Highscores.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>224</width>
+       <width>250</width>
        <height>70</height>
       </size>
      </property>
@@ -97,7 +123,7 @@
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>310</y>
+       <y>250</y>
        <width>191</width>
        <height>61</height>
       </rect>
@@ -123,7 +149,7 @@
      <property name="geometry">
       <rect>
        <x>310</x>
-       <y>220</y>
+       <y>170</y>
        <width>191</width>
        <height>61</height>
       </rect>
@@ -145,13 +171,13 @@
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pbControls">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>10</y>
-       <width>701</width>
-       <height>191</height>
+       <x>310</x>
+       <y>340</y>
+       <width>191</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -162,12 +188,12 @@
      </property>
      <property name="icon">
       <iconset resource="resources.qrc">
-       <normaloff>:/images/images/misadv.png</normaloff>:/images/images/misadv.png</iconset>
+       <normaloff>:/images/images/Help.png</normaloff>:/images/images/Help.png</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>650</width>
-       <height>400</height>
+       <width>180</width>
+       <height>50</height>
       </size>
      </property>
     </widget>
@@ -185,11 +211,12 @@
      </property>
     </widget>
     <zorder>widget_2</zorder>
+    <zorder>pushButton</zorder>
     <zorder>pbExit</zorder>
-    <zorder>pbControls</zorder>
+    <zorder>pbHighscore</zorder>
     <zorder>pbLoad</zorder>
     <zorder>pbStart</zorder>
-    <zorder>pushButton</zorder>
+    <zorder>pbControls</zorder>
    </widget>
   </widget>
  </widget>

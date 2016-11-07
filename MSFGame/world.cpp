@@ -6,11 +6,13 @@
 void World::addCharacter(WorldCharacter* newCharacter)
 {
     characters.push_back(newCharacter);
+    charAdded = true;
 }
 
 void World::addItem(WorldItem* newItem)
 {
     items.push_back(newItem);
+    itemsAdded = true;
 }
 
 void World::addObstacle(WorldObstacle* newObstacle)

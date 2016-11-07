@@ -27,6 +27,8 @@ private slots:
 
     void on_pbControls_clicked();
 
+    void on_pbHighscore_clicked();
+
     void on_pbExit_clicked();
 
 private:
