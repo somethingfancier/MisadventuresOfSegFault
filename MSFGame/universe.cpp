@@ -39,7 +39,6 @@ void Universe::addWorld(World* newWorld)
 void Universe::createFirstWorld()
 {
     World* world1= new World();
-    player = new WorldPlayer();
     world1->setId(1);
     world1->setName(":/images/images/World1.png");
     world1->setUpWId(2);

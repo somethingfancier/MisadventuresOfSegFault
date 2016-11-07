@@ -14,6 +14,7 @@
 #include <QMessageBox>
 #include <QPushButton>
 #include "ui_mainwindow.h"
+#include "universe.h"
 
 
 
@@ -21,8 +22,10 @@ QSet<Qt::Key> keysPressed;
 
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
-    this->boundingRect().setHeight(60);
-    this->boundingRect().setWidth(60);
+    player = Universe::instance().getPlayer();
+    health = new Health();
+    this->boundingRect().setHeight(40);
+    this->boundingRect().setWidth(40);
     timer = new QTimer(this);
     timer->setInterval(13);
 
@@ -61,7 +64,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
         if(msg.clickedButton() == btSave){
           // do save stuff
         } else if (msg.clickedButton() == btCheat){
-            player->getHealth()->increase(90);
+            player->setHealth(100);
             player->setDefense(100);
         }else if (msg.clickedButton() == btHelp){
             QMessageBox ms;
@@ -437,7 +440,6 @@ void Player::timerHitRight()
         }
     }
     player->incX();
-    player->setDirections();
     this->updatePos();
 
 }
@@ -573,7 +575,7 @@ void Player::timerCool()
 
 void Player::updateDisplay()
 {
-    health->setHeath(player->getHealth());
+    health->getHealth()->setHealth(player->getHealth());
     lives->getLives()->setLives(player->getLives()->getLives());
     health->updateHealth();
     lives->updateLives();

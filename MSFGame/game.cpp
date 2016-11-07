@@ -35,11 +35,6 @@ Game::Game(QWidget *parent)
     player->setLives(lives);
     player->getPlayer()->setLives(lives->getLives());
 
-    // create health
-    Health* health = new Health();
-    player->setHealth(health);
-    player->getPlayer()->setHealth(health->getHealth());
-
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1280,720);
@@ -65,8 +60,6 @@ void Game::initialize(int id)
     scene->addItem(this->getPlayer()->getLives());
     scene->addItem(this->getPlayer()->getHealth());
 
-
-
     setScene(scene);
 
     World* world = Universe::instance().getWorld(id);
@@ -79,33 +72,32 @@ void Game::initialize(int id)
 
     setBackgroundBrush(QBrush(QImage(world->getName())));
     for (unsigned i=0; i<world->getCharacters().size(); i++) {
-        WorldCharacter* enemyData = world->getCharacters().at(i);
         Enemy* newEnemy = new Enemy();
         WorldEnemy* disEnemy = new WorldEnemy();
-        disEnemy = static_cast<WorldEnemy*>(enemyData);
-        if (disEnemy) {
+        disEnemy = dynamic_cast<WorldEnemy*>(world->getCharacters().at(i));
+        if (disEnemy != nullptr) {
             newEnemy->setEnemy(disEnemy);
-            newEnemy->setPlayer(player->getPlayer());
             //newEnemy->setTimer(player->getTimer());
             newEnemy->updatePos();
             newEnemy->getEnemy()->setAwareness(3);
+            scene->addItem(newEnemy);
         }
-        scene->addItem(newEnemy);
     }
 
     for (unsigned i=0; i<world->getCharacters().size(); i++) {
-        WorldCharacter* npcData = world->getCharacters().at(i);
         NPC* newNPC = new NPC();
         WorldNPC* disNPC = new WorldNPC();
-        disNPC = dynamic_cast<WorldNPC*>(npcData);
-        if (disNPC) {
-            newNPC->setPos(npcData->getX(),npcData->getY());
+        disNPC = dynamic_cast<WorldNPC*>(world->getCharacters().at(i));
+        if (disNPC != nullptr) {
+            newNPC->setPos(disNPC->getX(),disNPC->getY());
             newNPC->setNPC(disNPC);
-            string str = string(":/images/images/") + npcData->getName() + ".png";
+            disNPC->setHeight(40);
+            disNPC->setWidth(34);
+            string str = string(":/images/images/") + disNPC->getName() + ".png";
             const char * c = str.c_str();
             newNPC->setPixmap(QPixmap(c).scaled(34, 40));
+            scene->addItem(newNPC);
         }
-        scene->addItem(newNPC);
     }
 
 

@@ -4,10 +4,11 @@
 #include "worldhealth.h"
 #include "world.h"
 #include "worldchar.h"
+#include "universe.h"
 
 void WorldEnemy::strike(WorldCharacter* chosenChar)
 {
-    WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(chosenChar);
+    WorldPlayer* chosenPlayer = dynamic_cast<WorldPlayer*>(chosenChar);
     if(chosenPlayer != NULL)
     {
         chosenPlayer->hit(this->getStrength());
@@ -27,12 +28,12 @@ void WorldEnemy::attack(WorldObject* obj)
 void WorldEnemy::follow(WorldCharacter* chosenChar)
 {
     WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(chosenChar);
-    if(chosenPlayer != NULL)
+    if(chosenPlayer != NULL && canFollow)
     {
         int hTravel = this->hDistance(chosenPlayer);
         int vTravel = this->vDistance(chosenPlayer);
 
-        if(this->distance(chosenPlayer) < 100*awareness){
+        if(this->distance(chosenPlayer) < 100*awareness && !(this->isBoardering(chosenPlayer))){
             if (vTravel >= hTravel)
             {
                 if (this->compareY(chosenPlayer))
@@ -113,7 +114,7 @@ void WorldEnemy::rotateL()
 
 void WorldEnemy::move(WorldCharacter* chosenChar)
 {
-    WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(chosenChar);
+    WorldPlayer* chosenPlayer = dynamic_cast<WorldPlayer*>(chosenChar);
     if(chosenPlayer != NULL && this->distance(chosenPlayer) <= 100*this->awareness)
     {
         this->follow(chosenChar);

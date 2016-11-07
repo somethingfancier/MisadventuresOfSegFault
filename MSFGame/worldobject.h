@@ -18,7 +18,7 @@ private:
 public:
 
     //Constructors
-    WorldObject(): xPos(0),yPos(0),width(60),height(60),name(""), negativeD(false){}
+    WorldObject(): xPos(0),yPos(0),width(35),height(45),name(""), negativeD(false){}
     WorldObject(int newX, int newY, string newName): xPos(newX),yPos(newY), name(newName){}
 
     //Accessors

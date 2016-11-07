@@ -12,21 +12,24 @@ private:
     double awareness;
     bool alerted;
     bool canAttack;
+    bool canFollow;
 
 public:
     //Constructor
-    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(false){this->setHealth(3); this->setName(":/images/images/Slime");}
+    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(true), canFollow(true){this->setWidth(35); this->setHeight(25);this->setHealth(3); this->setName(":/images/images/Slime");}
 
     //Accessor
     string getProperty() {return property;}
     bool isAlerted(){return alerted;}
     bool engaged(){return canAttack;}
+    bool trackingOn(){return canFollow;}
 
     //Mutator
     void setProperty(string newProperty) {property = newProperty;}
     void setAwareness(double newAwareness) {awareness = newAwareness;}
     void setAlerted(bool newState){alerted = newState;}
     void setAttack(bool newState){canAttack = newState;}
+    void setFollow(bool newState){canFollow = newState;}
 
     //Additional Methods
     void strike(WorldCharacter*);

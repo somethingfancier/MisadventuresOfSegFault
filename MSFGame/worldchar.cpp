@@ -35,34 +35,6 @@ void WorldCharacter::hit(int attackDamage)
     }
 }
 
-void WorldCharacter::setDirections()
-{
-    if(orientation == 1)
-    {
-        movableD = true;
-        movableL = true;
-        movableR = true;
-    }
-    else if(orientation == 2)
-    {
-        movableU = true;
-        movableD = true;
-        movableL = true;
-    }
-    else if(orientation == 3)
-    {
-        movableU = true;
-        movableL = true;
-        movableR = true;
-    }
-    else if(orientation == 4)
-    {
-        movableD = true;
-        movableU = true;
-        movableR = true;
-    }
-
-}
 
 bool WorldCharacter::isFacing(WorldCharacter* chosenChar)
 {
@@ -83,19 +55,19 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
     if(obstacle != nullptr){
         if(orientation == 1)
         {
-            return(this->withinXBound(obstacle) && obstacle->vSDistance(this) <= 10);
+            return(this->withinXBound(obstacle) && obstacle->vSDistance(this) <= 40);
         }
         else if(orientation == 2)
         {
-            return(this->withinYBound(obstacle) && this->hSDistance(obstacle) <= 10);
+            return(this->withinYBound(obstacle) && this->hSDistance(obstacle) <= 40);
         }
         else if(orientation == 3)
         {
-            return(this->withinXBound(obstacle) && this->vSDistance(obstacle) <= 10);
+            return(this->withinXBound(obstacle) && this->vSDistance(obstacle) <= 40);
         }
         else if(orientation == 4)
         {
-            return(this->withinYBound(obstacle) && obstacle->hSDistance(this) <= 10);
+            return(this->withinYBound(obstacle) && obstacle->hSDistance(this) <= 40);
         }
     }
     else if(enemy != nullptr){
@@ -105,11 +77,11 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
         }
         else if(orientation == 2)
         {
-            return(this->withinYBound(enemy) && this->hSDistance(enemy) <= 20);
+            return(this->withinYBound(enemy) && this->hSDistance(enemy) <= 40);
         }
         else if(orientation == 3)
         {
-            return(this->withinXBound(enemy) && this->vSDistance(enemy) <= 20);
+            return(this->withinXBound(enemy) && this->vSDistance(enemy) <= 40);
         }
         else if(orientation == 4)
         {
@@ -119,19 +91,19 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
     else if(player != nullptr){
             if(orientation == 1)
             {
-                return(this->withinXBound(player) && player->vSDistance(this) <= 10);
+                return(player->withinXBound(this) && player->vSDistance(this) <= 40);
             }
             else if(orientation == 2)
             {
-                return(this->withinYBound(player) && this->hSDistance(player) < 10);
+                return(player->withinYBound(this) && this->hSDistance(player) < 40);
             }
             else if(orientation == 3)
             {
-                return(this->withinXBound(player) && this->vSDistance(player) < 10);
+                return(player->withinXBound(this) && this->vSDistance(player) < 40);
             }
             else if(orientation == 4)
             {
-                return(this->withinYBound(player) && player->hSDistance(this) <= 10);
+                return(player->withinYBound(this) && player->hSDistance(this) <= 40);
             }
         }
 
