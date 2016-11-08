@@ -28,6 +28,8 @@ public:
     void setGiveableItem(WorldItem* newItem){giveableItem = newItem;}
 
     void strike(WorldCharacter*){}
+
+
 };
 
 #endif // NPC_H

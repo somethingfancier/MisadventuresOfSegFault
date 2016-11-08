@@ -50,7 +50,7 @@ public:
 
     string getData() {
 
-        string data = WorldObject::getData();
+        string data = "," + WorldObject::getData();
         data += ("," + to_string(this->getHealth()) + ","
                 + to_string(this->getStrength()) + ","
                 + to_string(this->getDefense()) + ","

@@ -178,11 +178,3 @@ void Game::newWorld()
         this->initialize(currentWRight);
     }
 }
-
-
-void closeEvent(QCloseEvent *event) {
-    if (event->Close) {
-        Universe::instance().Save();
-    }
-
-}

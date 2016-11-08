@@ -31,7 +31,7 @@ void MainWindow::on_pbStart_clicked()
 void MainWindow::on_pbLoad_clicked()
 {
     Game *game = new Game();
-    //game->load();
+    Universe::instance().Load();
     game->show();
 
     QMainWindow::close();

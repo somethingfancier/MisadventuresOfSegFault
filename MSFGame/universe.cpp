@@ -1,6 +1,7 @@
 #include <iostream>
 #include <QDebug>
 #include "universe.h"
+#include <sstream>
 
 using namespace std;
 
@@ -691,22 +692,173 @@ void Universe::createEighthWorld() {
 
 void Universe::Save()
 {
-    cout << player->getData() << "\n";
+    ofstream outputFile;
+    outputFile.open("segfaultSave.txt", ofstream::out | ofstream::trunc);
+
+    outputFile << player->getData();
+    cout << player->getData();
     for (int index = 1; index < Universe::instance().getWorlds().size(); index++) {
-        cout << "world" << Universe::instance().getWorld(index)->getId() << "\n";
+        //cout << "world" << Universe::instance().getWorld(index)->getId() << "\n";
+        //outputFile << "world" << Universe::instance().getWorld(index)->getId() << "\n";
 
         if(Universe::instance().getWorld(index)->charsEnabled()){
             for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getCharacters().size(); i++) {
                     WorldCharacter* enemy1 = Universe::instance().getWorld(index)->getCharacters().at(i);
-                    cout << enemy1->getData() << "\n";
+                    cout << enemy1->getData();
+                    outputFile << enemy1->getData();
                 }
             }
 
         if(Universe::instance().getWorld(index)->itemsEnabled()){
             for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getItems().size(); i++) {
                 WorldItem* item1 = Universe::instance().getWorld(index)->getItems().at(i);
-                cout << item1->getData() << "\n";
+                cout << item1->getData();
+                outputFile << item1->getData();
             }
+        }
+    }
+
+    outputFile.close();
+}
+
+void Universe::Load()
+{
+    const int maxChars = 5120;
+    const int maxTokens = 200;
+    const char* const delimiter = ",";
+
+    ifstream fin;
+    fin.open("segfaultSave.txt");
+    if (!fin.good())
+    {
+        //TODO: error message
+    }
+    else {
+        while (!fin.eof())
+        {
+            char buf[maxChars];
+            fin.getline(buf, maxChars);
+
+            int i = 0;
+
+            const char* token[maxTokens] = {};
+
+            token[0] = strtok(buf, delimiter);
+            if (token[0])
+            {
+                for (i = 1; i < maxTokens; i++) {
+                    token[i] = strtok(0, delimiter);
+                    if (!token[i])
+                    {
+                        break;
+                    }
+                }
+            }
+
+            for (int n = 0; n < i; n++)
+            {
+                cout << "Token[" << n << "] = " << token[n];
+                cout << endl;
+            }
+
+            stringstream playerx;
+            playerx << token[0];
+            int playerIntx;
+            playerx >> playerIntx;
+
+            stringstream playery;
+            playery << token[1];
+            int playerInty;
+            playery >> playerInty;
+
+            stringstream playerHealth;
+            playerHealth << token[2];
+            int playerIntHealth;
+            playerHealth >> playerIntHealth;
+
+            stringstream playerStrength;
+            playerStrength << token[3];
+            int playerIntStrength;
+            playerStrength >> playerIntStrength;
+
+            stringstream playerDefense;
+            playerDefense << token[4];
+            int playerIntDefense;
+            playerDefense >> playerIntDefense;
+
+            stringstream playerOrientation;
+            playerOrientation << token[5];
+            int playerIntOrientation;
+            playerOrientation >> playerIntOrientation;
+
+            stringstream playerDead;
+            playerDead << token[6];
+            int playerIntDead;
+            playerDead >> playerIntDead;
+
+            Universe::instance().player->setCoordinates(playerIntx, playerInty);
+            Universe::instance().player->setHealth(playerIntHealth);
+            Universe::instance().player->setDefense(playerIntDefense);
+            Universe::instance().player->setOrientation(playerIntOrientation);
+            Universe::instance().player->setDead(playerIntDead);
+
+
+            int tokenPos = 7; // HACKY HACKY HACK
+            for (int enemy = 0; enemy < 2; enemy++)
+            {
+                stringstream enemyx;
+                enemyx << token[tokenPos];
+                int enemyIntx;
+                enemyx >> enemyIntx;
+                tokenPos++;
+
+                stringstream enemyy;
+                enemyy << token[tokenPos];
+                int enemyInty;
+                enemyy >> enemyInty;
+                tokenPos++;
+
+                stringstream enemyHealth;
+                enemyHealth << token[tokenPos];
+                int enemyIntHealth;
+                enemyHealth >> enemyIntHealth;
+                tokenPos++;
+
+                stringstream enemyStrength;
+                enemyStrength << token[tokenPos];
+                int enemyIntStrength;
+                enemyStrength >> enemyIntStrength;
+                tokenPos++;
+
+                stringstream enemyDefense;
+                enemyDefense << token[tokenPos];
+                int enemyIntDefense;
+                enemyDefense >> enemyIntDefense;
+                tokenPos++;
+
+                stringstream enemyOrientation;
+                enemyOrientation << token[tokenPos];
+                int enemyIntOrientation;
+                enemyOrientation >> enemyIntOrientation;
+                tokenPos++;
+
+                stringstream enemyDead;
+                enemyDead << token[tokenPos];
+                int enemyIntDead;
+                enemyDead >> enemyIntDead;
+                tokenPos++;
+
+                WorldCharacter* typicalEnemy = Universe::instance().getWorld(1)->getCharacters().at(enemy);
+                typicalEnemy->setCoordinates(enemyIntx, enemyInty);
+                typicalEnemy->setHealth(enemyIntHealth);
+                typicalEnemy->setStrength(enemyIntStrength);
+                typicalEnemy->setDefense(enemyIntDefense);
+                typicalEnemy->setOrientation(enemyIntOrientation);
+                typicalEnemy->setDead(enemyIntDead);
+            }
+
+
+            break;
         }
     }
 }
