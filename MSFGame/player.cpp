@@ -6,6 +6,7 @@
 #include <typeinfo>
 #include "worldplayer.h"
 #include "enemy.h"
+#include "npc.h"
 #include "magic.h"
 #include "item.h"
 #include "npc.h"
@@ -66,6 +67,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
         } else if (msg.clickedButton() == btCheat){
             player->setHealth(100);
             player->setDefense(100);
+
         }else if (msg.clickedButton() == btHelp){
             QMessageBox ms;
             ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
@@ -101,7 +103,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
     }
 
     else if (event->key() == Qt::Key_Up) {
-        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
+        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()) {
             setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
             connect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
             connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimUp()));
@@ -232,9 +234,20 @@ void Player::timerHitUp()
                 delete colliding_items[i];
                 scene()->removeItem(colliding_items[i]);
             }
-        }
+        } else if (colliding_items[i] && typeid(*(colliding_items[i])) == typeid(NPC)) {
+            NPC* dude = dynamic_cast<NPC*>(colliding_items[i]);
+            if (dude != nullptr) {
+                   Score* txtAdv = new Score();
+                   txtAdv->setPos(100,100);
+                   txtAdv->setPlainText(dude->getAdvice().c_str());
+                   txtAdv->setDefaultTextColor(Qt::cyan);
+                   txtAdv->setFont(QFont("utopia", 25, 75));
+                   scene()->addItem(txtAdv);
+            }
 
+        }
         else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Obstacle)|| typeid(*(colliding_items[i]))== typeid(Enemy) || typeid(*(colliding_items[i]))== typeid(NPC))){
+
 
             Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
             Enemy* enemy = dynamic_cast<Enemy*>(colliding_items[i]);
@@ -308,6 +321,7 @@ void Player::timerHitDown()
                     player->decY();
                 }
             }
+
             else if(enemy != nullptr){
                 if(player->isBoardering(enemy->getEnemy())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));

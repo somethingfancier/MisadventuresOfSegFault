@@ -44,6 +44,13 @@ void MainWindow::on_pbControls_clicked()
     msg.exec();
 }
 
+void MainWindow::on_pbHighscore_clicked()
+{
+    QMessageBox msg(mw);
+    msg.setText("High Scores: \n\n");
+    msg.exec();
+}
+
 void MainWindow::on_pbExit_clicked()
 {
     QApplication::quit();

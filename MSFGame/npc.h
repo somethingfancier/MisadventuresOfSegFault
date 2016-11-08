@@ -21,6 +21,8 @@ public:
     WorldNPC* getNPC(){return npc;}
     void setNPC(WorldNPC* newNPC){npc = newNPC;}
 
+    string getAdvice(){return advice;}
+
     void setAdvice(string newAdv) {advice = newAdv;}
 
 

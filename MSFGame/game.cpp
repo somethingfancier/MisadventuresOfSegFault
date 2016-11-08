@@ -67,62 +67,68 @@ void Game::initialize(int id)
     currentWDown = world->getDownWId();
     currentWLeft = world->getLeftWId();
     currentWRight = world->getRightId();
-
     setBackgroundBrush(QBrush(QImage(world->getName())));
-    for (unsigned i=0; i<world->getCharacters().size(); i++) {
-        Enemy* newEnemy = new Enemy();
-        WorldEnemy* disEnemy = new WorldEnemy();
-        disEnemy = dynamic_cast<WorldEnemy*>(world->getCharacters().at(i));
-        if (disEnemy != nullptr) {
-            newEnemy->setEnemy(disEnemy);
-            //newEnemy->setTimer(player->getTimer());
-            newEnemy->updatePos();
-            newEnemy->getEnemy()->setAwareness(3);
-            scene->addItem(newEnemy);
-        }
-    }
 
-    for (unsigned i=0; i<world->getCharacters().size(); i++) {
-        NPC* newNPC = new NPC();
-        WorldNPC* disNPC = new WorldNPC();
-        disNPC = dynamic_cast<WorldNPC*>(world->getCharacters().at(i));
-        if (disNPC != nullptr) {
-            newNPC->setPos(disNPC->getX(),disNPC->getY());
-            newNPC->setNPC(disNPC);
-            disNPC->setHeight(40);
-            disNPC->setWidth(34);
-            string str = string(":/images/images/") + disNPC->getName() + ".png";
+
+    //if(!Universe::instance().getWorld(id)->isInit()){
+
+        for (unsigned i=0; i<world->getCharacters().size(); i++) {
+            Enemy* newEnemy = new Enemy();
+            WorldEnemy* disEnemy = new WorldEnemy();
+            disEnemy = dynamic_cast<WorldEnemy*>(world->getCharacters().at(i));
+            if (disEnemy != nullptr) {
+                newEnemy->setEnemy(disEnemy);
+                //newEnemy->setTimer(player->getTimer());
+                newEnemy->updatePos();
+                newEnemy->getEnemy()->setAwareness(3);
+                scene->addItem(newEnemy);
+            }
+        }
+
+        for (unsigned i=0; i<world->getCharacters().size(); i++) {
+            NPC* newNPC = new NPC();
+            WorldNPC* disNPC = new WorldNPC();
+            disNPC = dynamic_cast<WorldNPC*>(world->getCharacters().at(i));
+            if (disNPC != nullptr) {
+                newNPC->setPos(disNPC->getX(),disNPC->getY());
+                newNPC->setNPC(disNPC);
+                disNPC->setHeight(40);
+                disNPC->setWidth(34);
+                string str = string(":/images/images/") + disNPC->getName() + ".png";
+                const char * c = str.c_str();
+                newNPC->setPixmap(QPixmap(c).scaled(34, 40));
+                scene->addItem(newNPC);
+            }
+        }
+
+
+        //Add Obstacles
+        for (unsigned i=0; i<world->getObstacles().size(); i++) {
+            WorldObstacle* obstacle = new WorldObstacle;
+            obstacle = world->getObstacles().at(i);
+            Obstacle* obj = new Obstacle();
+            obj->setRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight());
+            obj->setObstacle(obstacle);
+            obj->setPen(Qt::NoPen);
+            scene->addItem(obj);
+        }
+
+        //Add Items
+        for (unsigned i=0; i<world->getItems().size(); i++) {
+            WorldItem* item = world->getItems().at(i);
+            Item* newItem = new Item();
+            newItem->setPos(item->getX(), item->getY());
+            newItem->setItem(item);
+
+            string str = string(":/images/images/") + item->getProperty() + ".png";
             const char * c = str.c_str();
-            newNPC->setPixmap(QPixmap(c).scaled(34, 40));
-            scene->addItem(newNPC);
+            newItem->setPixmap(QPixmap(c).scaled(30, 30));
+
+            scene->addItem(newItem);
         }
-    }
+    //}
 
-
-    //Add Obstacles
-    for (unsigned i=0; i<world->getObstacles().size(); i++) {
-        WorldObstacle* obstacle = new WorldObstacle;
-        obstacle = world->getObstacles().at(i);
-        Obstacle* obj = new Obstacle();
-        obj->setRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight());
-        obj->setObstacle(obstacle);
-        obj->setPen(Qt::NoPen);
-        scene->addItem(obj);
-    }
-
-    //Add Items
-    for (unsigned i=0; i<world->getItems().size(); i++) {
-        WorldItem* item = world->getItems().at(i);
-        Item* newItem = new Item();
-        newItem->setPos(item->getX(), item->getY());
-        newItem->setItem(item);
-
-        string str = string(":/images/images/") + item->getProperty() + ".png";
-        const char * c = str.c_str();
-        newItem->setPixmap(QPixmap(c).scaled(30, 30));
-
-        scene->addItem(newItem);
-    }
+    Universe::instance().getWorld(id)->setInit();
     scene->addItem(player);
 
 }
@@ -139,6 +145,7 @@ void Game::newWorld()
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
         player->setWorld(Universe::instance().getWorld(currentWUp));
+        scene->deleteLater();
         this->initialize(currentWUp);
 
     } else if (player->getPlayer()->getY() > 720) {
@@ -151,6 +158,7 @@ void Game::newWorld()
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
         player->setWorld(Universe::instance().getWorld(currentWDown));
+        scene->deleteLater();
         this->initialize(currentWDown);
 
     } else if (player->getPlayer()->getX() < 0) {
@@ -163,6 +171,7 @@ void Game::newWorld()
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
         player->setWorld(Universe::instance().getWorld(currentWLeft));
+        scene->deleteLater();
         this->initialize(currentWLeft);
 
     }else if (player->getPlayer()->getX() > 1280) {
@@ -175,6 +184,7 @@ void Game::newWorld()
         player->setFlag(QGraphicsItem::ItemIsFocusable);
         player->setFocus();
         player->setWorld(Universe::instance().getWorld(currentWRight));
+        scene->deleteLater();
         this->initialize(currentWRight);
     }
 }
