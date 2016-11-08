@@ -84,12 +84,6 @@ void Game::initialize(int id)
             }
         }
     } else {
-
-
-
-
-
-
         for (unsigned i=0; i<world->getCharacters().size(); i++) {
             Enemy* newEnemy = new Enemy();
             WorldEnemy* disEnemy = new WorldEnemy();
@@ -206,12 +200,4 @@ void Game::newWorld()
         scene->deleteLater();
         this->initialize(currentWRight);
     }
-}
-
-
-void closeEvent(QCloseEvent *event) {
-    if (event->Close) {
-        Universe::instance().Save();
-    }
-
 }

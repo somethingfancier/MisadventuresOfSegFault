@@ -31,7 +31,8 @@ void MainWindow::on_pbStart_clicked()
 void MainWindow::on_pbLoad_clicked()
 {
     Game *game = new Game();
-    //game->load();
+    Universe::instance().Load();
+    Universe::instance().getPlayer()->getScore()->Load();
     game->show();
 
     QMainWindow::close();
@@ -47,11 +48,19 @@ void MainWindow::on_pbControls_clicked()
 void MainWindow::on_pbHighscore_clicked()
 {
     QMessageBox msg(mw);
-    msg.setText("High Scores: \n\n");
+    string mystr = "HighScores:" + Universe::instance().getPlayer()->getScore()->Load();
+    msg.setText(mystr.c_str());
     msg.exec();
 }
 
 void MainWindow::on_pbExit_clicked()
 {
     QApplication::quit();
+}
+
+void MainWindow::on_storyButton_clicked()
+{
+    QMessageBox msg(mw);
+    msg.setText("Story: YOU ARE SEGFAULT. YOU HAVE BEEN BANISHED TO A FORSAKEN REALM AND MUST COLLECT THE MISSING HEADER FILES TO ESCAPE BACK TO REALITY. GOOD LUCK.");
+    msg.exec();
 }

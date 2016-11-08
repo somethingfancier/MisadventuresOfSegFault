@@ -44,7 +44,7 @@ public:
 
     string getData()
     {
-        string data = "item," + WorldObject::getData();
+        string data = "," + WorldObject::getData();
         data += "," + to_string(this->getEquipped());
         return data;
     }

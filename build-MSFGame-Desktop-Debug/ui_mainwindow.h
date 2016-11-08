@@ -25,7 +25,7 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QWidget *widget;
-    QPushButton *pushButton;
+    QPushButton *storyButton;
     QPushButton *pbExit;
     QPushButton *pbHighscore;
     QPushButton *pbLoad;
@@ -49,14 +49,14 @@ public:
         widget->setObjectName(QStringLiteral("widget"));
         widget->setGeometry(QRect(0, 0, 800, 600));
         widget->setStyleSheet(QStringLiteral(""));
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(50, 10, 701, 151));
-        pushButton->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
+        storyButton = new QPushButton(widget);
+        storyButton->setObjectName(QStringLiteral("storyButton"));
+        storyButton->setGeometry(QRect(50, 10, 701, 151));
+        storyButton->setStyleSheet(QStringLiteral("background-color: rgba(255, 255, 255, 0);"));
         QIcon icon;
         icon.addFile(QStringLiteral(":/images/images/misadv.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
-        pushButton->setIconSize(QSize(650, 400));
+        storyButton->setIcon(icon);
+        storyButton->setIconSize(QSize(650, 400));
         pbExit = new QPushButton(widget);
         pbExit->setObjectName(QStringLiteral("pbExit"));
         pbExit->setGeometry(QRect(310, 480, 191, 61));
@@ -101,8 +101,10 @@ public:
         widget_2->setObjectName(QStringLiteral("widget_2"));
         widget_2->setGeometry(QRect(0, 0, 800, 600));
         widget_2->setStyleSheet(QStringLiteral("image: url(:/images/images/landscape.png);"));
+        pbControls->raise();
+        pbHighscore->raise();
         widget_2->raise();
-        pushButton->raise();
+        storyButton->raise();
         pbExit->raise();
         pbHighscore->raise();
         pbLoad->raise();
@@ -118,7 +120,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        pushButton->setText(QString());
+        storyButton->setText(QString());
         pbExit->setText(QString());
         pbHighscore->setText(QString());
         pbLoad->setText(QString());

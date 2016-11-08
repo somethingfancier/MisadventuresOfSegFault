@@ -41,7 +41,7 @@
     <property name="styleSheet">
      <string notr="true"/>
     </property>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="storyButton">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -209,9 +209,13 @@
      <property name="styleSheet">
       <string notr="true">image: url(:/images/images/landscape.png);</string>
      </property>
+     <zorder>pbControls</zorder>
+     <zorder>pbHighscore</zorder>
+     <zorder>pbHighscore_2</zorder>
+     <zorder>pbHighscore_2</zorder>
     </widget>
     <zorder>widget_2</zorder>
-    <zorder>pushButton</zorder>
+    <zorder>storyButton</zorder>
     <zorder>pbExit</zorder>
     <zorder>pbHighscore</zorder>
     <zorder>pbLoad</zorder>

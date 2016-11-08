@@ -843,7 +843,18 @@ highscore.o: ../MSFGame/highscore.cpp ../MSFGame/highscore.h \
 		../MSFGame/worldscore.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o highscore.o ../MSFGame/highscore.cpp
 
-worldscore.o: ../MSFGame/worldscore.cpp ../MSFGame/worldscore.h
+worldscore.o: ../MSFGame/worldscore.cpp ../MSFGame/universe.h \
+		../MSFGame/worldscore.h \
+		../MSFGame/world.h \
+		../MSFGame/worldenemy.h \
+		../MSFGame/worldchar.h \
+		../MSFGame/worldobject.h \
+		../MSFGame/worldobstacle.h \
+		../MSFGame/worlditem.h \
+		../MSFGame/worldnpc.h \
+		../MSFGame/worldplayer.h \
+		../MSFGame/worldlives.h \
+		../MSFGame/worldhealth.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o worldscore.o ../MSFGame/worldscore.cpp
 
 magic.o: ../MSFGame/magic.cpp ../MSFGame/magic.h \

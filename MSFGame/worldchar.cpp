@@ -31,6 +31,18 @@ void WorldCharacter::hit(int attackDamage)
         health = health - attackDamage + defense;
         if (health == 0) {
             this->setDead(true);
+            WorldPlayer* myGuy = dynamic_cast<WorldPlayer*>(this);
+            if(myGuy != nullptr)
+            {
+                if(myGuy->getLives()->getLives() <= 0){
+                    myGuy->setNoLives(true);
+                }
+                else{
+                    myGuy->getLives()->decrease(1);
+                    myGuy->setHealth(10);
+                    myGuy->setCoordinates(myGuy->getDeadLocX(),myGuy->getDeadLocy());
+                }
+            }
         }
     }
 }

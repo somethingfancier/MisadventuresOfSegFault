@@ -20,9 +20,11 @@ private:
     WorldScore* score;
     int onDeadX;
     int onDeadY;
+    bool noLives;
+
 public:
     //Constructor
-    WorldPlayer(): username("<Segfault>"),onDeadX(100),onDeadY(100){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
+    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660), noLives(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
     ~WorldPlayer(){}
 
     //Accessors
@@ -31,12 +33,16 @@ public:
     WorldItem* getItem(){return equippedItem;}
     int getDeadLocX(){return onDeadX;}
     int getDeadLocy(){return onDeadY;}
+    bool getNoLives(){return noLives;}
+    WorldScore* getScore(){return score;}
 
     //Mutators
     void setLives(WorldLives* newLives){lives = newLives;}
     void setScore(WorldScore* newScore){score = newScore;}
     void setItem(WorldItem* newItem){equippedItem = newItem;}
-    void setUsername(){username = "<SegFault>";}      //Indiscriminately set the player's name to SegFault
+    void setUsername(){username = "<SegFault>";}
+    void setNoLives(bool lifeState){noLives = lifeState;}
+                                                      //Indiscriminately set the player's name to SegFault
                                                       //(Thus the madness begins)
     void strike(WorldCharacter*);
     bool longAttack();
