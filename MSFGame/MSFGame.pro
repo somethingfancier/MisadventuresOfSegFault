@@ -37,7 +37,8 @@ SOURCES += main.cpp\
     worldlives.cpp \
     health.cpp \
     worldhealth.cpp \
-    npc.cpp
+    npc.cpp \
+    boss.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -63,7 +64,8 @@ HEADERS  += mainwindow.h \
     worldlives.h \
     health.h \
     worldhealth.h \
-    npc.h
+    npc.h \
+    boss.h
 
 FORMS    += mainwindow.ui
 
