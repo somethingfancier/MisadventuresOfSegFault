@@ -34,6 +34,7 @@ public:
     int getDeadLocX(){return onDeadX;}
     int getDeadLocy(){return onDeadY;}
     bool getNoLives(){return noLives;}
+    WorldScore* getScore(){return score;}
 
     //Mutators
     void setLives(WorldLives* newLives){lives = newLives;}

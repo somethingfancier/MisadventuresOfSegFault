@@ -32,6 +32,7 @@ void MainWindow::on_pbLoad_clicked()
 {
     Game *game = new Game();
     Universe::instance().Load();
+    Universe::instance().getPlayer()->getScore()->Load();
     game->show();
 
     QMainWindow::close();
@@ -47,7 +48,8 @@ void MainWindow::on_pbControls_clicked()
 void MainWindow::on_pbHighscore_clicked()
 {
     QMessageBox msg(mw);
-    msg.setText("High Scores: \n\n");
+    string mystr = "HighScores:" + Universe::instance().getPlayer()->getScore()->Load();
+    msg.setText(mystr.c_str());
     msg.exec();
 }
 
