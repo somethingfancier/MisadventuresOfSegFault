@@ -40,11 +40,11 @@ public:
     void rotateR();
     void rotateL();
 
-    string getData() {
-        string data = "enemy," + WorldCharacter::getData();
+    /*string getData() {
+        string data = "," + WorldCharacter::getData();
         data += "," + to_string(this->isAlerted());
         return data;
-    }
+    }*/
 
 };
 

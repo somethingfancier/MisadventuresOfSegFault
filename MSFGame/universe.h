@@ -10,6 +10,10 @@
 #include "worldnpc.h"
 #include "worlditem.h"
 #include "worldobstacle.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
 
 class Universe{
 
@@ -48,6 +52,7 @@ public:
     void createFifthWorld();
     void createSixthWorld();
     void createEighthWorld();
+    void createTenthWorld();
 
 }; 
 

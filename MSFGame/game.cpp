@@ -15,6 +15,7 @@ Game::Game(QWidget *parent)
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();
+    Universe::instance().createTenthWorld();
     Universe::instance().getPlayer()->setCoordinates(100,200);
 
     player = new Player();
@@ -69,8 +70,25 @@ void Game::initialize(int id)
     currentWRight = world->getRightId();
     setBackgroundBrush(QBrush(QImage(world->getName())));
 
+    if (id == 10) {
+        for (unsigned i=0; i<world->getCharacters().size(); i++) {
+            Boss* newBoss = new Boss();
+            WorldEnemy* disEnemy = new WorldEnemy();
+            disEnemy = dynamic_cast<WorldEnemy*>(world->getCharacters().at(i));
+            if (disEnemy != nullptr) {
+                newBoss->setEnemy(disEnemy);
+                //newEnemy->setTimer(player->getTimer());
+                newBoss->updatePos();
+                newBoss->getEnemy()->setAwareness(3);
+                scene->addItem(newBoss);
+            }
+        }
+    } else {
 
-    //if(!Universe::instance().getWorld(id)->isInit()){
+
+
+
+
 
         for (unsigned i=0; i<world->getCharacters().size(); i++) {
             Enemy* newEnemy = new Enemy();
@@ -84,6 +102,7 @@ void Game::initialize(int id)
                 scene->addItem(newEnemy);
             }
         }
+    }
 
         for (unsigned i=0; i<world->getCharacters().size(); i++) {
             NPC* newNPC = new NPC();
@@ -187,12 +206,4 @@ void Game::newWorld()
         scene->deleteLater();
         this->initialize(currentWRight);
     }
-}
-
-
-void closeEvent(QCloseEvent *event) {
-    if (event->Close) {
-        Universe::instance().Save();
-    }
-
 }
