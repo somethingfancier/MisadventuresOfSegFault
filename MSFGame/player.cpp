@@ -51,7 +51,7 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
 void Player::keyPressEvent(QKeyEvent *event) {
 
-
+    if((!(player->getNoLives()))){
     if (event->key() == Qt::Key_Escape) {
         QMessageBox msg;
         msg.setWindowTitle("Menu");
@@ -165,6 +165,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
             timerCooldown->start();
         }
 
+    }\
     }
 }
 
@@ -593,4 +594,9 @@ void Player::updateDisplay()
     lives->getLives()->setLives(player->getLives()->getLives());
     health->updateHealth();
     lives->updateLives();
+    if(player->isDead())
+    {
+       this->updatePos();
+       player->setDead(false);
+    }
 }
