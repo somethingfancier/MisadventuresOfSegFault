@@ -3,6 +3,7 @@
 #include <typeinfo>
 #include <QGraphicsScene>
 #include "enemy.h"
+#include "boss.h"
 #include "player.h"
 #include <iostream>
 
@@ -27,10 +28,20 @@ void Magic::move(){
                 {
                     curEnemy->getEnemy()->hit(1);
                 }
-//Insert enemy damage here
                 scene()->removeItem(this);
                 delete this;
                 return;
+
+            } else if (typeid(*(colliding_items[i])) == typeid(Boss)) {
+                Boss* curBoss = static_cast<Boss*>(colliding_items.at(i));
+                if(curBoss != NULL)
+                {
+                    curBoss->getEnemy()->hit(1);
+                }
+                scene()->removeItem(this);
+                delete this;
+                return;
+
             } else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Player)) {
                 scene()->removeItem(this);
                 delete this;
@@ -63,6 +74,16 @@ void Magic::move(){
                 scene()->removeItem(this);
                 delete this;
                 return;
+            } else if (typeid(*(colliding_items[i])) == typeid(Boss)) {
+                Boss* curBoss = static_cast<Boss*>(colliding_items.at(i));
+                if(curBoss != NULL)
+                {
+                    curBoss->getEnemy()->hit(1);
+                }
+                scene()->removeItem(this);
+                delete this;
+                return;
+
             } else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Player)) {
                 scene()->removeItem(this);
                 delete this;
@@ -95,6 +116,16 @@ void Magic::move(){
                 scene()->removeItem(this);
                 delete this;
                 return;
+            } else if (typeid(*(colliding_items[i])) == typeid(Boss)) {
+                Boss* curBoss = static_cast<Boss*>(colliding_items.at(i));
+                if(curBoss != NULL)
+                {
+                    curBoss->getEnemy()->hit(1);
+                }
+                scene()->removeItem(this);
+                delete this;
+                return;
+
             } else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Player)) {
                 scene()->removeItem(this);
                 delete this;
@@ -126,6 +157,16 @@ void Magic::move(){
                 scene()->removeItem(this);
                 delete this;
                 return;
+            } else if (typeid(*(colliding_items[i])) == typeid(Boss)) {
+                Boss* curBoss = static_cast<Boss*>(colliding_items.at(i));
+                if(curBoss != NULL)
+                {
+                    curBoss->getEnemy()->hit(1);
+                }
+                scene()->removeItem(this);
+                delete this;
+                return;
+
             } else if (colliding_items[i] && typeid(*(colliding_items[i]))!= typeid(Player)) {
                 scene()->removeItem(this);
                 delete this;

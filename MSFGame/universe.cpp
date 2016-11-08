@@ -638,7 +638,7 @@ void Universe::createFourthWorld() {
     world4->setDownWId(5);
     world4->setLeftWId(9);
     world4->setRightWId(3);
-    world4->setUpWId(4);
+    world4->setUpWId(10);
     //world4->setName(":/images/images/World4.png");
 
     addWorld(world4);
@@ -688,6 +688,28 @@ void Universe::createEighthWorld() {
 
     instance().addWorld(world8);
 
+}
+
+void Universe::createTenthWorld()
+{
+    World* world10 = new World();
+
+    world10->setId(10);
+    world10->setDownWId(10);
+    world10->setLeftWId(10);
+    world10->setRightWId(10);
+    world10->setUpWId(10);
+    world10->setName(":/images/images/World10.png");
+
+    WorldEnemy* badGuyOne = new WorldEnemy();
+
+    badGuyOne->setX(400);
+    badGuyOne->setY(200);
+
+    badGuyOne->setHealth(50);
+    world10->addCharacter(badGuyOne);
+
+    instance().addWorld(world10);
 }
 
 void Universe::Save()

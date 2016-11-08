@@ -98,5 +98,14 @@
         <file>images/World2.png</file>
         <file>images/Help.png</file>
         <file>images/Highscores.png</file>
+        <file>images/boss1.png</file>
+        <file>images/boss2.png</file>
+        <file>images/boss3.png</file>
+        <file>images/boss4.png</file>
+        <file>images/boss5.png</file>
+        <file>images/boss6.png</file>
+        <file>images/boss7.png</file>
+        <file>images/boss8.png</file>
+        <file>images/World10.png</file>
     </qresource>
 </RCC>
