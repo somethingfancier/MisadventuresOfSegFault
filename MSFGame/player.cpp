@@ -245,7 +245,6 @@ void Player::timerHitUp()
             NPC* npc = dynamic_cast<NPC*>(colliding_items[i]);
             Boss* boss = dynamic_cast<Boss*>(colliding_items[i]);
 
-
             if(boss != nullptr){
                 if(player->isBoardering(boss->getEnemy())){
                     disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
