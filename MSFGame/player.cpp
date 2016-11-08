@@ -632,4 +632,8 @@ void Player::updateDisplay()
        this->updatePos();
        player->setDead(false);
     }
+    if(player->getNoLives())
+    {
+        cout << score->getScore();
+    }
 }
