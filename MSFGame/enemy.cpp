@@ -4,6 +4,7 @@
 #include "obstacle.h"
 #include <typeinfo>
 #include "universe.h"
+#include "player.h"
 
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
@@ -80,7 +81,12 @@ void Enemy::move()
                 }
             }
         }
-        enemy->move(player);
+
+        if(enemy->isBoardering(player)){
+            enemy->attack(player);
+        }else{
+            enemy->move(player);
+        }
 
         this->updatePos();
         numMoves++;

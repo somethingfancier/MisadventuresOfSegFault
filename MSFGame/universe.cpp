@@ -705,6 +705,7 @@ void Universe::createTenthWorld()
     badGuyOne->setX(400);
     badGuyOne->setY(200);
 
+    badGuyOne->setHealth(50);
     world10->addCharacter(badGuyOne);
 
     instance().addWorld(world10);

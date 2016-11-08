@@ -21,6 +21,7 @@ private:
     const char* name;
     bool charAdded;
     bool itemsAdded;
+    bool initialized;
 
     vector<WorldCharacter*> characters;
     vector<WorldItem*> items;
@@ -28,8 +29,8 @@ private:
 
 public:
     //Constructor
-    World(int newId, const char* imageName):id(newId),upWId(0),downWId(0),leftWId(0),rightWId(0),name(imageName), charAdded(false), itemsAdded(false){}
-    World():id(0),upWId(0),downWId(0),leftWId(0),rightWId(0),name(""), charAdded(false), itemsAdded(false){}
+    World(int newId, const char* imageName):id(newId),upWId(0),downWId(0),leftWId(0),rightWId(0),name(imageName), charAdded(false), itemsAdded(false),initialized(false){}
+    World():id(0),upWId(0),downWId(0),leftWId(0),rightWId(0),name(""), charAdded(false), itemsAdded(false), initialized(false){}
 
     //Accessors
     int getId(){return id;}
@@ -44,6 +45,7 @@ public:
     vector<WorldCharacter*> getCharacters() { return characters; }
     vector<WorldItem*> getItems() { return items; }
     vector<WorldObstacle*> getObstacles() { return obstacles; }
+    bool isInit(){return initialized;}
 
     //Mutators
     void setId(int newId){id = newId;}
@@ -52,6 +54,7 @@ public:
     void setRightWId(int newId){rightWId = newId;}
     void setLeftWId(int newId){leftWId = newId;}
     void setName(const char* newName){name = newName;}
+    void setInit(){initialized = true;}
 
     //Adders for the Vectors
     void addCharacter(WorldCharacter*);
