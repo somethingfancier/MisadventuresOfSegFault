@@ -15,7 +15,7 @@ public:
     int getScore();
 
     void Save();
-    string Load();
+    void Load();
 };
 
 

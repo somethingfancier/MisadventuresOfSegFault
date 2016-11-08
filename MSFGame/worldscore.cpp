@@ -33,7 +33,7 @@ void WorldScore::Save() {
     rename("segfaultScores.txt", "segfaultScore");
 }
 
-string WorldScore::Load() {
+void WorldScore::Load() {
 
     const int maxChars = 5120;
     const int maxTokens = 200;
