@@ -107,5 +107,9 @@
         <file>images/boss7.png</file>
         <file>images/boss8.png</file>
         <file>images/World10.png</file>
+        <file>images/book.png</file>
+        <file>images/key.png</file>
+        <file>images/health.png</file>
+        <file>images/World4.png</file>
     </qresource>
 </RCC>

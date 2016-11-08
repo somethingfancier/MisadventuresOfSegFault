@@ -12,6 +12,7 @@ class NPC: public QObject, public QGraphicsPixmapItem{
 
     WorldNPC *npc;
     string advice;
+    bool gotAdvice;
 
 
 public:
@@ -20,8 +21,10 @@ public:
     NPC(QGraphicsItem * parent=0);
     WorldNPC* getNPC(){return npc;}
     void setNPC(WorldNPC* newNPC){npc = newNPC;}
+    void setGotAdvice(bool newGot){gotAdvice = newGot;}
 
     string getAdvice(){return advice;}
+    bool getGotAdvice(){return gotAdvice;}
 
     void setAdvice(string newAdv) {advice = newAdv;}
 

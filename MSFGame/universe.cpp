@@ -433,6 +433,12 @@ void Universe::createThirdWorld()
     WorldObstacle* obs31 = new WorldObstacle();
     WorldObstacle* obs32 = new WorldObstacle();
 
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("book");
+    itemOne->setCoordinates(100, 100);
+
+    world3->addItem(itemOne);
+
     obs1->setX(0);
     obs1->setY(632);
     obs1->setWidth(410);
@@ -638,7 +644,13 @@ void Universe::createFourthWorld() {
     world4->setLeftWId(9);
     world4->setRightWId(3);
     world4->setUpWId(10);
-    //world4->setName(":/images/images/World4.png");
+    world4->setName(":/images/images/World4.png");
+
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("health");
+    itemOne->setCoordinates(1020, 230);
+
+    world4->addItem(itemOne);
 
     addWorld(world4);
 
@@ -684,6 +696,12 @@ void Universe::createEighthWorld() {
     world8->setRightWId(5);
     world8->setUpWId(8);
     world8->setName(":/images/images/World8.png");
+
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("key");
+    itemOne->setCoordinates(1020, 230);
+
+    world8->addItem(itemOne);
 
     instance().addWorld(world8);
 

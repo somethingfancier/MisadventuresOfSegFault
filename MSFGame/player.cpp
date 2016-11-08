@@ -279,6 +279,12 @@ void Player::timerHitUp()
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
                     timertwo->stop();
                     player->incY();
+                    if(npc->getGotAdvice() == false){
+                        QMessageBox msgg;
+                        msgg.setText(npc->getAdvice().c_str());
+                        msgg.exec();
+                        npc->setGotAdvice(true);
+                    }
                 }
             }
         }
@@ -350,6 +356,12 @@ void Player::timerHitDown()
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
                     timertwo->stop();
                     player->decY();
+                    if(npc->getGotAdvice() == false){
+                        QMessageBox msgg;
+                        msgg.setText(npc->getAdvice().c_str());
+                        msgg.exec();
+                        npc->setGotAdvice(true);
+                    }
                 }
             }
         }
@@ -417,6 +429,12 @@ void Player::timerHitLeft()
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
                     timertwo->stop();
                     player->incX();
+                    if(npc->getGotAdvice() == false){
+                        QMessageBox msgg;
+                        msgg.setText(npc->getAdvice().c_str());
+                        msgg.exec();
+                        npc->setGotAdvice(true);
+                    }
                 }
             }
         }
@@ -483,6 +501,12 @@ void Player::timerHitRight()
                     disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
                     timertwo->stop();
                     player->decX();
+                    if(npc->getGotAdvice() == false){
+                        QMessageBox msgg;
+                        msgg.setText(npc->getAdvice().c_str());
+                        msgg.exec();
+                        npc->setGotAdvice(true);
+                    }
                 }
             }
         }
