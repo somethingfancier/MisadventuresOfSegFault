@@ -57,3 +57,10 @@ void MainWindow::on_pbExit_clicked()
 {
     QApplication::quit();
 }
+
+void MainWindow::on_storyButton_clicked()
+{
+    QMessageBox msg(mw);
+    msg.setText("Story: YOU ARE SEGFAULT. YOU HAVE BEEN BANISHED TO A FORSAKEN REALM AND MUST COLLECT THE MISSING HEADER FILES TO ESCAPE BACK TO REALITY. GOOD LUCK.");
+    msg.exec();
+}

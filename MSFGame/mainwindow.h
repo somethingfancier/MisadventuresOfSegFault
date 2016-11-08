@@ -31,6 +31,8 @@ private slots:
 
     void on_pbExit_clicked();
 
+    void on_storyButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
