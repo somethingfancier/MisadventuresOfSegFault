@@ -41,9 +41,9 @@ void WorldPlayer::applyItem()
         if(equippedItem->getProperty() == "heart"){
             this->getLives()->increase(1);
         } else if (equippedItem->getProperty() == "health") {
-
+            this->setHealth(getHealth() + 5);
         } else if (equippedItem->getProperty() == "book") {
-
+            this->setBook(true);
         } else if (equippedItem->getProperty() == "key") {
 
         }

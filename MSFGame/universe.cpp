@@ -82,6 +82,8 @@ void Universe::createFirstWorld()
     goodGuy->setX(1020);
     goodGuy->setY(180);
     goodGuy->setName("npc1");
+    goodGuy->setAdvice("This heart will give you an extra life.\n I also heard there is a book that lets you shoot fireballs");
+    goodGuy->setTitle("Sir Blue-a-Lot");
 
     world1->addCharacter(badGuyOne);
     world1->addCharacter(badGuyTwo);
@@ -185,6 +187,12 @@ void Universe::createSecondWorld() {
     world2->setRightWId(2);
     world2->setUpWId(3);
     world2->setName(":/images/images/World2.png");
+
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("health");
+    itemOne->setCoordinates(1020, 230);
+
+    world2->addItem(itemOne);
 
     WorldObstacle* obs1 = new WorldObstacle();
     WorldObstacle* obs2 = new WorldObstacle();

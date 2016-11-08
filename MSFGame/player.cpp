@@ -146,7 +146,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
 
     else if (event->key() == Qt::Key_Alt) {
 
-        if (!timerCooldown->isActive()) {
+        if (!timerCooldown->isActive() && player->getBook() == true) {
             connect(timerCooldown, SIGNAL(timeout()), this, SLOT(timerCool()));
             Magic * magic = new Magic();
             if (player->getOrientation() == 1) {  //Up
@@ -281,7 +281,10 @@ void Player::timerHitUp()
                     player->incY();
                     if(npc->getGotAdvice() == false){
                         QMessageBox msgg;
-                        msgg.setText(npc->getAdvice().c_str());
+                        const char * ad = npc->getAdvice().c_str();
+                        const char * na = npc->getName().c_str();
+                        msgg.setWindowIconText(na);
+                        msgg.setText(ad);
                         msgg.exec();
                         npc->setGotAdvice(true);
                     }
@@ -358,7 +361,10 @@ void Player::timerHitDown()
                     player->decY();
                     if(npc->getGotAdvice() == false){
                         QMessageBox msgg;
-                        msgg.setText(npc->getAdvice().c_str());
+                        const char * ad = npc->getAdvice().c_str();
+                        const char * na = npc->getName().c_str();
+                        msgg.setWindowIconText(na);
+                        msgg.setText(ad);
                         msgg.exec();
                         npc->setGotAdvice(true);
                     }
@@ -431,7 +437,10 @@ void Player::timerHitLeft()
                     player->incX();
                     if(npc->getGotAdvice() == false){
                         QMessageBox msgg;
-                        msgg.setText(npc->getAdvice().c_str());
+                        const char * ad = npc->getAdvice().c_str();
+                        const char * na = npc->getName().c_str();
+                        msgg.setWindowIconText(na);
+                        msgg.setText(ad);
                         msgg.exec();
                         npc->setGotAdvice(true);
                     }
@@ -503,7 +512,10 @@ void Player::timerHitRight()
                     player->decX();
                     if(npc->getGotAdvice() == false){
                         QMessageBox msgg;
-                        msgg.setText(npc->getAdvice().c_str());
+                        const char * ad = npc->getAdvice().c_str();
+                        const char * na = npc->getName().c_str();
+                        msgg.setWindowTitle(na);
+                        msgg.setText(ad);
                         msgg.exec();
                         npc->setGotAdvice(true);
                     }

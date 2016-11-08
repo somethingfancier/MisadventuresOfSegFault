@@ -103,6 +103,8 @@ void Game::initialize(int id)
             WorldNPC* disNPC = new WorldNPC();
             disNPC = dynamic_cast<WorldNPC*>(world->getCharacters().at(i));
             if (disNPC != nullptr) {
+                newNPC->setAdvice(disNPC->getAdvice());
+                newNPC->setName(disNPC->getTitle());
                 newNPC->setPos(disNPC->getX(),disNPC->getY());
                 newNPC->setNPC(disNPC);
                 disNPC->setHeight(40);

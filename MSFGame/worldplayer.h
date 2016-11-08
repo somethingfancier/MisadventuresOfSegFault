@@ -21,10 +21,12 @@ private:
     int onDeadX;
     int onDeadY;
     bool noLives;
+    bool book;
+    bool key;
 
 public:
     //Constructor
-    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660), noLives(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
+    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660),book(false),key(false), noLives(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
     ~WorldPlayer(){}
 
     //Accessors
@@ -34,6 +36,8 @@ public:
     int getDeadLocX(){return onDeadX;}
     int getDeadLocy(){return onDeadY;}
     bool getNoLives(){return noLives;}
+    bool getBook(){return book;}
+    bool getKey(){return key;}
     WorldScore* getScore(){return score;}
 
     //Mutators
@@ -42,6 +46,8 @@ public:
     void setItem(WorldItem* newItem){equippedItem = newItem;}
     void setUsername(){username = "<SegFault>";}
     void setNoLives(bool lifeState){noLives = lifeState;}
+    void setBook(bool newBook){book = newBook;}
+    void setKey(bool newKey){key = newKey;}
                                                       //Indiscriminately set the player's name to SegFault
                                                       //(Thus the madness begins)
     void strike(WorldCharacter*);
