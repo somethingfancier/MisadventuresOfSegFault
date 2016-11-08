@@ -48,8 +48,8 @@ void MainWindow::on_pbControls_clicked()
 void MainWindow::on_pbHighscore_clicked()
 {
     QMessageBox msg(mw);
-    string mystr = "HighScores:" + Universe::instance().getPlayer()->getScore()->Load();
-    msg.setText(mystr.c_str());
+    //string mystr = "HighScores:" + Universe::instance().getPlayer()->getScore()->Load();
+    msg.setText("HighScores");
     msg.exec();
 }
 
