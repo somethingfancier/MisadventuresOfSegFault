@@ -435,7 +435,7 @@ void Universe::createThirdWorld()
 
     WorldItem* itemOne = new WorldItem();
     itemOne->setProperty("book");
-    itemOne->setCoordinates(100, 100);
+    itemOne->setCoordinates(180, 180);
 
     world3->addItem(itemOne);
 
