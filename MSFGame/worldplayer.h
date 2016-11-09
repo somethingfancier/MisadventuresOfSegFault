@@ -26,7 +26,7 @@ private:
 
 public:
     //Constructor
-    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660),book(false),key(false), noLives(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
+    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660), noLives(false), book(false), key(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
     ~WorldPlayer(){}
 
     //Accessors
