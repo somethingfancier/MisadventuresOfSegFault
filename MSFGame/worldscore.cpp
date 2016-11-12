@@ -40,7 +40,7 @@ void WorldScore::Load() {
     const char* const delimiter = ",";
 
     ifstream fin;
-    fin.open("segfaultScores.txt");
+    fin.open("segfaultScore");
     if (!fin.good())
     {
         //TODO: error message

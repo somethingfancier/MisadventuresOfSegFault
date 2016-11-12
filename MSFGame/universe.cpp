@@ -750,7 +750,7 @@ void Universe::Save()
         //cout << "world" << Universe::instance().getWorld(index)->getId() << "\n";
         //outputFile << "world" << Universe::instance().getWorld(index)->getId() << "\n";
 
-        if(Universe::instance().getWorld(index)->charsEnabled()){
+        if(Universe::instance().getWorld(index) != NULL && Universe::instance().getWorld(index)->charsEnabled()){
             for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getCharacters().size(); i++) {
                     WorldCharacter* enemy1 = Universe::instance().getWorld(index)->getCharacters().at(i);
                     cout << enemy1->getData();
@@ -758,7 +758,7 @@ void Universe::Save()
                 }
             }
 
-        if(Universe::instance().getWorld(index)->itemsEnabled()){
+        if(Universe::instance().getWorld(index) != NULL && Universe::instance().getWorld(index)->itemsEnabled()){
             for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getItems().size(); i++) {
                 WorldItem* item1 = Universe::instance().getWorld(index)->getItems().at(i);
                 cout << item1->getData();
@@ -845,14 +845,20 @@ void Universe::Load()
             int playerIntDead;
             playerDead >> playerIntDead;
 
+            stringstream playerWorld;
+            playerWorld << token[7];
+            int worldNum;
+            playerWorld >> worldNum;
+
             Universe::instance().player->setCoordinates(playerIntx, playerInty);
             Universe::instance().player->setHealth(playerIntHealth);
             Universe::instance().player->setDefense(playerIntDefense);
             Universe::instance().player->setOrientation(playerIntOrientation);
             Universe::instance().player->setDead(playerIntDead);
+            Universe::instance().player->setCurrentWorld(worldNum);
 
 
-            int tokenPos = 7; // HACKY HACKY HACK
+            int tokenPos = 8; // HACKY HACKY HACK
             for (int enemy = 0; enemy < 2; enemy++)
             {
                 stringstream enemyx;

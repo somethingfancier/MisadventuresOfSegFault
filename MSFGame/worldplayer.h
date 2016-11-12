@@ -20,13 +20,14 @@ private:
     WorldScore* score;
     int onDeadX;
     int onDeadY;
+    int currentWorld;
     bool noLives;
     bool book;
     bool key;
 
 public:
     //Constructor
-    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660), noLives(false), book(false), key(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
+    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660), currentWorld(1), noLives(false), book(false), key(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
     ~WorldPlayer(){}
 
     //Accessors
@@ -35,6 +36,7 @@ public:
     WorldItem* getItem(){return equippedItem;}
     int getDeadLocX(){return onDeadX;}
     int getDeadLocy(){return onDeadY;}
+    int getCurrentWorld(){return currentWorld;}
     bool getNoLives(){return noLives;}
     bool getBook(){return book;}
     bool getKey(){return key;}
@@ -48,12 +50,20 @@ public:
     void setNoLives(bool lifeState){noLives = lifeState;}
     void setBook(bool newBook){book = newBook;}
     void setKey(bool newKey){key = newKey;}
+    void setCurrentWorld(int worldNum){currentWorld = worldNum;}
                                                       //Indiscriminately set the player's name to SegFault
                                                       //(Thus the madness begins)
     void strike(WorldCharacter*);
     bool longAttack();
     void attack(World*);
     void applyItem();
+
+    string getData(){
+        string data = "," + WorldCharacter::getData();
+
+        data += "," + to_string(currentWorld);
+        return data;
+    }
 };
 
 #endif // WORLDPLAYER_H

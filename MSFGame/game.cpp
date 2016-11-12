@@ -52,6 +52,7 @@ Game::Game(QWidget *parent)
 
 void Game::initialize(int id)
 {
+    this->player->getPlayer()->setCurrentWorld(id);
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1280,720);
     setBackgroundBrush(QBrush(QImage()));

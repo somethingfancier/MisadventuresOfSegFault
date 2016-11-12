@@ -14,6 +14,7 @@ public:
     Score(QGraphicsItem * parent = 0);
 
     WorldScore* getScore(){return score;}
+    void setScore(WorldScore* newScore){score = newScore;}
     void updateScore();
     void Save();
     void Load();
