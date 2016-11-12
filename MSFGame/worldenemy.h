@@ -13,14 +13,16 @@ private:
     bool alerted;
     bool canAttack;
     bool canFollow;
+    bool canOrientate;
 
 public:
     //Constructor
-    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(true), canFollow(true){this->setWidth(30); this->setHeight(25);this->setHealth(3); this->setName(":/images/images/Slime");}
+    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(true), canFollow(true), canOrientate(true){this->setWidth(30); this->setHeight(25);this->setHealth(3); this->setName(":/images/images/Slime");}
 
     //Accessor
     string getProperty() {return property;}
     bool isAlerted(){return alerted;}
+    bool getOState(){return canOrientate;}
     bool engaged(){return canAttack;}
     bool trackingOn(){return canFollow;}
 
@@ -30,6 +32,7 @@ public:
     void setAlerted(bool newState){alerted = newState;}
     void setAttack(bool newState){canAttack = newState;}
     void setFollow(bool newState){canFollow = newState;}
+    void setCanOrientate(bool state){canOrientate = state;}
 
     //Additional Methods
     void strike(WorldCharacter*);
@@ -40,6 +43,7 @@ public:
     void rotateR();
     void rotateL();
     void randDir();
+    void moveAround(WorldCharacter*);
 
     /*string getData() {
         string data = "," + WorldCharacter::getData();

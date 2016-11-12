@@ -36,7 +36,8 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
 
         if(this->distance(chosenPlayer) < 100*awareness && !(this->isBoardering(chosenPlayer))){
             this->setAlerted(true);
-            if (vTravel >= hTravel)
+
+            if (vTravel >= hTravel && canOrientate)
             {
                 if (this->compareY(chosenPlayer))
                 {
@@ -48,16 +49,18 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
                 else
                 {
                     this->setOrientation(3);
+
                     if(canFollow){
                         this->incY();
                     }
                 }
             }
-            else if(hTravel > vTravel)
+            else if(hTravel > vTravel && canOrientate)
             {
                 if (this->compareX(chosenPlayer))
                 {
                     this->setOrientation(4);
+
                     if(canFollow){
                         this->decX();
                     }
@@ -65,9 +68,29 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
                 else
                 {
                     this->setOrientation(2);
+
                     if(canFollow){
                         this->incX();
                     }
+                }
+            }
+            else
+            {
+                if(this->getOrientation() == 1)
+                {
+                    this->decY();
+                }
+                else if(this->getOrientation() == 2)
+                {
+                    this->incX();
+                }
+                else if(this->getOrientation() == 3)
+                {
+                    this->incY();
+                }
+                else if(this->getOrientation() == 4)
+                {
+                    this->decX();
                 }
             }
         }
@@ -142,6 +165,34 @@ void WorldEnemy::move(WorldCharacter* chosenChar)
         if(canFollow)
         {
             this->wander();
+        }
+    }
+}
+
+void WorldEnemy::moveAround(WorldCharacter* player)
+{
+
+    if((this->getOrientation() % 2) == 1)
+    {
+        if(this->getX() >= player->getX())
+        {
+            this->setOrientation(4);
+        }
+        else
+        {
+            this->setOrientation(2);
+        }
+
+    }
+    else
+    {
+        if(this->getY() >= player->getY())
+        {
+            this->setOrientation(1);
+        }
+        else
+        {
+            this->setOrientation(3);
         }
     }
 }

@@ -283,7 +283,7 @@ void Player::timerHitUp()
                         QMessageBox msgg;
                         const char * ad = npc->getAdvice().c_str();
                         const char * na = npc->getName().c_str();
-                        msgg.setWindowIconText(na);
+                        msgg.setWindowTitle(na);
                         msgg.setText(ad);
                         msgg.exec();
                         npc->setGotAdvice(true);
@@ -362,7 +362,7 @@ void Player::timerHitDown()
                         QMessageBox msgg;
                         const char * ad = npc->getAdvice().c_str();
                         const char * na = npc->getName().c_str();
-                        msgg.setWindowIconText(na);
+                        msgg.setWindowTitle(na);
                         msgg.setText(ad);
                         msgg.exec();
                         npc->setGotAdvice(true);
@@ -437,7 +437,7 @@ void Player::timerHitLeft()
                         QMessageBox msgg;
                         const char * ad = npc->getAdvice().c_str();
                         const char * na = npc->getName().c_str();
-                        msgg.setWindowIconText(na);
+                        msgg.setWindowTitle(na);
                         msgg.setText(ad);
                         msgg.exec();
                         npc->setGotAdvice(true);

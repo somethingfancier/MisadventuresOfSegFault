@@ -44,7 +44,7 @@ void Enemy::setTimer(QTimer* newTimer)
 
 void Enemy::move()
 {
-    QList<QGraphicsItem *> colliding_items = collidingItems(Qt::IntersectsItemShape);
+    QList<QGraphicsItem *> colliding_items = collidingItems();
 
     if(player != NULL && enemy != NULL)
     {
@@ -80,6 +80,8 @@ void Enemy::move()
                     Player* myPlayer = dynamic_cast<Player*>(colliding_items[i]);
 
                     if(obj != nullptr){
+                        enemy->setCanOrientate(false);
+                        enemy->moveAround(player);
                         if(enemy->isBoardering(obj->getObstacle())){
                             enemy->setFollow(false);
                         }
@@ -91,8 +93,13 @@ void Enemy::move()
                 }
             }
         }
-        enemy->move(player);
+
+        if(enemy->trackingOn())
+            enemy->move(player);
+
+
         enemy->setFollow(true);
+        enemy->setCanOrientate(true);
 
 
         this->updatePos();
