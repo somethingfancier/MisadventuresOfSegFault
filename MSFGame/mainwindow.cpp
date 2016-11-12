@@ -16,10 +16,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-
-
 void MainWindow::on_pbStart_clicked()
 {
     Game *game = new Game();
@@ -32,7 +28,11 @@ void MainWindow::on_pbLoad_clicked()
 {
     Game *game = new Game();
     Universe::instance().Load();
+    game->getPlayer()->updatePos();
     Universe::instance().getPlayer()->getScore()->Load();
+    game->initialize(Universe::instance().getPlayer()->getCurrentWorld());
+    game->player->getScore()->setScore(Universe::instance().getPlayer()->getScore());
+    game->player->getScore()->updateScore();
     game->show();
 
     QMainWindow::close();

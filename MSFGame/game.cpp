@@ -15,7 +15,7 @@ Game::Game(QWidget *parent)
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();
-    Universe::instance().createTenthWorld();
+    //Universe::instance().createTenthWorld();
     Universe::instance().getPlayer()->setCoordinates(100,200);
 
     player = new Player();
@@ -52,6 +52,7 @@ Game::Game(QWidget *parent)
 
 void Game::initialize(int id)
 {
+    this->player->getPlayer()->setCurrentWorld(id);
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1280,720);
     setBackgroundBrush(QBrush(QImage()));
