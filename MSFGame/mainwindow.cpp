@@ -16,10 +16,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-
-
 void MainWindow::on_pbStart_clicked()
 {
     Game *game = new Game();
