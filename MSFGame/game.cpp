@@ -15,7 +15,7 @@ Game::Game(QWidget *parent)
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();
-    //Universe::instance().createTenthWorld();
+    Universe::instance().createTenthWorld();
     Universe::instance().getPlayer()->setCoordinates(100,200);
 
     player = new Player();
@@ -59,6 +59,8 @@ void Game::initialize(int id)
     scene->addItem(this->getPlayer()->getScore());
     scene->addItem(this->getPlayer()->getLives());
     scene->addItem(this->getPlayer()->getHealth());
+
+
 
     setScene(scene);
 
@@ -120,13 +122,17 @@ void Game::initialize(int id)
 
         //Add Obstacles
         for (unsigned i=0; i<world->getObstacles().size(); i++) {
-            WorldObstacle* obstacle = new WorldObstacle;
-            obstacle = world->getObstacles().at(i);
-            Obstacle* obj = new Obstacle();
-            obj->setRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight());
-            obj->setObstacle(obstacle);
-            obj->setPen(Qt::NoPen);
-            scene->addItem(obj);
+            if (player->getPlayer()->getKey() == true && i == 0 && id == 4) {
+                //Do nothing
+            } else {
+                WorldObstacle* obstacle = new WorldObstacle;
+                obstacle = world->getObstacles().at(i);
+                Obstacle* obj = new Obstacle();
+                obj->setRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight());
+                obj->setObstacle(obstacle);
+                //obj->setPen(Qt::NoPen);
+                scene->addItem(obj);
+            }
         }
 
         //Add Items

@@ -71,7 +71,10 @@ void Universe::createFirstWorld()
     itemOne->setProperty("heart");
     itemOne->setCoordinates(1020, 230);
 
+
+
     world1->addItem(itemOne);
+
 
     badGuyOne->setX(200);
     badGuyOne->setY(200);
@@ -471,16 +474,17 @@ void Universe::createThirdWorld()
     WorldObstacle* obs31 = new WorldObstacle();
     WorldObstacle* obs32 = new WorldObstacle();
 
-    WorldItem* itemOne = new WorldItem();
-    itemOne->setProperty("book");
-    itemOne->setCoordinates(180, 180);
+    WorldItem* itemO = new WorldItem();
+    itemO->setProperty("book");
+    itemO->setCoordinates(180, 180);
 
-    WorldItem* itemTwo = new WorldItem();
+    world3->addItem(itemO);
+
+    WorldItem* itemOne = new WorldItem();
     itemOne->setProperty("heart");
     itemOne->setCoordinates(928, 628);
 
     world3->addItem(itemOne);
-    world3->addItem(itemTwo);
 
     obs1->setX(0);
     obs1->setY(632);
@@ -694,6 +698,29 @@ void Universe::createFourthWorld() {
     itemOne->setCoordinates(1020, 230);
 
     world4->addItem(itemOne);
+
+    WorldObstacle* obs1 = new WorldObstacle();
+    WorldObstacle* obs2 = new WorldObstacle();
+    WorldObstacle* obs3 = new WorldObstacle();
+
+    obs1->setX(500);
+    obs1->setY(0);
+    obs1->setWidth(180);
+    obs1->setHeight(40);
+
+    obs2->setX(680);
+    obs2->setY(0);
+    obs2->setWidth(600);
+    obs2->setHeight(40);
+
+    obs3->setX(0);
+    obs3->setY(0);
+    obs3->setWidth(500);
+    obs3->setHeight(40);
+
+    world4->addObstacle(obs1);
+    world4->addObstacle(obs2);
+    world4->addObstacle(obs3);
 
     addWorld(world4);
 
