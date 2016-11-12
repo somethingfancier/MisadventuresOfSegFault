@@ -15,7 +15,7 @@ Game::Game(QWidget *parent)
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();
-    Universe::instance().createTenthWorld();
+    //Universe::instance().createTenthWorld();
     Universe::instance().getPlayer()->setCoordinates(100,200);
 
     player = new Player();
