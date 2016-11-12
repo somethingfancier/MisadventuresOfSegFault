@@ -9,6 +9,7 @@
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
+    collided = false;
     enemy = new WorldEnemy();
     player = Universe::instance().getPlayer();
     this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(60, 60));
@@ -56,9 +57,11 @@ void Enemy::move()
             timerthree->start();
         }
 
-        else if (numMoves == 20 && !(enemy->isAlerted()))
+        else if (numMoves == 20)
         {
-            enemy->rotateL();
+            if(!enemy->isAlerted()){
+                enemy->randDir();
+            }
             numMoves = 0;
 
             disconnect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -68,25 +71,29 @@ void Enemy::move()
             timertwo->start();
         }
 
-        for (int i = 0, n = colliding_items.size(); i<n; ++i) {
+        if(colliding_items.size() >= 1)
+        {
+            for (int i = 0, n = colliding_items.size(); i<n; ++i) {
 
-            if (colliding_items[i]) {
+                if (colliding_items[i]) {
+                    Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
+                    Player* myPlayer = dynamic_cast<Player*>(colliding_items[i]);
 
-                Obstacle* obj = dynamic_cast<Obstacle*>(colliding_items[i]);
-
-                if(obj != nullptr){
-                    if(!(enemy->isBoardering(obj->getObstacle()))){
-                        enemy->move(player);
+                    if(obj != nullptr){
+                        if(enemy->isBoardering(obj->getObstacle())){
+                            enemy->setFollow(false);
+                        }
+                    }
+                    if(myPlayer != nullptr)
+                    {
+                        collided = true;
                     }
                 }
             }
         }
+        enemy->move(player);
+        enemy->setFollow(true);
 
-        if(enemy->isBoardering(player)){
-            enemy->attack(player);
-        }else{
-            enemy->move(player);
-        }
 
         this->updatePos();
         numMoves++;
@@ -120,7 +127,9 @@ void Enemy::bounceAnimation()
     {
         if(animation == 2)
         {
+
             string img = this->getEnemy()->getName() + to_string(animation) + ".png";
+
             const char* cImg = img.c_str();
             this->setPixmap(QPixmap(cImg).scaled(60,60));
             animation--;

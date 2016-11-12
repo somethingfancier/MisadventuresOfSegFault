@@ -26,8 +26,8 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
     player = Universe::instance().getPlayer();
     health = new Health();
-    this->boundingRect().setHeight(40);
-    this->boundingRect().setWidth(40);
+    player->setWidth(10);
+    player->setHeight(15);
     timer = new QTimer(this);
     timer->setInterval(13);
 
@@ -68,6 +68,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
         } else if (msg.clickedButton() == btCheat){
             player->setHealth(100);
             player->setDefense(100);
+            player->setInvincible(true);
 
         }else if (msg.clickedButton() == btHelp){
             QMessageBox ms;
@@ -233,8 +234,7 @@ void Player::timerHitUp()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                delete colliding_items[i];
-                scene()->removeItem(colliding_items[i]);
+                item->deleteLater();
             }
         }
         else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Boss) || typeid(*(colliding_items[i]))== typeid(Obstacle)|| typeid(*(colliding_items[i]))== typeid(Enemy) || typeid(*(colliding_items[i]))== typeid(NPC))){
@@ -309,8 +309,7 @@ void Player::timerHitDown()
                 player->setItem(item->getItem());
                 cout << player->getItem()->getProperty();
                 player->applyItem();
-                delete colliding_items[i];
-                scene()->removeItem(colliding_items[i]);
+                item->deleteLater();
             }
         }
 
@@ -388,8 +387,7 @@ void Player::timerHitLeft()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                delete colliding_items[i];
-                scene()->removeItem(colliding_items[i]);
+                item->deleteLater();
             }
         }
 
@@ -463,8 +461,7 @@ void Player::timerHitRight()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                delete colliding_items[i];
-                scene()->removeItem(colliding_items[i]);
+                item->deleteLater();
             }
         }
 

@@ -16,7 +16,7 @@ private:
 
 public:
     //Constructor
-    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(true), canFollow(true){this->setWidth(35); this->setHeight(25);this->setHealth(3); this->setName(":/images/images/Slime");}
+    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(true), canFollow(true){this->setWidth(30); this->setHeight(25);this->setHealth(3); this->setName(":/images/images/Slime");}
 
     //Accessor
     string getProperty() {return property;}
@@ -39,6 +39,7 @@ public:
     void move(WorldCharacter*);
     void rotateR();
     void rotateL();
+    void randDir();
 
     /*string getData() {
         string data = "," + WorldCharacter::getData();

@@ -5,6 +5,7 @@
 #include "world.h"
 #include "worldchar.h"
 #include "universe.h"
+#include <cmath>
 
 void WorldEnemy::strike(WorldCharacter* chosenChar)
 {
@@ -27,24 +28,29 @@ void WorldEnemy::attack(WorldObject* obj)
 
 void WorldEnemy::follow(WorldCharacter* chosenChar)
 {
-    WorldPlayer* chosenPlayer = static_cast<WorldPlayer*>(chosenChar);
-    if(chosenPlayer != NULL && canFollow)
+    WorldPlayer* chosenPlayer = dynamic_cast<WorldPlayer*>(chosenChar);
+    if(chosenPlayer != NULL)
     {
         int hTravel = this->hDistance(chosenPlayer);
         int vTravel = this->vDistance(chosenPlayer);
 
         if(this->distance(chosenPlayer) < 100*awareness && !(this->isBoardering(chosenPlayer))){
+            this->setAlerted(true);
             if (vTravel >= hTravel)
             {
                 if (this->compareY(chosenPlayer))
                 {
                     this->setOrientation(1);
-                    this->decY();
+                    if(canFollow){
+                        this->decY();
+                    }
                 }
                 else
                 {
                     this->setOrientation(3);
-                    this->incY();
+                    if(canFollow){
+                        this->incY();
+                    }
                 }
             }
             else if(hTravel > vTravel)
@@ -52,12 +58,16 @@ void WorldEnemy::follow(WorldCharacter* chosenChar)
                 if (this->compareX(chosenPlayer))
                 {
                     this->setOrientation(4);
-                    this->decX();
+                    if(canFollow){
+                        this->decX();
+                    }
                 }
                 else
                 {
                     this->setOrientation(2);
-                    this->incX();
+                    if(canFollow){
+                        this->incX();
+                    }
                 }
             }
         }
@@ -112,15 +122,26 @@ void WorldEnemy::rotateL()
     }
 }
 
+void WorldEnemy::randDir()
+{
+    this->setOrientation(rand() % 4 + 1);
+}
+
 void WorldEnemy::move(WorldCharacter* chosenChar)
 {
     WorldPlayer* chosenPlayer = dynamic_cast<WorldPlayer*>(chosenChar);
     if(chosenPlayer != NULL && this->distance(chosenPlayer) <= 100*this->awareness)
     {
         this->follow(chosenChar);
+        if(this->isBoardering(chosenPlayer))
+            this->attack(chosenPlayer);
     }
     else
     {
-        this->wander();
+        alerted = false;
+        if(canFollow)
+        {
+            this->wander();
+        }
     }
 }

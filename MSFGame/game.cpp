@@ -15,7 +15,7 @@ Game::Game(QWidget *parent)
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();
-    //Universe::instance().createTenthWorld();
+    Universe::instance().createTenthWorld();
     Universe::instance().getPlayer()->setCoordinates(100,200);
 
     player = new Player();
@@ -77,6 +77,7 @@ void Game::initialize(int id)
             WorldEnemy* disEnemy = new WorldEnemy();
             disEnemy = dynamic_cast<WorldEnemy*>(world->getCharacters().at(i));
             if (disEnemy != nullptr) {
+                disEnemy->randDir();
                 newBoss->setEnemy(disEnemy);
                 //newEnemy->setTimer(player->getTimer());
                 newBoss->updatePos();
@@ -90,6 +91,7 @@ void Game::initialize(int id)
             WorldEnemy* disEnemy = new WorldEnemy();
             disEnemy = dynamic_cast<WorldEnemy*>(world->getCharacters().at(i));
             if (disEnemy != nullptr) {
+                disEnemy->randDir();
                 newEnemy->setEnemy(disEnemy);
                 //newEnemy->setTimer(player->getTimer());
                 newEnemy->updatePos();

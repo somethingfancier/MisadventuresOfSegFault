@@ -19,6 +19,7 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
     QTimer* attacktimer;
     int numMoves;
     int animation;
+    bool collided;
 
 public:
 

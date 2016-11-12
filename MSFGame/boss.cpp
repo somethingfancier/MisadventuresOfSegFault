@@ -85,7 +85,6 @@ void Boss::move()
 
         this->updatePos();
         numMoves++;
-
     }
 }
 

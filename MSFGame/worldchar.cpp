@@ -67,55 +67,55 @@ bool WorldCharacter::isBoardering(WorldObject *obj)
     if(obstacle != nullptr){
         if(orientation == 1)
         {
-            return(this->withinXBound(obstacle) && obstacle->vSDistance(this) <= 40);
+            return(this->withinXBound(obstacle) && obstacle->vSDistance(this) <= 30);
         }
         else if(orientation == 2)
         {
-            return(this->withinYBound(obstacle) && this->hSDistance(obstacle) <= 40);
+            return(this->withinYBound(obstacle) && this->hSDistance(obstacle) <= 10);
         }
-        else if(orientation == 3)
+        else if(orientation == 3)            
         {
-            return(this->withinXBound(obstacle) && this->vSDistance(obstacle) <= 40);
+            return(this->withinXBound(obstacle) && this->vSDistance(obstacle) <= 10);
         }
         else if(orientation == 4)
         {
-            return(this->withinYBound(obstacle) && obstacle->hSDistance(this) <= 40);
+            return(this->withinYBound(obstacle) && obstacle->hSDistance(this) <= 30);
         }
     }
     else if(enemy != nullptr){
         if(orientation == 1)
         {
-            return(this->withinXBound(enemy) && enemy->vSDistance(this) <= 30);
+            return(this->withinXBound(enemy) && enemy->vSDistance(this) <= 5);
         }
         else if(orientation == 2)
         {
-            return(this->withinYBound(enemy) && this->hSDistance(enemy) <= 40);
+            return(this->withinYBound(enemy) && this->hSDistance(enemy) <= 10);
         }
         else if(orientation == 3)
         {
-            return(this->withinXBound(enemy) && this->vSDistance(enemy) <= 40);
+            return(this->withinXBound(enemy) && this->vSDistance(enemy) <= 10);
         }
         else if(orientation == 4)
         {
-            return(this->withinYBound(enemy) && enemy->hSDistance(this) <= 30);
+            return(this->withinYBound(enemy) && enemy->hSDistance(this) <= 5);
         }
     }
     else if(player != nullptr){
             if(orientation == 1)
             {
-                return(player->withinXBound(this) && player->vSDistance(this) <= 40);
+                return(player->withinXBound(this) && player->vSDistance(this) <= 10);
             }
             else if(orientation == 2)
             {
-                return(player->withinYBound(this) && this->hSDistance(player) < 40);
+                return(player->withinYBound(this) && this->hSDistance(player) < 10);
             }
             else if(orientation == 3)
             {
-                return(player->withinXBound(this) && this->vSDistance(player) < 40);
+                return(player->withinXBound(this) && this->vSDistance(player) < 10);
             }
             else if(orientation == 4)
             {
-                return(player->withinYBound(this) && player->hSDistance(this) <= 40);
+                return(player->withinYBound(this) && player->hSDistance(this) <= 10);
             }
         }
 

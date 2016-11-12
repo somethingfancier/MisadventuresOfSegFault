@@ -31,14 +31,12 @@ using namespace std;
  }
 
  int WorldObject::hSDistance(WorldObject *otherObj)
- {
-     negativeD = (this->getX() < otherObj->getX());
+ {     
      return abs(this->getXScaled()-otherObj->getX());
  }
 
  int WorldObject::vSDistance(WorldObject *otherObj)
  {
-     negativeD = (this->getY() < otherObj->getY());
      return abs(this->getYScaled()- otherObj->getY());
  }
 

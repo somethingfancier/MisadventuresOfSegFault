@@ -27,7 +27,7 @@ void WorldPlayer::attack(World* world)
 
        if(chosenEnemy != NULL && !(chosenEnemy->isDead()))
        {
-           if(this->isBoardering(chosenEnemy))
+           if(this->isBoardering(chosenEnemy) || invincible)
            {
                this->strike(chosenEnemy);
            }
