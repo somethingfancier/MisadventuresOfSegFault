@@ -1183,6 +1183,7 @@ void Universe::createTenthWorld()
 void Universe::Save()
 {
     player->getScore()->Save();
+    player->getScore()->HighscoreSave();
     ofstream outputFile;
     outputFile.open("segfaultSave.txt", ofstream::out | ofstream::trunc);
 
