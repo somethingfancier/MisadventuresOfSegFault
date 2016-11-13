@@ -16,7 +16,9 @@ public:
 
     Item(QGraphicsItem * parent=0);
     WorldItem* getItem(){return item;}
-    void setItem(WorldItem* newItem){item = newItem;}
+    void setItem(WorldItem* newItem){
+        item = newItem; if(item->getEquipped())
+    this->hide();}
 
 
 };

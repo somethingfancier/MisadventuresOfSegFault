@@ -20,6 +20,7 @@ class Enemy: public QObject, public QGraphicsPixmapItem{
     int numMoves;
     int animation;
     bool collided;
+    bool death;
 
 public:
 
@@ -33,7 +34,7 @@ public:
     void setEnemy(WorldEnemy* newEnemy){enemy = newEnemy;}
     void setPlayer(WorldPlayer* newPlayer){player = newPlayer;}
     void setTimer(QTimer* newTimer);
-
+    void setDead(){death = true;}
 
     void updatePos(){this->setPos(enemy->getX(),enemy->getY());}
 

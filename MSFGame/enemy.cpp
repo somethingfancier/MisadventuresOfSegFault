@@ -10,6 +10,7 @@
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     collided = false;
+    death = false;
     enemy = new WorldEnemy();
     player = Universe::instance().getPlayer();
     this->setPixmap(QPixmap(":/images/images/Slime1.png").scaled(60, 60));
@@ -112,7 +113,7 @@ void Enemy::bounceAnimation()
 {
     if(this->getEnemy()->isDead())
     {
-        animation = 1;
+        animation = 0;
         disconnect(timertwo, SIGNAL(timeout()), this, SLOT(bounceAnimation()));
         timertwo->stop();
         connect(timerthree, SIGNAL(timeout()), this, SLOT(deathAnimation()));
@@ -134,19 +135,22 @@ void Enemy::bounceAnimation()
     {
         if(animation == 2)
         {
-
-            string img = this->getEnemy()->getName() + to_string(animation) + ".png";
+            this->getEnemy()->popName();
+            this->getEnemy()->pushName(to_string(animation));
+            string img = this->getEnemy()->getName() + ".png";
 
             const char* cImg = img.c_str();
             this->setPixmap(QPixmap(cImg).scaled(60,60));
-            animation--;
+            animation = 1;
         }
         else
         {
-            string img = this->getEnemy()->getName() + to_string(animation) + ".png";
+            this->getEnemy()->popName();
+            this->getEnemy()->pushName(to_string(animation));
+            string img = this->getEnemy()->getName() + ".png";
             const char* cImg = img.c_str();
             this->setPixmap(QPixmap(cImg).scaled(60,60));
-            animation++;
+            animation = 2;
         }
         numMoves++;
     }
@@ -155,17 +159,22 @@ void Enemy::bounceAnimation()
 
 void Enemy::deathAnimation()
 {
-    if(animation >= 4)
-    {
-        disconnect(timertwo, SIGNAL(timeout()), this, SLOT(deathAnimation()));
-        timertwo->stop();
-    }
-    else
-    {
-        string img = ":/images/images/SlimeBurst" + to_string(animation) + ".png";
-        const char* cImg = img.c_str();
-        this->setPixmap(QPixmap(cImg).scaled(60,60));
-        animation++;
+    if(!death){
+        if(animation >= 4)
+        {
+            disconnect(timertwo, SIGNAL(timeout()), this, SLOT(deathAnimation()));
+            timertwo->stop();
+            death = true;
+        }
+        else
+        {
+            string img = ":/images/images/SlimeBurst" + to_string(animation) + ".png";
+            string strImg = ":/images/images/SlimeBurst" + to_string(animation);
+            const char* cImg = img.c_str();
+            this->setPixmap(QPixmap(cImg).scaled(60,60));
+            this->getEnemy()->setName(strImg);
+            animation++;
+        }
     }
 }
 

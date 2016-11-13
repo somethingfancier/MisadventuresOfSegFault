@@ -29,7 +29,7 @@ void WorldCharacter::hit(int attackDamage)
 {
     if(attackDamage > defense && health > 0){
         health = health - attackDamage + defense;
-        if (health == 0) {
+        if (health <= 0) {
             this->setDead(true);
             WorldPlayer* myGuy = dynamic_cast<WorldPlayer*>(this);
             if(myGuy != nullptr)

@@ -31,6 +31,9 @@ public:
     string getName(){return name;}
     bool isNegativeD(){return negativeD;}
 
+    void popName(){name.pop_back();}
+    void pushName(string val){name += val;}
+
     //Mutators
     void setX(int newX) {xPos = newX;}
     void setY(int newY) {yPos = newY;}

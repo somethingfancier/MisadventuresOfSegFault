@@ -35,7 +35,6 @@ public:
     void setOrientation(int newOrientation){prevOrientation = orientation; orientation = newOrientation;}
     void setDead(bool lifeState){dead = lifeState;}
 
-
     bool isNewOrientation(){return(orientation == prevOrientation);}
     void setDirections();
     bool isFacing(WorldCharacter*);
