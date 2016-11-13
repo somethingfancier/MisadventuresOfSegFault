@@ -98,6 +98,11 @@ void Game::initialize(int id)
                 //newEnemy->setTimer(player->getTimer());
                 newEnemy->updatePos();
                 newEnemy->getEnemy()->setAwareness(3);
+                string img = disEnemy->getName() + ".png";
+                if(disEnemy->isDead())
+                    newEnemy->setDead();
+                const char* cImg = img.c_str();
+                newEnemy->setPixmap(QPixmap(cImg).scaled(60,60));
                 scene->addItem(newEnemy);
             }
         }
@@ -134,7 +139,7 @@ void Game::initialize(int id)
                 obj->setObstacle(obstacle);
                 //obj->setPen(Qt::NoPen);
                 scene->addItem(obj);
-            }
+           }
         }
 
         //Add Items

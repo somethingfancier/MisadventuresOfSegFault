@@ -17,7 +17,7 @@ private:
 
 public:
     //Constructor
-    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(true), canFollow(true), canOrientate(true){this->setWidth(30); this->setHeight(25);this->setHealth(3); this->setName(":/images/images/Slime");}
+    WorldEnemy():property(""), awareness(1), alerted(false), canAttack(true), canFollow(true), canOrientate(true){this->setWidth(30); this->setHeight(25);this->setHealth(3); this->setName(":/images/images/Slime1");}
 
     //Accessor
     string getProperty() {return property;}

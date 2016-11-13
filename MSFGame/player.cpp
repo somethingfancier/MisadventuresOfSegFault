@@ -29,7 +29,10 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
     player->setWidth(10);
     player->setHeight(15);
     timer = new QTimer(this);
-    timer->setInterval(13);
+    if(!Universe::instance().getPlayer()->getCheat())
+        timer->setInterval(13);
+    else
+        timer->setInterval(3);
 
     timertwo = new QTimer(this);
     timertwo->setInterval(100);
@@ -45,7 +48,6 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
     connect(displayTimer, SIGNAL(timeout()), this, SLOT(updateDisplay()));
     displayTimer->start();
-
 }
 
 
@@ -68,7 +70,11 @@ void Player::keyPressEvent(QKeyEvent *event) {
         } else if (msg.clickedButton() == btCheat){
             player->setHealth(100);
             player->setDefense(100);
+            player->setStrength(25);
             player->setInvincible(true);
+            timer->setInterval(3);
+            player->setCheat();
+
 
         }else if (msg.clickedButton() == btHelp){
             QMessageBox ms;
@@ -234,7 +240,7 @@ void Player::timerHitUp()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                item->deleteLater();
+                item->hide();
             }
         }
         else if (colliding_items[i] && (typeid(*(colliding_items[i]))== typeid(Boss) || typeid(*(colliding_items[i]))== typeid(Obstacle)|| typeid(*(colliding_items[i]))== typeid(Enemy) || typeid(*(colliding_items[i]))== typeid(NPC))){
@@ -309,7 +315,7 @@ void Player::timerHitDown()
                 player->setItem(item->getItem());
                 cout << player->getItem()->getProperty();
                 player->applyItem();
-                item->deleteLater();
+                item->hide();
             }
         }
 
@@ -387,7 +393,7 @@ void Player::timerHitLeft()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                item->deleteLater();
+                item->hide();
             }
         }
 
@@ -461,7 +467,7 @@ void Player::timerHitRight()
             if(item != nullptr){
                 player->setItem(item->getItem());
                 player->applyItem();
-                item->deleteLater();
+                item->hide();
             }
         }
 

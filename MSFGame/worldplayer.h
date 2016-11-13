@@ -25,10 +25,11 @@ private:
     bool book;
     bool key;
     bool invincible;
+    bool cheat;
 
 public:
     //Constructor
-    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660), currentWorld(1), noLives(false), book(false), key(false),invincible(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
+    WorldPlayer(): username("<Segfault>"),onDeadX(640),onDeadY(660), currentWorld(1), noLives(false), book(false), key(false),invincible(false),cheat(false){lives = new WorldLives; equippedItem = new WorldItem(); score = new WorldScore();} //Lives of a player intially set to 3
     ~WorldPlayer(){}
 
     //Accessors
@@ -43,6 +44,7 @@ public:
     bool getKey(){return key;}
     WorldScore* getScore(){return score;}
     bool isInvincible(){return invincible;}
+    bool getCheat(){return cheat;}
 
     //Mutators
     void setLives(WorldLives* newLives){lives = newLives;}
@@ -54,6 +56,7 @@ public:
     void setKey(bool newKey){key = newKey;}
     void setCurrentWorld(int worldNum){currentWorld = worldNum;}
     void setInvincible(bool state){invincible = state;}
+    void setCheat(){cheat = true;}
                                                       //Indiscriminately set the player's name to SegFault
                                                       //(Thus the madness begins)
     void strike(WorldCharacter*);
