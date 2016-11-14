@@ -63,6 +63,6 @@ void MainWindow::on_pbExit_clicked()
 void MainWindow::on_storyButton_clicked()
 {
     QMessageBox msg(mw);
-    msg.setText("Story: YOU ARE SEGFAULT. YOU HAVE BEEN BANISHED TO A FORSAKEN REALM AND MUST COLLECT THE MISSING HEADER FILES TO ESCAPE BACK TO REALITY. GOOD LUCK.");
+    msg.setText("STORY\n\n\nYou are SEGFAULT.\nYou have mysteriously found yourself on an island\nand you have no idea why.\nSomething drew you here… literally. It was probably a QtGraphics command.\nBut that’s beside the point.\n\nYou can tell there’s something evil in this map,\npartly because it’s a game and there has to be a protagonist.\nBut also because there’s annoying slimes trying to attack you.\nAnd the last time you checked\nmost of your jelly was not sentient.\n\nYou probably have several questions you want answered,\nlike “Why am I here?” and “What is my purpose?”\nand “Why do my fireballs look like tomatoes?” and “Wait, I have fireballs?!?”\nAdventure through this realm and find the answers you seek.\n\nBut beware…\n\n\nAll is not as it seems.\n\nDon’t worry though, It’s probably just a bug Mr J. put in.\nWait, who’s Mr. J??");
     msg.exec();
 }

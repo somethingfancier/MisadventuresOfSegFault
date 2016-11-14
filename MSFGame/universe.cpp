@@ -88,7 +88,7 @@ void Universe::createFirstWorld()
     goodGuy->setX(1020);
     goodGuy->setY(180);
     goodGuy->setName("npc1");
-    goodGuy->setAdvice("This heart will give you an extra life.\n I also heard there is a book that lets you shoot fireballs");
+    goodGuy->setAdvice("This heart will give you an extra life!\n\n I also heard there is a spellbook that\n can teach you to shoot fireballs...");
     goodGuy->setTitle("Sir Blue-a-Lot");
     world1->addCharacter(goodGuy);
 
@@ -200,7 +200,7 @@ void Universe::createSecondWorld() {
     goodGuy->setX(100);
     goodGuy->setY(150);
     goodGuy->setName("npc6");
-    goodGuy->setAdvice("Praise the Sun!!!");
+    goodGuy->setAdvice("Praise the Sun!!!\n\nOh... hi there. Didn't see you.\nDid you know there's a rumor that\nan evil wizard once came out of this hole?");
     goodGuy->setTitle("Homeless Lake Man");
     world2->addCharacter(goodGuy);
 
@@ -255,6 +255,7 @@ void Universe::createSecondWorld() {
     WorldObstacle* obs26 = new WorldObstacle();
     WorldObstacle* obs27 = new WorldObstacle();
     WorldObstacle* obs28 = new WorldObstacle();
+    WorldObstacle* obs29 = new WorldObstacle();
 
     obs1->setX(0);
     obs1->setY(0);
@@ -396,6 +397,11 @@ void Universe::createSecondWorld() {
     obs28->setWidth(110);
     obs28->setHeight(304);
 
+    obs29->setX(161);
+    obs29->setY(33);
+    obs29->setWidth(147);
+    obs29->setHeight(243);
+
     world2->addObstacle(obs1);
     world2->addObstacle(obs2);
     world2->addObstacle(obs3);
@@ -424,6 +430,7 @@ void Universe::createSecondWorld() {
     world2->addObstacle(obs26);
     world2->addObstacle(obs27);
     world2->addObstacle(obs28);
+    world2->addObstacle(obs29);
 
     instance().addWorld(world2);
 
@@ -717,7 +724,7 @@ void Universe::createFourthWorld() {
     goodGuy->setX(688);
     goodGuy->setY(67);
     goodGuy->setName("npc2");
-    goodGuy->setAdvice("There is something evil lurking in the mountain, but the entrance is protected by \nsome kind of invisible door.  I heard this old man say something about \n three keys he had lost.  Maybe you can unlock the door with those?");
+    goodGuy->setAdvice("There is something evil lurking in the mountain,\n but the entrance is protected by \nsome kind of invisible door.  \n\nI heard this old man say something about \n three keys he had lost.  Maybe you can unlock the door with those?");
     goodGuy->setTitle("Wanderer");
     world4->addCharacter(goodGuy);
 
@@ -1288,7 +1295,7 @@ void Universe::createEleventhWorld()
     goodGuy->setX(324);
     goodGuy->setY(209);
     goodGuy->setName("npc3");
-    goodGuy->setAdvice("I used to be a badger farmer, but they kept dying from the \nbone marrow I was feeding them. My fish farm is doing much better!");
+    goodGuy->setAdvice("I used to be a badger farmer, but they kept dying from the \nbone marrow I was feeding them.\n They're all buried over by the mountain.\n\n My fish farm is doing much better!!");
     goodGuy->setTitle("Max");
     world11->addCharacter(goodGuy);
 
@@ -1453,7 +1460,7 @@ void Universe::createTwelthWorld()
     goodGuy1->setX(332);
     goodGuy1->setY(174);
     goodGuy1->setName("npc4");
-    goodGuy1->setAdvice("I'm sorry, but only the dankest can enter this castle.");
+    goodGuy1->setAdvice("I'm sorry, but only the dankest can enter this castle.\nAnd I don't mean dank like that fish farmer...");
     goodGuy1->setTitle("Sir Dank");
     world12->addCharacter(goodGuy1);
 
@@ -2060,12 +2067,12 @@ void Universe::createFourteenthWorld()
 
     obs11->setX(1188);
     obs11->setY(559);
-    obs11->setWidth(92);
+    obs11->setWidth(90);
     obs11->setHeight(43);
 
     obs12->setX(1130);
     obs12->setY(604);
-    obs12->setWidth(150);
+    obs12->setWidth(148);
     obs12->setHeight(46);
 
     obs13->setX(873);

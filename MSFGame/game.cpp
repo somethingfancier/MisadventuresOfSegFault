@@ -65,8 +65,6 @@ void Game::initialize(int id)
     scene->addItem(this->getPlayer()->getLives());
     scene->addItem(this->getPlayer()->getHealth());
 
-
-
     setScene(scene);
 
     World* world = Universe::instance().getWorld(id);
