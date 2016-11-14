@@ -1176,7 +1176,7 @@ void Universe::Save()
     outputFile << player->getData();
     cout << player->getData();
     for (int index = 1; index < Universe::instance().getWorlds().size(); index++) {
-        //cout << "world" << Universe::instance().getWorld(index)->getId() << "\n";
+        //cout << "world" << Udniverse::instance().getWorld(index)->getId() << "\n";
         //outputFile << "world" << Universe::instance().getWorld(index)->getId() << "\n";
 
         if(Universe::instance().getWorld(index) != NULL && Universe::instance().getWorld(index)->charsEnabled()){
