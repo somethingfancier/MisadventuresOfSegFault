@@ -70,12 +70,7 @@ public:
     void attack(World*);
     void applyItem();
 
-    string getData(){
-        string data = "," + WorldCharacter::getData();
-
-        data += "," + to_string(currentWorld);
-        return data;
-    }
+    string getData();
 };
 
 #endif // WORLDPLAYER_H

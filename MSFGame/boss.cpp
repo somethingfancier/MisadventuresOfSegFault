@@ -5,7 +5,9 @@
 #include "obstacle.h"
 #include <typeinfo>
 #include "universe.h"
+#include <QMessageBox>
 
+int onlyOneMessagePlease = 0;
 
 Boss::Boss(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
@@ -134,10 +136,20 @@ void Boss::bounceAnimation()
 
 void Boss::deathAnimation()
 {
+    Universe::instance().getWorld(9)->setDownWId(4);
     if(animation >= 4)
     {
         disconnect(timertwo, SIGNAL(timeout()), this, SLOT(deathAnimation()));
         timertwo->stop();
+        QMessageBox msgg;
+        msgg.setWindowTitle("CONGRATULATIONS!");
+        msgg.setText("Congratulations!\n\n You have succesfully defeated the Dark Wizard\n and purged evil from the realm.\n\n If your score is higher than before,\n it has been saved as a new highscore!\n\n Feel free to leave through the bottom\n and go explore the world some more!");
+        if (onlyOneMessagePlease < 1)
+        {
+            Universe::instance().getPlayer()->getScore()->HighscoreSave();
+            msgg.exec();
+            onlyOneMessagePlease++;
+        }
     }
     else
     {

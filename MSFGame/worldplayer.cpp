@@ -54,3 +54,13 @@ void WorldPlayer::applyItem()
         equippedItem->setEquipped(true);
     }
 }
+string WorldPlayer::getData() {
+    string data = "," + WorldCharacter::getData();
+    data += "," + to_string(this->getLives()->getLives());
+    data += "," + to_string(currentWorld);
+    data += "," + to_string(book);
+    data += "," + to_string(key);
+    data += "," + to_string(key2);
+    data += "," + to_string(key3);
+    return data;
+}

@@ -18,7 +18,7 @@
 #include "ui_mainwindow.h"
 #include "universe.h"
 
-
+int onlyOneMessage = 0;
 
 QSet<Qt::Key> keysPressed;
 
@@ -60,127 +60,127 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
 
 void Player::keyPressEvent(QKeyEvent *event) {
 
-    if((!(player->getNoLives()))){
-    if (event->key() == Qt::Key_Escape) {
-        QMessageBox msg;
-        msg.setWindowTitle("Menu");
-        msg.addButton(trUtf8("Resume"),QMessageBox::NoRole);
-        QAbstractButton *btSave = msg.addButton(QMessageBox::Save);
-        QAbstractButton *btHelp = msg.addButton(QMessageBox::Help);
-        QAbstractButton *btCheat = msg.addButton(trUtf8("Cheat Mode"),QMessageBox::YesRole);
-        QAbstractButton *btExit = msg.addButton(trUtf8("Exit Game"),QMessageBox::YesRole);
-        msg.setDefaultButton(QMessageBox::Save);
-        msg.exec();
-        if(msg.clickedButton() == btSave){
-          Universe::instance().Save();
-        } else if (msg.clickedButton() == btCheat){
-            player->setHealth(100);
-            player->setDefense(100);
-            player->setStrength(25);
-            player->setInvincible(true);
-            timer->setInterval(1);
-            timerCooldown->setInterval(10);
-            player->setCheat();
+    if(!(player->getNoLives())){
+        if (event->key() == Qt::Key_Escape) {
+            QMessageBox msg;
+            msg.setWindowTitle("Menu");
+            msg.addButton(trUtf8("Resume"),QMessageBox::NoRole);
+            QAbstractButton *btSave = msg.addButton(QMessageBox::Save);
+            QAbstractButton *btHelp = msg.addButton(QMessageBox::Help);
+            QAbstractButton *btCheat = msg.addButton(trUtf8("Cheat Mode"),QMessageBox::YesRole);
+            QAbstractButton *btExit = msg.addButton(trUtf8("Exit Game"),QMessageBox::YesRole);
+            msg.setDefaultButton(QMessageBox::Save);
+            msg.exec();
+            if(msg.clickedButton() == btSave){
+              Universe::instance().Save();
+            } else if (msg.clickedButton() == btCheat){
+                player->setHealth(100);
+                player->setDefense(100);
+                player->setStrength(25);
+                player->setInvincible(true);
+                timer->setInterval(1);
+                timerCooldown->setInterval(10);
+                player->setCheat();
 
 
-        }else if (msg.clickedButton() == btHelp){
-            QMessageBox ms;
-            ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
-            ms.exec();
-        } else if (msg.clickedButton() == btExit){
-            QApplication::quit();
-        }
-
-    }
-
-    else if (event->key() == Qt::Key_Left) {
-        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
-            setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
-            connect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
-            connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
-
-            timertwo->start();
-            timer->start();
-
-
-        }
-
-    }
-    else if (event->key() == Qt::Key_Right) {
-        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
-            setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
-            connect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
-            connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimRight()));
-
-            timertwo->start();
-            timer->start();
-        }
-    }
-
-    else if (event->key() == Qt::Key_Up) {
-        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()) {
-            setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
-            connect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
-            connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimUp()));
-
-            timertwo->start();
-            timer->start();
-
-        }
-    }
-
-    else if (event->key() == Qt::Key_Down) {
-        if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
-            setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
-            connect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
-            connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimDown()));
-            timertwo->start();
-            timer->start();
-        }
-    }
-
-    else if (event->key() == Qt::Key_Space) {
-        if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 1) {        //Up
-            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordUp()));
-            timerthree->start();
-        }
-        else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 2) {   //Right
-            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordRight()));
-            timerthree->start();
-        }
-        else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 3) {   //Down
-            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordDown()));
-            timerthree->start();
-        }
-        else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 4) {   //Left
-            connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordLeft()));
-            timerthree->start();
-        }
-    }
-
-    else if (event->key() == Qt::Key_Alt) {
-
-        if (!timerCooldown->isActive() && player->getBook() == true) {
-            connect(timerCooldown, SIGNAL(timeout()), this, SLOT(timerCool()));
-            Magic * magic = new Magic();
-            if (player->getOrientation() == 1) {  //Up
-             magic->setPos(x()+14,y()-8);
-                magic->setDirection(1);
-            } else if (player->getOrientation() ==2) {  //Right
-                magic->setPos(x()+28,y()+20);
-                magic->setDirection(2);
-            } else if (player->getOrientation() ==3) {  //Down
-                magic->setPos(x()+14,y()+30);
-                magic->setDirection(3);
-            } else if (player->getOrientation() ==4) {  //Left
-                magic->setPos(x(),y()+20);
-                magic->setDirection(4);
+            }else if (msg.clickedButton() == btHelp){
+                QMessageBox ms;
+                ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
+                ms.exec();
+            } else if (msg.clickedButton() == btExit){
+                QApplication::quit();
             }
-            scene()->addItem(magic);
-            timerCooldown->start();
+
         }
 
-    }\
+        else if (event->key() == Qt::Key_Left) {
+            if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
+                setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
+                connect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
+                connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
+
+                timertwo->start();
+                timer->start();
+
+
+            }
+
+        }
+        else if (event->key() == Qt::Key_Right) {
+            if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
+                setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
+                connect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
+                connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimRight()));
+
+                timertwo->start();
+                timer->start();
+            }
+        }
+
+        else if (event->key() == Qt::Key_Up) {
+            if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()) {
+                setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
+                connect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
+                connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimUp()));
+
+                timertwo->start();
+                timer->start();
+
+            }
+        }
+
+        else if (event->key() == Qt::Key_Down) {
+            if (!timerthree->isActive() && !timer->isActive() && !event->isAutoRepeat()){
+                setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
+                connect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
+                connect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimDown()));
+                timertwo->start();
+                timer->start();
+            }
+        }
+
+        else if (event->key() == Qt::Key_Space) {
+            if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 1) {        //Up
+                connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordUp()));
+                timerthree->start();
+            }
+            else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 2) {   //Right
+                connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordRight()));
+                timerthree->start();
+            }
+            else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 3) {   //Down
+                connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordDown()));
+                timerthree->start();
+            }
+            else if (!timerthree->isActive() && !timer->isActive() && player->getOrientation() == 4) {   //Left
+                connect(timerthree, SIGNAL(timeout()), this, SLOT(timerSwordLeft()));
+                timerthree->start();
+            }
+        }
+
+        else if (event->key() == Qt::Key_Alt) {
+
+            if (!timerCooldown->isActive() && player->getBook() == true) {
+                connect(timerCooldown, SIGNAL(timeout()), this, SLOT(timerCool()));
+                Magic * magic = new Magic();
+                if (player->getOrientation() == 1) {  //Up
+                 magic->setPos(x()+14,y()-8);
+                    magic->setDirection(1);
+                } else if (player->getOrientation() ==2) {  //Right
+                    magic->setPos(x()+28,y()+20);
+                    magic->setDirection(2);
+                } else if (player->getOrientation() ==3) {  //Down
+                    magic->setPos(x()+14,y()+30);
+                    magic->setDirection(3);
+                } else if (player->getOrientation() ==4) {  //Left
+                    magic->setPos(x(),y()+20);
+                    magic->setDirection(4);
+                }
+                scene()->addItem(magic);
+                timerCooldown->start();
+            }
+
+        }
     }
 }
 
@@ -192,7 +192,9 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitLeft()));
             timertwo->stop();
             disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimLeft()));
-            setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
+            if(!(player->getNoLives())){
+                setPixmap(QPixmap(":/images/images/WalkLeft1.png").scaled(60,60));
+            }
             animation = 1;
         }
 
@@ -204,7 +206,9 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitRight()));
             timertwo->stop();
             disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimRight()));
-            setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
+            if(!(player->getNoLives())){
+                setPixmap(QPixmap(":/images/images/WalkRight1.png").scaled(60,60));
+            }
             animation = 1;
         }
 
@@ -216,7 +220,9 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitUp()));
             timertwo->stop();
             disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimUp()));
-            setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
+            if(!(player->getNoLives())){
+                setPixmap(QPixmap(":/images/images/WalkUp1.png").scaled(60,60));
+            }
             animation = 1;
         }
 
@@ -228,7 +234,9 @@ void Player::keyReleaseEvent(QKeyEvent *event) {
             disconnect(timer, SIGNAL(timeout()), this, SLOT(timerHitDown()));
             timertwo->stop();
             disconnect(timertwo, SIGNAL(timeout()), this, SLOT(timerAnimDown()));
-            setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
+            if(!(player->getNoLives())){
+                setPixmap(QPixmap(":/images/images/WalkDown1.png").scaled(60,60));
+            }
             animation = 1;
          }
     }
@@ -681,5 +689,17 @@ void Player::updateDisplay()
     if(player->getNoLives())
     {
         //open a dead window here
+        QMessageBox msgg;
+        msgg.setWindowTitle("GAME OVER");
+        msgg.setText("You have failed the realm! The Evil Wizard maintains his rule.\n\nScore saved.\n\nPlease exit and start a new game to play again.");
+        if (onlyOneMessage < 1)
+        {
+            string str = string(":/images/images/SlimeBurst3") + to_string(animation) + ".png";
+            const char * c = str.c_str();
+            setPixmap(QPixmap(c).scaled(60,60));
+            Universe::instance().getPlayer()->getScore()->HighscoreSave();
+            msgg.exec();
+            onlyOneMessage++;
+        }
     }
 }

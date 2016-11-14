@@ -78,7 +78,7 @@ void Game::initialize(int id)
     currentWRight = world->getRightId();
     setBackgroundBrush(QBrush(QImage(world->getName())));
 
-    if (id == 10) {
+    if (id == 9) {
         for (unsigned i=0; i<world->getCharacters().size(); i++) {
             Boss* newBoss = new Boss();
             WorldEnemy* disEnemy = new WorldEnemy();
@@ -104,8 +104,10 @@ void Game::initialize(int id)
                 newEnemy->updatePos();
                 newEnemy->getEnemy()->setAwareness(3);
                 string img = disEnemy->getName() + ".png";
-                if(disEnemy->isDead())
+                if(disEnemy->isDead()){
                     newEnemy->setDead();
+                    img = ":/images/images/SlimeBurst3.png";
+                }
                 const char* cImg = img.c_str();
                 newEnemy->setPixmap(QPixmap(cImg).scaled(60,60));
                 scene->addItem(newEnemy);
@@ -142,7 +144,7 @@ void Game::initialize(int id)
                 Obstacle* obj = new Obstacle();
                 obj->setRect(obstacle->getX(),obstacle->getY(),obstacle->getWidth(),obstacle->getHeight());
                 obj->setObstacle(obstacle);
-                //obj->setPen(Qt::NoPen);
+                obj->setPen(Qt::NoPen);
                 scene->addItem(obj);
            }
         }
