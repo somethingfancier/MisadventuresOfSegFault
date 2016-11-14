@@ -785,8 +785,6 @@ void Universe::createFifthWorld() {
     WorldObstacle* obs24 = new WorldObstacle();
     WorldObstacle* obs25 = new WorldObstacle();
     WorldObstacle* obs26 = new WorldObstacle();
-    WorldObstacle* bridge1 = new WorldObstacle();
-    WorldObstacle* bridge2 = new WorldObstacle();
 
     obs1->setX(243);
     obs1->setY(0);
@@ -918,16 +916,6 @@ void Universe::createFifthWorld() {
     obs26->setWidth(200);
     obs26->setHeight(101);
 
-    bridge1->setX(246);
-    bridge1->setY(563);
-    bridge1->setWidth(48);
-    bridge1->setHeight(93);
-
-    bridge2->setX(1045);
-    bridge2->setY(444);
-    bridge2->setWidth(47);
-    bridge2->setHeight(98);
-
     world5->addObstacle(obs1);
     world5->addObstacle(obs2);
     world5->addObstacle(obs3);
@@ -954,8 +942,6 @@ void Universe::createFifthWorld() {
     world5->addObstacle(obs24);
     world5->addObstacle(obs25);
     world5->addObstacle(obs26);
-    world5->addObstacle(bridge1);
-    world5->addObstacle(bridge2);
 
     instance().addWorld(world5);
 
