@@ -51,7 +51,7 @@ void MainWindow::on_pbHighscore_clicked()
     QMessageBox msg(mw);
     msg.setWindowTitle("HIGHSCORE");
     int highScore = Universe::instance().getPlayer()->getScore()->HighscoreLoad();
-    msg.setText("Highscore: " + QString::number(highScore));
+    msg.setText("\nYour All-Time Highscore: " + QString::number(highScore) + "\n");
     msg.exec();
 }
 
