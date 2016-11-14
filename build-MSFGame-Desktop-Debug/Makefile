@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = MSFGame1.0.0
-DISTDIR = /home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame/.tmp/MSFGame1.0.0
+DISTDIR = /home/user/MisadventuresOfSegFault/MSFGame/.tmp/MSFGame1.0.0
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -430,16 +430,19 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/Highscores.png \
 		../MSFGame/images/WalkUp9.png \
 		../MSFGame/images/npc1.png \
+		../MSFGame/images/World9.png \
 		../MSFGame/images/WalkLeft9.png \
 		../MSFGame/images/fire13.png \
 		../MSFGame/images/WalkRight5.png \
 		../MSFGame/images/WalkDown5.png \
 		../MSFGame/images/boss4.png \
+		../MSFGame/images/World13.png \
 		../MSFGame/images/WalkUp4.png \
 		../MSFGame/images/SwordRight2.png \
 		../MSFGame/images/fire8.png \
 		../MSFGame/images/SwordLeft3.png \
 		../MSFGame/images/Slime1.png \
+		../MSFGame/images/npc5.png \
 		../MSFGame/images/SwordDown3.png \
 		../MSFGame/images/World4.png \
 		../MSFGame/images/WalkLeft4.png \
@@ -459,13 +462,16 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/WalkDown4.png \
 		../MSFGame/images/SlimeBurst3.png \
 		../MSFGame/images/boss3.png \
+		../MSFGame/images/World12.png \
 		../MSFGame/images/SwordRight1.png \
 		../MSFGame/images/WalkUp3.png \
 		../MSFGame/images/Exit.png \
 		../MSFGame/images/fire7.png \
 		../MSFGame/images/SwordLeft2.png \
 		../MSFGame/images/Load.png \
+		../MSFGame/images/npc4.png \
 		../MSFGame/images/SwordDown2.png \
+		../MSFGame/images/key3.png \
 		../MSFGame/images/World3.png \
 		../MSFGame/images/WalkLeft3.png \
 		../MSFGame/images/WalkRight8.png \
@@ -485,12 +491,14 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/SlimeBurst2.png \
 		../MSFGame/images/WalkDown3.png \
 		../MSFGame/images/boss2.png \
+		../MSFGame/images/World11.png \
 		../MSFGame/images/WalkUp2.png \
 		../MSFGame/images/fire6.png \
 		../MSFGame/images/SwordLeft1.png \
 		../MSFGame/images/key.png \
 		../MSFGame/images/npc3.png \
 		../MSFGame/images/SwordDown1.png \
+		../MSFGame/images/key2.png \
 		../MSFGame/images/World2.png \
 		../MSFGame/images/WalkLeft2.png \
 		../MSFGame/images/fire15.png \
@@ -525,11 +533,13 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/WalkDown6.png \
 		../MSFGame/images/boss5.png \
 		../MSFGame/images/SwordUp1.png \
+		../MSFGame/images/World14.png \
 		../MSFGame/images/WalkUp5.png \
 		../MSFGame/images/SwordRight3.png \
 		../MSFGame/images/fire9.png \
 		../MSFGame/images/SwordLeft4.png \
 		../MSFGame/images/Slime2.png \
+		../MSFGame/images/npc6.png \
 		../MSFGame/images/SwordDown4.png \
 		../MSFGame/images/World5.png \
 		../MSFGame/images/SlimeMove.png \
@@ -541,7 +551,7 @@ compiler_moc_header_make_all: moc_mainwindow.cpp moc_game.cpp moc_player.cpp moc
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_game.cpp moc_player.cpp moc_enemy.cpp moc_magic.cpp moc_item.cpp moc_npc.cpp moc_boss.cpp
 moc_mainwindow.cpp: ../MSFGame/mainwindow.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/mainwindow.h -o moc_mainwindow.cpp
 
 moc_game.cpp: ../MSFGame/player.h \
 		../MSFGame/worldplayer.h \
@@ -564,7 +574,7 @@ moc_game.cpp: ../MSFGame/player.h \
 		../MSFGame/universe.h \
 		../MSFGame/item.h \
 		../MSFGame/game.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/game.h -o moc_game.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/game.h -o moc_game.cpp
 
 moc_player.cpp: ../MSFGame/worldplayer.h \
 		../MSFGame/worldchar.h \
@@ -581,7 +591,7 @@ moc_player.cpp: ../MSFGame/worldplayer.h \
 		../MSFGame/lives.h \
 		../MSFGame/health.h \
 		../MSFGame/player.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/player.h -o moc_player.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/player.h -o moc_player.cpp
 
 moc_enemy.cpp: ../MSFGame/worldenemy.h \
 		../MSFGame/worldchar.h \
@@ -595,22 +605,22 @@ moc_enemy.cpp: ../MSFGame/worldenemy.h \
 		../MSFGame/worldlives.h \
 		../MSFGame/worldhealth.h \
 		../MSFGame/enemy.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/enemy.h -o moc_enemy.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/enemy.h -o moc_enemy.cpp
 
 moc_magic.cpp: ../MSFGame/magic.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/magic.h -o moc_magic.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/magic.h -o moc_magic.cpp
 
 moc_item.cpp: ../MSFGame/worlditem.h \
 		../MSFGame/worldobject.h \
 		../MSFGame/item.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/item.h -o moc_item.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/item.h -o moc_item.cpp
 
 moc_npc.cpp: ../MSFGame/worldnpc.h \
 		../MSFGame/worldchar.h \
 		../MSFGame/worldobject.h \
 		../MSFGame/worlditem.h \
 		../MSFGame/npc.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/npc.h -o moc_npc.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/npc.h -o moc_npc.cpp
 
 moc_boss.cpp: ../MSFGame/worldenemy.h \
 		../MSFGame/worldchar.h \
@@ -624,7 +634,7 @@ moc_boss.cpp: ../MSFGame/worldenemy.h \
 		../MSFGame/worldlives.h \
 		../MSFGame/worldhealth.h \
 		../MSFGame/boss.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/Desktop/TeamProject/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/boss.h -o moc_boss.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/user/MisadventuresOfSegFault/MSFGame -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/x86_64-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../MSFGame/boss.h -o moc_boss.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
