@@ -29,10 +29,18 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
     player->setWidth(10);
     player->setHeight(15);
     timer = new QTimer(this);
+    timerCooldown = new QTimer(this);
     if(!Universe::instance().getPlayer()->getCheat())
+    {
         timer->setInterval(13);
+        timerCooldown->setInterval(1000);
+    }
+
     else
-        timer->setInterval(3);
+    {
+        timer->setInterval(1);
+        timerCooldown->setInterval(10);
+    }
 
     timertwo = new QTimer(this);
     timertwo->setInterval(100);
@@ -40,8 +48,6 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) {
     timerthree = new QTimer(this);
     timerthree->setInterval(80);
 
-    timerCooldown = new QTimer(this);
-    timerCooldown->setInterval(1000);
 
     displayTimer = new QTimer(this);
     displayTimer->setInterval(100);
@@ -72,7 +78,8 @@ void Player::keyPressEvent(QKeyEvent *event) {
             player->setDefense(100);
             player->setStrength(25);
             player->setInvincible(true);
-            timer->setInterval(3);
+            timer->setInterval(1);
+            timerCooldown->setInterval(10);
             player->setCheat();
 
 

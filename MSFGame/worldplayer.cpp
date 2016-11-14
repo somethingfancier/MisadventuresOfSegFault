@@ -46,6 +46,10 @@ void WorldPlayer::applyItem()
             this->setBook(true);
         } else if (equippedItem->getProperty() == "key") {
             this->setKey(true);
+        } else if (equippedItem->getProperty() == "key2") {
+            this->setKey2(true);
+        } else if (equippedItem->getProperty() == "key3") {
+            this->setKey3(true);
         }
         equippedItem->setEquipped(true);
     }

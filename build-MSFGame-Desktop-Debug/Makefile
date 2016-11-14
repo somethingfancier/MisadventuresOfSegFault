@@ -430,16 +430,19 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/Highscores.png \
 		../MSFGame/images/WalkUp9.png \
 		../MSFGame/images/npc1.png \
+		../MSFGame/images/World9.png \
 		../MSFGame/images/WalkLeft9.png \
 		../MSFGame/images/fire13.png \
 		../MSFGame/images/WalkRight5.png \
 		../MSFGame/images/WalkDown5.png \
 		../MSFGame/images/boss4.png \
+		../MSFGame/images/World13.png \
 		../MSFGame/images/WalkUp4.png \
 		../MSFGame/images/SwordRight2.png \
 		../MSFGame/images/fire8.png \
 		../MSFGame/images/SwordLeft3.png \
 		../MSFGame/images/Slime1.png \
+		../MSFGame/images/npc5.png \
 		../MSFGame/images/SwordDown3.png \
 		../MSFGame/images/World4.png \
 		../MSFGame/images/WalkLeft4.png \
@@ -459,13 +462,16 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/WalkDown4.png \
 		../MSFGame/images/SlimeBurst3.png \
 		../MSFGame/images/boss3.png \
+		../MSFGame/images/World12.png \
 		../MSFGame/images/SwordRight1.png \
 		../MSFGame/images/WalkUp3.png \
 		../MSFGame/images/Exit.png \
 		../MSFGame/images/fire7.png \
 		../MSFGame/images/SwordLeft2.png \
 		../MSFGame/images/Load.png \
+		../MSFGame/images/npc4.png \
 		../MSFGame/images/SwordDown2.png \
+		../MSFGame/images/key3.png \
 		../MSFGame/images/World3.png \
 		../MSFGame/images/WalkLeft3.png \
 		../MSFGame/images/WalkRight8.png \
@@ -485,12 +491,14 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/SlimeBurst2.png \
 		../MSFGame/images/WalkDown3.png \
 		../MSFGame/images/boss2.png \
+		../MSFGame/images/World11.png \
 		../MSFGame/images/WalkUp2.png \
 		../MSFGame/images/fire6.png \
 		../MSFGame/images/SwordLeft1.png \
 		../MSFGame/images/key.png \
 		../MSFGame/images/npc3.png \
 		../MSFGame/images/SwordDown1.png \
+		../MSFGame/images/key2.png \
 		../MSFGame/images/World2.png \
 		../MSFGame/images/WalkLeft2.png \
 		../MSFGame/images/fire15.png \
@@ -525,11 +533,13 @@ qrc_resources.cpp: ../MSFGame/resources.qrc \
 		../MSFGame/images/WalkDown6.png \
 		../MSFGame/images/boss5.png \
 		../MSFGame/images/SwordUp1.png \
+		../MSFGame/images/World14.png \
 		../MSFGame/images/WalkUp5.png \
 		../MSFGame/images/SwordRight3.png \
 		../MSFGame/images/fire9.png \
 		../MSFGame/images/SwordLeft4.png \
 		../MSFGame/images/Slime2.png \
+		../MSFGame/images/npc6.png \
 		../MSFGame/images/SwordDown4.png \
 		../MSFGame/images/World5.png \
 		../MSFGame/images/SlimeMove.png \

@@ -148,7 +148,7 @@ void WorldScore::HighscoreSave() {
     ifstream inputFile("segfaultHighScore");
 
     if (highScore < score) {
-        outputFile << score - highScore << ",";
+        outputFile << score << ",";
 
         outputFile << inputFile.rdbuf();
         inputFile.close();

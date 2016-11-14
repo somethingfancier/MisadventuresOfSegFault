@@ -89,7 +89,6 @@
         <file>images/fire15.png</file>
         <file>images/heart.png</file>
         <file>images/World3.png</file>
-        <file>images/World5.png</file>
         <file>images/World6.png</file>
         <file>images/World8.png</file>
         <file>images/npc1.png</file>
@@ -110,6 +109,17 @@
         <file>images/book.png</file>
         <file>images/key.png</file>
         <file>images/health.png</file>
+        <file>images/key2.png</file>
+        <file>images/key3.png</file>
         <file>images/World4.png</file>
+        <file>images/World5.png</file>
+        <file>images/World9.png</file>
+        <file>images/World11.png</file>
+        <file>images/World12.png</file>
+        <file>images/World13.png</file>
+        <file>images/World14.png</file>
+        <file>images/npc4.png</file>
+        <file>images/npc5.png</file>
+        <file>images/npc6.png</file>
     </qresource>
 </RCC>
