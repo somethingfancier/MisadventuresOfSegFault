@@ -6,6 +6,8 @@
 #include <typeinfo>
 #include "universe.h"
 #include <QMessageBox>
+#include <QPushButton>
+#include "ui_mainwindow.h"
 
 int onlyOneMessagePlease = 0;
 
@@ -143,12 +145,16 @@ void Boss::deathAnimation()
         timertwo->stop();
         QMessageBox msgg;
         msgg.setWindowTitle("CONGRATULATIONS!");
-        msgg.setText("Congratulations!\n\n You have succesfully defeated the Dark Wizard\n and purged evil from the realm.\n\n If your score is higher than before,\n it has been saved as a new highscore!\n\n Feel free to leave through the bottom\n and go explore the world some more!");
+        QAbstractButton *btExit = msgg.addButton(trUtf8("Exit Game"),QMessageBox::YesRole);
+        msgg.setText("Congratulations!\n\n You have succesfully defeated the Dark Wizard\n and purged evil from the realm.\n\n If your score is higher than before,\n it has been saved as a new highscore!\n\n");
         if (onlyOneMessagePlease < 1)
         {
             Universe::instance().getPlayer()->getScore()->HighscoreSave();
             msgg.exec();
             onlyOneMessagePlease++;
+            if (msgg.clickedButton() == btExit){
+                            QApplication::quit();
+            }
         }
     }
     else
