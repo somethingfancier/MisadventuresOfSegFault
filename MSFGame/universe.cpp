@@ -2,6 +2,7 @@
 #include <QDebug>
 #include "universe.h"
 #include <sstream>
+#include <QFile>
 
 using namespace std;
 
@@ -1096,7 +1097,7 @@ void Universe::createEighthWorld() {
 
     World* world8 = new World();
 
-    world8->setId(8);
+    world8->setId(7);
     world8->setDownWId(8);
     world8->setLeftWId(8);
     world8->setRightWId(5);
@@ -1200,7 +1201,7 @@ void Universe::createNinthWorld()
 {
     World* world9 = new World();
 
-    world9->setId(9);
+    world9->setId(8);
     world9->setDownWId(9);
     world9->setLeftWId(9);
     world9->setRightWId(4);
@@ -1247,7 +1248,7 @@ void Universe::createTenthWorld()
 {
     World* world10 = new World();
 
-    world10->setId(10);
+    world10->setId(9);
     world10->setDownWId(10);
     world10->setLeftWId(10);
     world10->setRightWId(10);
@@ -1269,7 +1270,7 @@ void Universe::createEleventhWorld()
 {
     World* world11 = new World();
 
-    world11->setId(11);
+    world11->setId(10);
     world11->setDownWId(9);
     world11->setLeftWId(11);
     world11->setRightWId(11);
@@ -1327,7 +1328,7 @@ void Universe::createTwelthWorld()
 {
     World* world12 = new World();
 
-    world12->setId(12);
+    world12->setId(11);
     world12->setDownWId(11);
     world12->setLeftWId(12);
     world12->setRightWId(13);
@@ -1391,7 +1392,7 @@ void Universe::createThirteenthWorld()
 {
     World* world13 = new World();
 
-    world13->setId(13);
+    world13->setId(12);
     world13->setDownWId(13);
     world13->setLeftWId(12);
     world13->setRightWId(14);
@@ -1434,7 +1435,7 @@ void Universe::createFourteenthWorld()
 {
     World* world14 = new World();
 
-    world14->setId(14);
+    world14->setId(13);
     world14->setDownWId(14);
     world14->setLeftWId(13);
     world14->setRightWId(14);
@@ -1492,6 +1493,9 @@ void Universe::Save()
 {
     player->getScore()->Save();
     player->getScore()->HighscoreSave();
+    QString saveFile = "segfaultSave.txt";
+    QFile file (saveFile);
+    file.remove();
     ofstream outputFile;
     outputFile.open("segfaultSave.txt", ofstream::out | ofstream::trunc);
 
@@ -1523,8 +1527,8 @@ void Universe::Save()
 
 void Universe::Load()
 {
-    const int maxChars = 5120;
-    const int maxTokens = 200;
+    const int maxChars = 51200;
+    const int maxTokens = 20000;
     const char* const delimiter = ",";
 
     ifstream fin;
@@ -1610,60 +1614,87 @@ void Universe::Load()
 
 
             int tokenPos = 8; // HACKY HACKY HACK
-            for (int enemy = 0; enemy < 2; enemy++)
+
+            for (int worldNum = 1; worldNum <= Universe::instance().getWorlds().size(); worldNum++)
             {
-                stringstream enemyx;
-                enemyx << token[tokenPos];
-                int enemyIntx;
-                enemyx >> enemyIntx;
-                tokenPos++;
+                for (int enemy = 0; enemy < Universe::instance().getWorld(worldNum)->getCharacters().size(); enemy++)
+                {
+                    stringstream enemyx;
+                    enemyx << token[tokenPos];
+                    int enemyIntx;
+                    enemyx >> enemyIntx;
+                    tokenPos++;
 
-                stringstream enemyy;
-                enemyy << token[tokenPos];
-                int enemyInty;
-                enemyy >> enemyInty;
-                tokenPos++;
+                    stringstream enemyy;
+                    enemyy << token[tokenPos];
+                    int enemyInty;
+                    enemyy >> enemyInty;
+                    tokenPos++;
 
-                stringstream enemyHealth;
-                enemyHealth << token[tokenPos];
-                int enemyIntHealth;
-                enemyHealth >> enemyIntHealth;
-                tokenPos++;
+                    stringstream enemyHealth;
+                    enemyHealth << token[tokenPos];
+                    int enemyIntHealth;
+                    enemyHealth >> enemyIntHealth;
+                    tokenPos++;
 
-                stringstream enemyStrength;
-                enemyStrength << token[tokenPos];
-                int enemyIntStrength;
-                enemyStrength >> enemyIntStrength;
-                tokenPos++;
+                    stringstream enemyStrength;
+                    enemyStrength << token[tokenPos];
+                    int enemyIntStrength;
+                    enemyStrength >> enemyIntStrength;
+                    tokenPos++;
 
-                stringstream enemyDefense;
-                enemyDefense << token[tokenPos];
-                int enemyIntDefense;
-                enemyDefense >> enemyIntDefense;
-                tokenPos++;
+                    stringstream enemyDefense;
+                    enemyDefense << token[tokenPos];
+                    int enemyIntDefense;
+                    enemyDefense >> enemyIntDefense;
+                    tokenPos++;
 
-                stringstream enemyOrientation;
-                enemyOrientation << token[tokenPos];
-                int enemyIntOrientation;
-                enemyOrientation >> enemyIntOrientation;
-                tokenPos++;
+                    stringstream enemyOrientation;
+                    enemyOrientation << token[tokenPos];
+                    int enemyIntOrientation;
+                    enemyOrientation >> enemyIntOrientation;
+                    tokenPos++;
 
-                stringstream enemyDead;
-                enemyDead << token[tokenPos];
-                int enemyIntDead;
-                enemyDead >> enemyIntDead;
-                tokenPos++;
+                    stringstream enemyDead;
+                    enemyDead << token[tokenPos];
+                    int enemyIntDead;
+                    enemyDead >> enemyIntDead;
+                    tokenPos++;
 
-                WorldCharacter* typicalEnemy = Universe::instance().getWorld(1)->getCharacters().at(enemy);
-                typicalEnemy->setCoordinates(enemyIntx, enemyInty);
-                typicalEnemy->setHealth(enemyIntHealth);
-                typicalEnemy->setStrength(enemyIntStrength);
-                typicalEnemy->setDefense(enemyIntDefense);
-                typicalEnemy->setOrientation(enemyIntOrientation);
-                typicalEnemy->setDead(enemyIntDead);
+                    WorldCharacter* typicalEnemy = Universe::instance().getWorld(worldNum)->getCharacters().at(enemy);
+                    typicalEnemy->setCoordinates(enemyIntx, enemyInty);
+                    typicalEnemy->setHealth(enemyIntHealth);
+                    typicalEnemy->setStrength(enemyIntStrength);
+                    typicalEnemy->setDefense(enemyIntDefense);
+                    typicalEnemy->setOrientation(enemyIntOrientation);
+                    typicalEnemy->setDead(enemyIntDead);
+                }
+
+                for (int item = 0; item < Universe::instance().getWorld(worldNum)->getItems().size(); item++)
+                {
+                    stringstream itemx;
+                    itemx << token[tokenPos];
+                    int itemIntx;
+                    itemx >> itemIntx;
+                    tokenPos++;
+
+                    stringstream itemy;
+                    itemy << token[tokenPos];
+                    int itemInty;
+                    itemy >> itemInty;
+                    tokenPos++;
+
+                    stringstream itemEquipped;
+                    itemEquipped << token[tokenPos];
+                    int itemIntEquipped;
+                    itemEquipped >> itemIntEquipped;
+                    tokenPos++;
+
+                    WorldObject* typicalItem = Universe::instance().getWorld(worldNum)->getItems().at(item);
+                    typicalItem->setCoordinates(itemIntx, itemInty);
+                }
+
             }
-
-
             break;
         }
     }
