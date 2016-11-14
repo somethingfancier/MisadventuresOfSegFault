@@ -2268,184 +2268,76 @@ void Universe::createFourteenthWorld()
     WorldObstacle* obs12 = new WorldObstacle();
     WorldObstacle* obs13 = new WorldObstacle();
     WorldObstacle* obs14 = new WorldObstacle();
-    WorldObstacle* obs15 = new WorldObstacle();
-    WorldObstacle* obs16 = new WorldObstacle();
-    WorldObstacle* obs17 = new WorldObstacle();
-    WorldObstacle* obs18 = new WorldObstacle();
-    WorldObstacle* obs19 = new WorldObstacle();
-    WorldObstacle* obs20 = new WorldObstacle();
-    WorldObstacle* obs21 = new WorldObstacle();
-    WorldObstacle* obs22 = new WorldObstacle();
-    WorldObstacle* obs23 = new WorldObstacle();
-    WorldObstacle* obs24 = new WorldObstacle();
-    WorldObstacle* obs25 = new WorldObstacle();
-    WorldObstacle* obs26 = new WorldObstacle();
-    WorldObstacle* obs27 = new WorldObstacle();
-    WorldObstacle* obs28 = new WorldObstacle();
-    WorldObstacle* obs29 = new WorldObstacle();
-    WorldObstacle* obs30 = new WorldObstacle();
-    WorldObstacle* obs31 = new WorldObstacle();
-    WorldObstacle* obs32 = new WorldObstacle();
 
     obs1->setX(0);
     obs1->setY(0);
     obs1->setWidth(46);
-    obs1->setHeight(143);
+    obs1->setHeight(145);
 
-    obs2->setX(51);
+    obs2->setX(53);
     obs2->setY(0);
-    obs2->setWidth(148);
-    obs2->setHeight(66);
+    obs2->setWidth(1198);
+    obs2->setHeight(64);
 
-    obs3->setX(207);
-    obs3->setY(0);
-    obs3->setWidth(400);
-    obs3->setHeight(31);
+    obs3->setX(446);
+    obs3->setY(70);
+    obs3->setWidth(333);
+    obs3->setHeight(66);
 
-    obs4->setX(446);
-    obs4->setY(33);
-    obs4->setWidth(325);
-    obs4->setHeight(98);
+    obs4->setX(522);
+    obs4->setY(139);
+    obs4->setWidth(181);
+    obs4->setHeight(32);
 
-    obs5->setX(516);
-    obs5->setY(133);
-    obs5->setWidth(189);
-    obs5->setHeight(39);
+    obs5->setX(0);
+    obs5->setY(192);
+    obs5->setWidth(115);
+    obs5->setHeight(321);
 
-    obs6->setX(610);
-    obs6->setY(0);
-    obs6->setWidth(160);
-    obs6->setHeight(30);
+    obs6->setX(122);
+    obs6->setY(275);
+    obs6->setWidth(681);
+    obs6->setHeight(191);
 
-    obs7->setX(775);
-    obs7->setY(0);
-    obs7->setWidth(150);
-    obs7->setHeight(69);
+    obs7->setX(814);
+    obs7->setY(303);
+    obs7->setWidth(364);
+    obs7->setHeight(114);
 
-    obs8->setX(930);
-    obs8->setY(0);
-    obs8->setWidth(277);
-    obs8->setHeight(30);
+    obs8->setX(808);
+    obs8->setY(432);
+    obs8->setWidth(104);
+    obs8->setHeight(58);
 
-    obs9->setX(1212);
-    obs9->setY(0);
-    obs9->setWidth(68);
-    obs9->setHeight(548);
+    obs9->setX(1186);
+    obs9->setY(70);
+    obs9->setWidth(94);
+    obs9->setHeight(650);
 
-    obs10->setX(1189);
-    obs10->setY(74);
-    obs10->setWidth(21);
-    obs10->setHeight(106);
+    obs10->setX(1121);
+    obs10->setY(603);
+    obs10->setWidth(58);
+    obs10->setHeight(117);
 
-    obs11->setX(1188);
-    obs11->setY(559);
-    obs11->setWidth(90);
-    obs11->setHeight(43);
+    obs11->setX(0);
+    obs11->setY(654);
+    obs11->setWidth(1113);
+    obs11->setHeight(66);
 
-    obs12->setX(1130);
-    obs12->setY(604);
-    obs12->setWidth(148);
-    obs12->setHeight(46);
+    obs12->setX(0);
+    obs12->setY(574);
+    obs12->setWidth(116);
+    obs12->setHeight(70);
 
-    obs13->setX(873);
-    obs13->setY(652);
-    obs13->setWidth(407);
-    obs13->setHeight(35);
+    obs13->setX(211);
+    obs13->setY(619);
+    obs13->setWidth(65);
+    obs13->setHeight(25);
 
-    obs14->setX(619);
-    obs14->setY(690);
-    obs14->setWidth(661);
-    obs14->setHeight(30);
-
-    obs15->setX(107);
-    obs15->setY(655);
-    obs15->setWidth(507);
-    obs15->setHeight(65);
-
-    obs16->setX(360);
-    obs16->setY(626);
-    obs16->setWidth(180);
-    obs16->setHeight(23);
-
-    obs17->setX(471);
-    obs17->setY(599);
-    obs17->setWidth(55);
-    obs17->setHeight(24);
-
-    obs18->setX(218);
-    obs18->setY(626);
-    obs18->setWidth(53);
-    obs18->setHeight(24);
-
-    obs19->setX(0);
-    obs19->setY(570);
-    obs19->setWidth(106);
-    obs19->setHeight(150);
-
-    obs20->setX(0);
-    obs20->setY(190);
-    obs20->setWidth(33);
-    obs20->setHeight(327);
-
-    obs21->setX(35);
-    obs21->setY(209);
-    obs21->setWidth(71);
-    obs21->setHeight(301);
-
-    obs22->setX(111);
-    obs22->setY(268);
-    obs22->setWidth(80);
-    obs22->setHeight(192);
-
-    obs23->setX(193);
-    obs23->setY(333);
-    obs23->setWidth(45);
-    obs23->setHeight(116);
-
-    obs24->setX(246);
-    obs24->setY(287);
-    obs24->setWidth(85);
-    obs24->setHeight(164);
-
-    obs25->setX(336);
-    obs25->setY(316);
-    obs25->setWidth(477);
-    obs25->setHeight(107);
-
-    obs26->setX(423);
-    obs26->setY(426);
-    obs26->setWidth(136);
-    obs26->setHeight(43);
-
-    obs27->setX(479);
-    obs27->setY(283);
-    obs27->setWidth(117);
-    obs27->setHeight(30);
-
-    obs28->setX(655);
-    obs28->setY(283);
-    obs28->setWidth(87);
-    obs28->setHeight(29);
-
-    obs29->setX(739);
-    obs29->setY(424);
-    obs29->setWidth(170);
-    obs29->setHeight(66);
-
-    obs30->setX(821);
-    obs30->setY(329);
-    obs30->setWidth(386);
-    obs30->setHeight(90);
-
-    obs31->setX(948);
-    obs31->setY(300);
-    obs31->setWidth(54);
-    obs31->setHeight(27);
-
-    obs32->setX(1048);
-    obs32->setY(301);
-    obs32->setWidth(115);
-    obs32->setHeight(26);
+    obs14->setX(356);
+    obs14->setY(598);
+    obs14->setWidth(184);
+    obs14->setHeight(50);
 
     world14->addObstacle(obs1);
     world14->addObstacle(obs2);
@@ -2461,24 +2353,6 @@ void Universe::createFourteenthWorld()
     world14->addObstacle(obs12);
     world14->addObstacle(obs13);
     world14->addObstacle(obs14);
-    world14->addObstacle(obs15);
-    world14->addObstacle(obs16);
-    world14->addObstacle(obs17);
-    world14->addObstacle(obs18);
-    world14->addObstacle(obs19);
-    world14->addObstacle(obs20);
-    world14->addObstacle(obs21);
-    world14->addObstacle(obs22);
-    world14->addObstacle(obs23);
-    world14->addObstacle(obs24);
-    world14->addObstacle(obs25);
-    world14->addObstacle(obs26);
-    world14->addObstacle(obs27);
-    world14->addObstacle(obs28);
-    world14->addObstacle(obs29);
-    world14->addObstacle(obs30);
-    world14->addObstacle(obs31);
-    world14->addObstacle(obs32);
 
     instance().addWorld(world14);
 }
