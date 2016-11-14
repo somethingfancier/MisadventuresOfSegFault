@@ -157,11 +157,8 @@ void WorldScore::HighscoreSave() {
         rename("segfaultHighScores.txt", "segfaultHighScore");
     }
     else {
-        outputFile << score << ",";
         inputFile.close();
         outputFile.close();
-
-        rename("segfaultHighScores.txt", "segfaultHighScore");
     }
 
 }
