@@ -2279,7 +2279,7 @@ void Universe::createFourteenthWorld()
     WorldObstacle* obs30 = new WorldObstacle();
     WorldObstacle* obs31 = new WorldObstacle();
     WorldObstacle* obs32 = new WorldObstacle();
-/*
+
     obs1->setX(0);
     obs1->setY(0);
     obs1->setWidth(46);
@@ -2369,7 +2369,7 @@ void Universe::createFourteenthWorld()
     obs18->setY(626);
     obs18->setWidth(53);
     obs18->setHeight(24);
-*/
+
     obs19->setX(0);
     obs19->setY(570);
     obs19->setWidth(106);
@@ -2439,7 +2439,7 @@ void Universe::createFourteenthWorld()
     obs32->setY(301);
     obs32->setWidth(115);
     obs32->setHeight(26);
-/*
+
     world14->addObstacle(obs1);
     world14->addObstacle(obs2);
     world14->addObstacle(obs3);
@@ -2457,7 +2457,7 @@ void Universe::createFourteenthWorld()
     world14->addObstacle(obs15);
     world14->addObstacle(obs16);
     world14->addObstacle(obs17);
-    world14->addObstacle(obs18);*/
+    world14->addObstacle(obs18);
     world14->addObstacle(obs19);
     world14->addObstacle(obs20);
     world14->addObstacle(obs21);
