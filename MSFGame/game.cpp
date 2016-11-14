@@ -15,7 +15,12 @@ Game::Game(QWidget *parent)
     Universe::instance().createFifthWorld();
     Universe::instance().createSixthWorld();
     Universe::instance().createEighthWorld();
+    Universe::instance().createNinthWorld();
     Universe::instance().createTenthWorld();
+    Universe::instance().createEleventhWorld();
+    Universe::instance().createTwelthWorld();
+    Universe::instance().createThirteenthWorld();
+    Universe::instance().createFourteenthWorld();
     Universe::instance().getPlayer()->setCoordinates(100,200);
 
     player = new Player();
@@ -129,7 +134,7 @@ void Game::initialize(int id)
 
         //Add Obstacles
         for (unsigned i=0; i<world->getObstacles().size(); i++) {
-            if (player->getPlayer()->getKey() == true && i == 0 && id == 4) {
+            if (player->getPlayer()->getKey() == true && player->getPlayer()->getKey2() == true && player->getPlayer()->getKey3() == true && i == 0 && id == 4) {
                 //Do nothing
             } else {
                 WorldObstacle* obstacle = new WorldObstacle;

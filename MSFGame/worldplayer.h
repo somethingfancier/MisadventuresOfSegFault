@@ -24,6 +24,8 @@ private:
     bool noLives;
     bool book;
     bool key;
+    bool key2;
+    bool key3;
     bool invincible;
     bool cheat;
 
@@ -42,6 +44,8 @@ public:
     bool getNoLives(){return noLives;}
     bool getBook(){return book;}
     bool getKey(){return key;}
+    bool getKey2(){return key2;}
+    bool getKey3(){return key3;}
     WorldScore* getScore(){return score;}
     bool isInvincible(){return invincible;}
     bool getCheat(){return cheat;}
@@ -54,6 +58,8 @@ public:
     void setNoLives(bool lifeState){noLives = lifeState;}
     void setBook(bool newBook){book = newBook;}
     void setKey(bool newKey){key = newKey;}
+    void setKey2(bool newKey2){key2 = newKey2;}
+    void setKey3(bool newKey3){key3 = newKey3;}
     void setCurrentWorld(int worldNum){currentWorld = worldNum;}
     void setInvincible(bool state){invincible = state;}
     void setCheat(){cheat = true;}

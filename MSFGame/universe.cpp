@@ -50,7 +50,7 @@ void Universe::createFirstWorld()
 
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
-    WorldNPC* goodGuy = new WorldNPC();
+
 
     WorldObstacle* obsOne = new WorldObstacle();
     WorldObstacle* obsTwo = new WorldObstacle();
@@ -82,15 +82,18 @@ void Universe::createFirstWorld()
     badGuyTwo->setX(500);
     badGuyTwo->setY(500);
 
+    WorldNPC* goodGuy = new WorldNPC();
+
     goodGuy->setX(1020);
     goodGuy->setY(180);
     goodGuy->setName("npc1");
     goodGuy->setAdvice("This heart will give you an extra life.\n I also heard there is a book that lets you shoot fireballs");
     goodGuy->setTitle("Sir Blue-a-Lot");
+    world1->addCharacter(goodGuy);
+
 
     world1->addCharacter(badGuyOne);
     world1->addCharacter(badGuyTwo);
-    world1->addCharacter(goodGuy);
 
     obsOne->setX(0);
     obsOne->setY(0);
@@ -190,6 +193,15 @@ void Universe::createSecondWorld() {
     world2->setRightWId(2);
     world2->setUpWId(3);
     world2->setName(":/images/images/World2.png");
+
+    WorldNPC* goodGuy = new WorldNPC();
+
+    goodGuy->setX(100);
+    goodGuy->setY(150);
+    goodGuy->setName("npc6");
+    goodGuy->setAdvice("Praise the Sun!!!");
+    goodGuy->setTitle("Homeless Lake Man");
+    world2->addCharacter(goodGuy);
 
     WorldItem* itemOne = new WorldItem();
     itemOne->setProperty("health");
@@ -695,9 +707,40 @@ void Universe::createFourthWorld() {
 
     WorldItem* itemOne = new WorldItem();
     itemOne->setProperty("health");
-    itemOne->setCoordinates(1020, 230);
+    itemOne->setCoordinates(1090, 230);
 
     world4->addItem(itemOne);
+
+    WorldNPC* goodGuy = new WorldNPC();
+
+    goodGuy->setX(688);
+    goodGuy->setY(67);
+    goodGuy->setName("npc2");
+    goodGuy->setAdvice("There is something evil lurking in the mountain, but the entrance is protected by \nsome kind of invisible door.  I heard this old man say something about \n three keys he had lost.  Maybe you can unlock the door with those?");
+    goodGuy->setTitle("Wanderer");
+    world4->addCharacter(goodGuy);
+
+    WorldEnemy* badGuyOne = new WorldEnemy();
+    WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldEnemy* badGuyThree = new WorldEnemy();
+    WorldEnemy* badGuyFour = new WorldEnemy();
+
+    badGuyOne->setX(946);
+    badGuyOne->setY(449);
+
+    badGuyTwo->setX(444);
+    badGuyTwo->setY(631);
+
+    badGuyThree->setX(200);
+    badGuyThree->setY(410);
+
+    badGuyFour->setX(900);
+    badGuyFour->setY(625);
+
+    world4->addCharacter(badGuyOne);
+    world4->addCharacter(badGuyTwo);
+    world4->addCharacter(badGuyThree);
+    world4->addCharacter(badGuyFour);
 
     WorldObstacle* obs1 = new WorldObstacle();
     WorldObstacle* obs2 = new WorldObstacle();
@@ -785,8 +828,7 @@ void Universe::createFifthWorld() {
     WorldObstacle* obs24 = new WorldObstacle();
     WorldObstacle* obs25 = new WorldObstacle();
     WorldObstacle* obs26 = new WorldObstacle();
-    WorldObstacle* bridge1 = new WorldObstacle();
-    WorldObstacle* bridge2 = new WorldObstacle();
+
 
     obs1->setX(243);
     obs1->setY(0);
@@ -918,15 +960,6 @@ void Universe::createFifthWorld() {
     obs26->setWidth(200);
     obs26->setHeight(101);
 
-    bridge1->setX(246);
-    bridge1->setY(563);
-    bridge1->setWidth(48);
-    bridge1->setHeight(93);
-
-    bridge2->setX(1045);
-    bridge2->setY(444);
-    bridge2->setWidth(47);
-    bridge2->setHeight(98);
 
     world5->addObstacle(obs1);
     world5->addObstacle(obs2);
@@ -954,8 +987,7 @@ void Universe::createFifthWorld() {
     world5->addObstacle(obs24);
     world5->addObstacle(obs25);
     world5->addObstacle(obs26);
-    world5->addObstacle(bridge1);
-    world5->addObstacle(bridge2);
+
 
     instance().addWorld(world5);
 
@@ -971,6 +1003,12 @@ void Universe::createSixthWorld() {
     world6->setRightWId(1);
     world6->setUpWId(5);
     world6->setName(":/images/images/World6.png");
+
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("key2");
+    itemOne->setCoordinates(1090, 580);
+
+    world6->addItem(itemOne);
 
     WorldEnemy* badGuyOne = new WorldEnemy();
     WorldEnemy* badGuyTwo = new WorldEnemy();
@@ -1158,6 +1196,53 @@ void Universe::createEighthWorld() {
 
 }
 
+void Universe::createNinthWorld()
+{
+    World* world9 = new World();
+
+    world9->setId(9);
+    world9->setDownWId(9);
+    world9->setLeftWId(9);
+    world9->setRightWId(4);
+    world9->setUpWId(11);
+    world9->setName(":/images/images/World9.png");
+
+    WorldEnemy* badGuyOne = new WorldEnemy();
+    WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldEnemy* badGuyThree = new WorldEnemy();
+    WorldEnemy* badGuyFour = new WorldEnemy();
+    WorldEnemy* badGuyFive = new WorldEnemy();
+    WorldEnemy* badGuySix = new WorldEnemy();
+
+    badGuyOne->setX(1034);
+    badGuyOne->setY(416);
+
+    badGuyTwo->setX(1139);
+    badGuyTwo->setY(126);
+
+    badGuyThree->setX(708);
+    badGuyThree->setY(269);
+
+    badGuyFour->setX(328);
+    badGuyFour->setY(275);
+
+    badGuyFive->setX(640);
+    badGuyFive->setY(94);
+
+    badGuySix->setX(256);
+    badGuySix->setY(131);
+
+    world9->addCharacter(badGuyOne);
+    world9->addCharacter(badGuyTwo);
+    world9->addCharacter(badGuyThree);
+    world9->addCharacter(badGuyFour);
+    world9->addCharacter(badGuyFive);
+    world9->addCharacter(badGuySix);
+
+    instance().addWorld(world9);
+
+}
+
 void Universe::createTenthWorld()
 {
     World* world10 = new World();
@@ -1178,6 +1263,229 @@ void Universe::createTenthWorld()
     world10->addCharacter(badGuyOne);
 
     instance().addWorld(world10);
+}
+
+void Universe::createEleventhWorld()
+{
+    World* world11 = new World();
+
+    world11->setId(11);
+    world11->setDownWId(9);
+    world11->setLeftWId(11);
+    world11->setRightWId(11);
+    world11->setUpWId(12);
+    world11->setName(":/images/images/World11.png");
+
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("health");
+    itemOne->setCoordinates(1101, 140);
+
+    world11->addItem(itemOne);
+
+    WorldNPC* goodGuy = new WorldNPC();
+
+    goodGuy->setX(324);
+    goodGuy->setY(209);
+    goodGuy->setName("npc3");
+    goodGuy->setAdvice("I used to be a badger farmer, but they kept dying from the \nbone marrow I was feeding them. My fish farm is doing much better!");
+    goodGuy->setTitle("Max");
+    world11->addCharacter(goodGuy);
+
+    WorldEnemy* badGuyOne = new WorldEnemy();
+    WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldEnemy* badGuyThree = new WorldEnemy();
+    WorldEnemy* badGuyFour = new WorldEnemy();
+    WorldEnemy* badGuyFive = new WorldEnemy();
+
+    badGuyOne->setX(1140);
+    badGuyOne->setY(567);
+
+    badGuyTwo->setX(890);
+    badGuyTwo->setY(520);
+
+    badGuyThree->setX(315);
+    badGuyThree->setY(642);
+
+    badGuyFour->setX(628);
+    badGuyFour->setY(568);
+
+    badGuyFive->setX(742);
+    badGuyFive->setY(206);
+
+
+    world11->addCharacter(badGuyOne);
+    world11->addCharacter(badGuyTwo);
+    world11->addCharacter(badGuyThree);
+    world11->addCharacter(badGuyFour);
+    world11->addCharacter(badGuyFive);
+
+
+    instance().addWorld(world11);
+}
+
+void Universe::createTwelthWorld()
+{
+    World* world12 = new World();
+
+    world12->setId(12);
+    world12->setDownWId(11);
+    world12->setLeftWId(12);
+    world12->setRightWId(13);
+    world12->setUpWId(12);
+    world12->setName(":/images/images/World12.png");
+
+    WorldNPC* goodGuy1 = new WorldNPC();
+
+    goodGuy1->setX(332);
+    goodGuy1->setY(174);
+    goodGuy1->setName("npc4");
+    goodGuy1->setAdvice("I'm sorry, but only the dankest can enter this castle.");
+    goodGuy1->setTitle("Sir Dank");
+    world12->addCharacter(goodGuy1);
+
+    WorldNPC* goodGuy2 = new WorldNPC();
+
+    goodGuy2->setX(413);
+    goodGuy2->setY(174);
+    goodGuy2->setName("npc5");
+    goodGuy2->setAdvice("I used to be an adventurer like you, but then the castle offered me this post. \nIt's a stable wage, safer, and I have more time to spend with my family.");
+    goodGuy2->setTitle("Sir Meme");
+    world12->addCharacter(goodGuy2);
+
+    WorldEnemy* badGuyOne = new WorldEnemy();
+    WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldEnemy* badGuyThree = new WorldEnemy();
+    WorldEnemy* badGuyFour = new WorldEnemy();
+    WorldEnemy* badGuyFive = new WorldEnemy();
+    WorldEnemy* badGuySix = new WorldEnemy();
+
+    badGuyOne->setX(1055);
+    badGuyOne->setY(596);
+
+    badGuyTwo->setX(461);
+    badGuyTwo->setY(577);
+
+    badGuyThree->setX(687);
+    badGuyThree->setY(393);
+
+    badGuyFour->setX(950);
+    badGuyFour->setY(283);
+
+    badGuyFive->setX(834);
+    badGuyFive->setY(414);
+
+    badGuySix->setX(1116);
+    badGuySix->setY(270);
+
+    world12->addCharacter(badGuyOne);
+    world12->addCharacter(badGuyTwo);
+    world12->addCharacter(badGuyThree);
+    world12->addCharacter(badGuyFour);
+    world12->addCharacter(badGuyFive);
+    world12->addCharacter(badGuySix);
+
+    instance().addWorld(world12);
+}
+
+void Universe::createThirteenthWorld()
+{
+    World* world13 = new World();
+
+    world13->setId(13);
+    world13->setDownWId(13);
+    world13->setLeftWId(12);
+    world13->setRightWId(14);
+    world13->setUpWId(13);
+    world13->setName(":/images/images/World13.png");
+
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("health");
+    itemOne->setCoordinates(159, 568);
+
+    world13->addItem(itemOne);
+
+
+
+    WorldEnemy* badGuyOne = new WorldEnemy();
+    WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldEnemy* badGuyThree = new WorldEnemy();
+
+
+    badGuyOne->setX(612);
+    badGuyOne->setY(132);
+
+    badGuyTwo->setX(580);
+    badGuyTwo->setY(495);
+
+    badGuyThree->setX(1151);
+    badGuyThree->setY(452);
+
+
+
+    world13->addCharacter(badGuyOne);
+    world13->addCharacter(badGuyTwo);
+    world13->addCharacter(badGuyThree);
+
+
+    instance().addWorld(world13);
+}
+
+void Universe::createFourteenthWorld()
+{
+    World* world14 = new World();
+
+    world14->setId(14);
+    world14->setDownWId(14);
+    world14->setLeftWId(13);
+    world14->setRightWId(14);
+    world14->setUpWId(14);
+    world14->setName(":/images/images/World14.png");
+
+    WorldItem* itemOne = new WorldItem();
+    itemOne->setProperty("heart");
+    itemOne->setCoordinates(1011, 197);
+
+    world14->addItem(itemOne);
+
+    WorldItem* itemTwo = new WorldItem();
+    itemTwo->setProperty("key3");
+    itemTwo->setCoordinates(1085, 552);
+
+    world14->addItem(itemTwo);
+
+    WorldEnemy* badGuyOne = new WorldEnemy();
+    WorldEnemy* badGuyTwo = new WorldEnemy();
+    WorldEnemy* badGuyThree = new WorldEnemy();
+    WorldEnemy* badGuyFour = new WorldEnemy();
+    WorldEnemy* badGuyFive = new WorldEnemy();
+    WorldEnemy* badGuySix = new WorldEnemy();
+
+    badGuyOne->setX(200);
+    badGuyOne->setY(566);
+
+    badGuyTwo->setX(418);
+    badGuyTwo->setY(540);
+
+    badGuyThree->setX(617);
+    badGuyThree->setY(631);
+
+    badGuyFour->setX(642);
+    badGuyFour->setY(509);
+
+    badGuyFive->setX(793);
+    badGuyFive->setY(600);
+
+    badGuySix->setX(954);
+    badGuySix->setY(578);
+
+    world14->addCharacter(badGuyOne);
+    world14->addCharacter(badGuyTwo);
+    world14->addCharacter(badGuyThree);
+    world14->addCharacter(badGuyFour);
+    world14->addCharacter(badGuyFive);
+    world14->addCharacter(badGuySix);
+
+    instance().addWorld(world14);
 }
 
 void Universe::Save()
