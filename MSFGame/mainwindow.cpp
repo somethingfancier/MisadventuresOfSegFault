@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     mw = this->window();
+    mw->setWindowTitle("Misadventures of SegFault");
 }
 
 MainWindow::~MainWindow()
@@ -48,8 +49,9 @@ void MainWindow::on_pbControls_clicked()
 void MainWindow::on_pbHighscore_clicked()
 {
     QMessageBox msg(mw);
-    //string mystr = "HighScores:" + Universe::instance().getPlayer()->getScore()->Load();
-    msg.setText("HighScores");
+    msg.setWindowTitle("HIGHSCORE");
+    int highScore = Universe::instance().getPlayer()->getScore()->HighscoreLoad();
+    msg.setText("Highscore: " + QString::number(highScore));
     msg.exec();
 }
 

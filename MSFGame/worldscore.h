@@ -16,6 +16,8 @@ public:
 
     void Save();
     void Load();
+    void HighscoreSave();
+    int HighscoreLoad();
 };
 
 
