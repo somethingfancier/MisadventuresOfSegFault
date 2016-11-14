@@ -673,6 +673,6 @@ void Player::updateDisplay()
     }
     if(player->getNoLives())
     {
-        cout << score->getScore();
+        //open a dead window here
     }
 }
