@@ -85,7 +85,7 @@ void Player::keyPressEvent(QKeyEvent *event) {
 
             }else if (msg.clickedButton() == btHelp){
                 QMessageBox ms;
-                ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Pause - esc key");
+                ms.setText("Controls: \n\n*Move - arrow keys \n*Attack - spacebar \n*Fireball - alt key (If you have collected the spell book) \n\nIf the player won't move, click on him with your mouse.");
                 ms.exec();
             } else if (msg.clickedButton() == btExit){
                 QApplication::quit();
