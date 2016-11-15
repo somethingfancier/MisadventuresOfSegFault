@@ -2368,7 +2368,7 @@ void Universe::Save()
     outputFile.open("segfaultSave.txt", ofstream::out | ofstream::trunc);
 
     outputFile << player->getData();
-    cout << player->getData();
+    //cout << player->getData();
     for (int index = 1; index <= Universe::instance().getWorlds().size(); index++) {
         //cout << "world" << Udniverse::instance().getWorld(index)->getId() << "\n";
         //outputFile << "world" << Universe::instance().getWorld(index)->getId() << "\n";
@@ -2376,7 +2376,7 @@ void Universe::Save()
         if(Universe::instance().getWorld(index) != NULL && Universe::instance().getWorld(index)->charsEnabled()){
             for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getCharacters().size(); i++) {
                     WorldCharacter* enemy1 = Universe::instance().getWorld(index)->getCharacters().at(i);
-                    cout << enemy1->getData();
+                    //cout << enemy1->getData();
                     outputFile << enemy1->getData();
                 }
             }
@@ -2384,7 +2384,7 @@ void Universe::Save()
         if(Universe::instance().getWorld(index) != NULL && Universe::instance().getWorld(index)->itemsEnabled()){
             for (unsigned int i = 0; i < Universe::instance().getWorld(index)->getItems().size(); i++) {
                 WorldItem* item1 = Universe::instance().getWorld(index)->getItems().at(i);
-                cout << item1->getData();
+                //cout << item1->getData();
                 outputFile << item1->getData();
             }
         }
@@ -2427,11 +2427,12 @@ void Universe::Load()
                 }
             }
 
-            for (int n = 0; n < i; n++)
+            //Used to test parsing the input file
+            /*for (int n = 0; n < i; n++)
             {
                 cout << "Token[" << n << "] = " << token[n];
                 cout << endl;
-            }
+            }*/
 
             stringstream playerx;
             playerx << token[0];
